@@ -12,8 +12,8 @@ an easy way for her to learn and practice cognitive empathy at home.
 
 ## Use Cases ##
 
-Parent can View Profile, Make Game Playlist  
-Child can Play Game  
+Parent can *View Profile*, *Make Game Playlist*  
+Child can *Play Game*
 
 Title: View Profile  
 User: Parent  
@@ -35,4 +35,4 @@ face. Child earns points for completing the task correctly.
 
 ## Domain modeling ##
 
-<img src="./images/usecase.png" alt="Domain Model" style="height: 300px;"/>
+<img src="./images/domainmodel.jpg" alt="Domain Model" style="height: 300px;"/>
