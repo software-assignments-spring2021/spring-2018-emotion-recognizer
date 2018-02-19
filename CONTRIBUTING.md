@@ -1,7 +1,7 @@
 # Contributing
 
 ## Work Flow Type
-**Trunk Based Workflow**
+**Feature Branch Workflow**
 
 ## Team Information
 
