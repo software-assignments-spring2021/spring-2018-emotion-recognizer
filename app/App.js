@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 const Component = React.Component;
 
 import { constants } from 'expo';
-import { Button } from 'react-native-elements';
+
+
+//design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {  FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
 
 import * as firebase from 'firebase';
@@ -34,20 +37,38 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Button
-        raised
-        title={"Hello World"}
-        color={"#364652"}
-        buttonStyle={{
-            backgroundColor: "#30e849",
-            width: 300,
-            height: 45,
-            borderColor: "transparent",
-            borderWidth: 0,
-            borderRadius: 5
-          }}
-      />
-                
+        
+        <FormInput
+            placeholder='BASIC INPUT'
+            icon={
+                <Icon
+                  name='user'
+                  size={24}
+                  color='black'
+                />
+              }
+            shake={true}
+            inputStyle={{
+                padding: 15,
+                margin: 20,
+                borderWidth: 2,
+                borderColor: "#000000",
+            }}
+        />
+              
+        <Button
+            raised
+            title={"Sign up"}
+            color={"#364652"}
+            buttonStyle={{
+                backgroundColor: "#30e849",
+                width: 300,
+                height: 45,
+                borderColor: "transparent",
+                borderWidth: 0,
+                borderRadius: 5
+            }}
+        />      
       </View>
 
     )
@@ -60,12 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  text: {
-    backgroundColor: '#3989e1',
-    color: '#e4e4e4', 
-    fontSize: 24,
-    padding: 10,
   },
 })
 
