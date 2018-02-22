@@ -1,6 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+const Component = React.Component;
+
+import { constants } from 'expo';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 import * as firebase from 'firebase';
 // Initialize Firebase
@@ -24,23 +30,42 @@ A Firebase App can use multiple Firebase services. Each service can be accessed 
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <Button
+        raised
+        title={"Hello World"}
+        color={"#364652"}
+        buttonStyle={{
+            backgroundColor: "#30e849",
+            width: 300,
+            height: 45,
+            borderColor: "transparent",
+            borderWidth: 0,
+            borderRadius: 5
+          }}
+      />
+                
       </View>
-    );
+
+    )
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-});
+  text: {
+    backgroundColor: '#3989e1',
+    color: '#e4e4e4', 
+    fontSize: 24,
+    padding: 10,
+  },
+})
+
