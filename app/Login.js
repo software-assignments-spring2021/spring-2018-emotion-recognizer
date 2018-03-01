@@ -3,23 +3,9 @@ import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'reac
 
 const Component = React.Component;
 
-//routing imports
-import { NativeRouter } from 'react-router-native';
-
-
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
-
-
-import * as firebase from 'firebase';
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyB2EvVasHywMAgEO30nOUBerazLu61yMc8 ",
-  authDomain: "moodio-f230e.firebaseapp.com",
-  databaseURL: "https://moodio-f230e.firebaseio.com/",
-  storageBucket: "moodio-f230e.appspot.com"
-};
 
 const remote = 'https://images.unsplash.com/photo-1490094139523-6c26ddc4e518?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f5e048023772b7e6f129c11e8159ff6&auto=format&fit=crop&w=2550&q=80';
 const lightText = "#e4e4e4";
@@ -28,18 +14,6 @@ const mainColor = "#3989E1";
 const secondaryGreen = "#30E849";
 const secondaryRed = "#E83A30";
 
-/*
-A Firebase App can use multiple Firebase services. Each service can be accessed from the firebase namespace:
-
-    firebase.auth() - Authentication (https://firebase.google.com/docs/auth/?authuser=0)
-    firebase.storage() - Cloud Storage (https://firebase.google.com/docs/storage/?authuser=0)
-    firebase.database() - Realtime Database (https://firebase.google.com/docs/database/?authuser=0)
-    firebase.firestore() - Cloud Firestore (https://firebase.google.com/docs/firestore/?authuser=0)
-
-*/
-
-
-const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class Login extends Component {
 
@@ -132,6 +106,7 @@ class Login extends Component {
                 borderWidth: 0,
                 borderRadius: 5
             }}
+            onPress={() => this.props.navigation.navigate('Signup')}
         />
 
 

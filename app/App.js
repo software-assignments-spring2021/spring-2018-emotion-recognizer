@@ -1,21 +1,60 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
 
 const Component = React.Component;
 
-import { constants } from 'expo';
+//routing boilerplate
+import { StackNavigator } from 'react-navigation';
 
-import { Login } from './Login';
+import * as firebase from 'firebase';
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyB2EvVasHywMAgEO30nOUBerazLu61yMc8 ",
+  authDomain: "moodio-f230e.firebaseapp.com",
+  databaseURL: "https://moodio-f230e.firebaseio.com/",
+  storageBucket: "moodio-f230e.appspot.com"
+};
 
-//routing imports
-import { NativeRouter } from 'react-router-native';
+/*
+A Firebase App can use multiple Firebase services. Each service can be accessed from the firebase namespace:
 
+    firebase.auth() - Authentication (https://firebase.google.com/docs/auth/?authuser=0)
+    firebase.storage() - Cloud Storage (https://firebase.google.com/docs/storage/?authuser=0)
+    firebase.database() - Realtime Database (https://firebase.google.com/docs/database/?authuser=0)
+    firebase.firestore() - Cloud Firestore (https://firebase.google.com/docs/firestore/?authuser=0)
+
+*/
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+//view imports
+import { Login as LoginScreen } from './Login';
+import { Signup as SignupScreen } from './Signup';
+
+const RootStack = StackNavigator(
+  {
+    Login: {
+      screen: LoginScreen,
+    },
+    Signup: {
+      screen: SignupScreen,
+    },
+  },
+  {
+    initialRouteName: 'Login',
+  }
+);
 
 export default class App extends Component {
 
   render() {
     return (
-      < Login/>
-    )
+      /*<Text style={{marginTop: 30}}>
+        This is not a drill!
+      </Text>*/
+
+      <RootStack />
+    );
   }
 }
+
+export { firebaseApp };
