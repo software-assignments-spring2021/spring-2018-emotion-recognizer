@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
+const Component = React.Component;
+
+//routing boilerplate
+import { StackNavigator } from 'react-navigation';
 
 import * as firebase from 'firebase';
 // Initialize Firebase
@@ -21,26 +24,37 @@ A Firebase App can use multiple Firebase services. Each service can be accessed 
 
 */
 
-
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export default class App extends React.Component {
+//view imports
+import { Login as LoginScreen } from './Login';
+import { Signup as SignupScreen } from './Signup';
+
+const RootStack = StackNavigator(
+  {
+    Login: {
+      screen: LoginScreen,
+    },
+    Signup: {
+      screen: SignupScreen,
+    },
+  },
+  {
+    initialRouteName: 'Login',
+  }
+);
+
+export default class App extends Component {
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      /*<Text style={{marginTop: 30}}>
+        This is not a drill!
+      </Text>*/
+
+      <RootStack />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export { firebaseApp };
