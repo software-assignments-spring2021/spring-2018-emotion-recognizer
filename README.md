@@ -16,6 +16,6 @@ Empathy can be broadly categorized into two components: cognitive (recognizing a
 In building an artificially intelligent emotion recognition platform that will act as a tutorial for kids with autism spectrum disorder we intend to teach cognitive empathy by running the user through multiple basic expressions (and their meaning) and testing them by making them recreate the expressions which will be detected/judged by the AI.
 
 ### Who is this for?
-The tutorial would initially be for parents of kids with ASC and medical/educational institutions and would be aimed at improving the cognitive empathy of kids with ASC. Based on feedback from parents of kids with ASC, and even medical institutions, the system could be pivoted to a bigger software project that tests for ASC by scoring cognitive ability, and decide if the tutorial will be helpful for the test-taker.
+The tutorial would initially be for parents of kids with ASC and medical/educational institutions and would be aimed at improving the cognitive empathy of kids with ASC. Based on feedback from parents of kids with ASC, and even medical institutions, the system could be pivoted to a bigger software project that tests for ASC by scoring cognitive ability, and decide if the tutorial will be helpful for the test-taker. Our app could also be used more widely for small children who are trying to learn to recognize emotions.
 
 
