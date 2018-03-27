@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
+import {initFirebase} from './InitFirebase';
+const firebaseApp = new initFirebase();
 
 const Component = React.Component;
 
@@ -17,13 +19,19 @@ const secondaryRed = "#E83A30";
 
 class Login extends Component {
 
+  authenticate() {
+    firebaseApp.auth().signInWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
+      throw error;
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
 
 
-        <Image
-       style={{
+      <Image
+        style={{
          backgroundColor: '#ccc',
          flex: 1,
          position: 'absolute',
@@ -35,7 +43,8 @@ class Login extends Component {
      >
      </Image>
 
-     <Text style={{
+     <Text
+        style={{
             color: lightText,
             fontSize: 48,
             fontWeight: "bold",
@@ -43,77 +52,79 @@ class Login extends Component {
             marginBottom: 40,
           }}> SMILE!
 
-        </Text>
+      </Text>
 
-        <FormInput
-            placeholder='Username'
-            shake={true}
-            inputStyle={{
-                padding: 10,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius:3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: darkText,
-            }}
-        />
+      <TextInput
+          placeholder='Email'
+          shake={true}
+          placeholderTextColor={darkText}
+          style= {{
+              width: '50%',
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#999",
+              borderRadius:3,
+              backgroundColor: "rgba(204,204,204, .8)",
+              color: darkText,
+          }}
+          onChangeText={(username) => this.setState({username})}
+      />
 
-                <FormInput
-            placeholder='Password'
-            shake={true}
-            inputStyle={{
-                padding: 10,
-                margin: 40,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius: 3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: darkText,
-            }}
-        />
+      <TextInput
+        placeholder='Password'
+        placeholderTextColor={darkText}
+        shake={true}
+        style={{
+          width: '50%',
+          padding: 10,
+          margin: 40,
+          borderWidth: 1,
+          borderColor: "#999",
+          borderRadius: 3,
+          backgroundColor: "rgba(204,204,204, .8)",
+          color: darkText,
+        }}
+        onChangeText={(password) => this.setState({password})}
+      />
 
-        <Button
-            title={"Sign in"}
-            color={"#364652"}
-            buttonStyle={{
-                backgroundColor: "rgba(255,255,255, .6)",
-                width: 300,
-                height: 45,
-                borderColor: "transparent",
-                borderWidth: 1,
-                borderRadius: 5
-            }}
-        />
+      <Button
+        title={"Sign in"}
+        color={"#364652"}
+        buttonStyle={{
+            backgroundColor: "rgba(255,255,255, .6)",
+            width: 300,
+            height: 45,
+            borderColor: "transparent",
+            borderWidth: 1,
+            borderRadius: 5
+        }}
+        onPress={() => this.authenticate()}
+      />
 
+      <Text style={{
+          color: lightText,
+          margin: 15
+        }}> or
 
-        <Text style={{
-            color: lightText,
-            margin: 15
-          }}> or
+      </Text>
 
-        </Text>
-
-
-
-                <Button
-            title={"Sign up"}
-            color={"#364652"}
-            buttonStyle={{
-                backgroundColor: "rgba(255,255,255, .6)",
-                width: 300,
-                height: 45,
-                borderColor: "transparent",
-                borderWidth: 0,
-                borderRadius: 5
-            }}
-            onPress={() => this.props.navigation.navigate('Signup')}
-        />
-
-
+      <Button
+        title={"Sign up"}
+        color={"#364652"}
+        buttonStyle={{
+            backgroundColor: "rgba(255,255,255, .6)",
+            width: 300,
+            height: 45,
+            borderColor: "transparent",
+            borderWidth: 0,
+            borderRadius: 5
+        }}
+        onPress={() => this.props.navigation.navigate('Signup')}
+      />
 
       </View>
 
-    )
+    );
   }
 }
 //TODO: firebase google authentication
@@ -124,6 +135,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-})
+});
 
 export { Login };
