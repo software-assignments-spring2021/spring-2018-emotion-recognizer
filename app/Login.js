@@ -119,7 +119,7 @@ class Login extends Component {
             borderWidth: 0,
             borderRadius: 5
         }}
-        onPress={() => this.props.navigation.navigate('Desktop')}
+        onPress={() => this.props.navigation.navigate('SignupScreen')}
       />
 
       </View>
