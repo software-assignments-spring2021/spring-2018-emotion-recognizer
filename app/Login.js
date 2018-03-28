@@ -92,7 +92,7 @@ class Login extends Component {
         color={"#364652"}
         buttonStyle={{
             backgroundColor: "rgba(255,255,255, .6)",
-            width: 300,
+            width: 250,
             height: 45,
             borderColor: "transparent",
             borderWidth: 1,
@@ -113,13 +113,13 @@ class Login extends Component {
         color={"#364652"}
         buttonStyle={{
             backgroundColor: "rgba(255,255,255, .6)",
-            width: 300,
+            width: 250,
             height: 45,
             borderColor: "transparent",
             borderWidth: 0,
             borderRadius: 5
         }}
-        onPress={() => this.props.navigation.navigate('Signup')}
+        onPress={() => this.props.navigation.navigate('Desktop')}
       />
 
       </View>
