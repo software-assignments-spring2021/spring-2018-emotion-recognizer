@@ -24,19 +24,21 @@ A Firebase App can use multiple Firebase services. Each service can be accessed 
 
 */
 
+//test for jenkins
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 //view imports
 import { Login as LoginScreen } from './Login';
-import { Signup as SignupScreen } from './Signup';
+import { Card as CardScreen } from './Card';
 
 const RootStack = StackNavigator(
   {
     Login: {
       screen: LoginScreen,
     },
-    Signup: {
-      screen: SignupScreen,
+    Card: {
+      screen: CardScreen,
     },
   },
   {
