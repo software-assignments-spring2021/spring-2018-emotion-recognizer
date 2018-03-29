@@ -5,7 +5,7 @@
 2. Suyasha Shrestha
 3. Nathan Baum
 4. David Moed
-5. Olivia Giddens
+5.. Olivia Giddens
 
 ### Mission Statement
 Children with Autism Spectrum Conditions (ASC) are currently being underserved by expensive therapy sessions and medical attention that ends at the home's front door. Smile is a mobile application that teaches kids with ASC how to recognize emotions, and lets them practice those emotions using their own face. We use real-time facial recognition to gamify the learning experience, bringing it out of the therapist's office, and into the home, the supermarket, or any where else that real emotional interactions take place.
