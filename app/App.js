@@ -30,21 +30,21 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 //view imports
 import { Login as LoginScreen } from './Login';
-import { Card as CardScreen } from './Card';
+import { SwipeCards } from './SwipeCards';
 
-const RootStack = StackNavigator(
-  {
-    Login: {
-      screen: LoginScreen,
-    },
-    Card: {
-      screen: CardScreen,
-    },
-  },
-  {
-    initialRouteName: 'Login',
-  }
-);
+// const RootStack = StackNavigator(
+//   {
+//     Login: {
+//       screen: LoginScreen,
+//     },
+//     Card: {
+//       screen: CardScreen,
+//     },
+//   },
+//   {
+//     initialRouteName: 'Login',
+//   }
+// );
 
 export default class App extends Component {
 
@@ -53,8 +53,8 @@ export default class App extends Component {
       /*<Text style={{marginTop: 30}}>
         This is not a drill!
       </Text>*/
-
-      <RootStack />
+      <SwipeCards style={{flex: 1}} />
+      //<RootStack />
     );
   }
 }

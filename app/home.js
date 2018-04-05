@@ -106,7 +106,7 @@ class Login extends Component {
                 borderWidth: 0,
                 borderRadius: 5
             }}
-            onPress={() => this.props.navigation.navigate('Card')}
+            onPress={() => this.props.navigation.navigate('Signup')}
         />
 
 

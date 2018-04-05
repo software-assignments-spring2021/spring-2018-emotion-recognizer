@@ -2,37 +2,9 @@
 'use strict';
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
-import SwipeCards from './SwipeCards';
+import SwipeCards from 'react-native-swipe-cards';
 
-//Component = React.Component;
-
-// design imports
-// import Icon from 'react-native-vector-icons/FontAwesome';
-// import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
-// const remote = 'https://images.unsplash.com/photo-1502210600188-51a3adffa4aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59d5264e02cb977d8e7a0acbb1e52ded&auto=format&fit=crop&w=634&q=80';
-// const lightText = "#e4e4e4";
-// const darkText = "#364652";
-// const mainColor = "#3989E1";
-// const secondaryGreen = "#30E849";
-// const secondaryRed = "#E83A30";
-
-class Card extends React.Component {
-  constructor(props) {
-    super(props);
-  }
- 
-  render() {
-    return (
-      <View style={styles.card}>
-      <SwipeCards style={{flex: 1}} />
-        <Image style={styles.thumbnail} source={{uri: this.props.image}} />
-        <Text style={styles.text}>This is card {this.props.name}</Text>
-      </View>
-    )
-  }
-}
-
-class NoMoreCards extends React.Component {
+export class NoMoreCards extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -45,8 +17,9 @@ class NoMoreCards extends React.Component {
     )
   }
 }
-
+ 
 const cards = [
+  //see if images are ok to use
   {name: '1', image: 'https://unsplash.com/photos/4K2lIP0zc_k'},
   {name: '2', image: 'https://unsplash.com/photos/FaiZNiofP-U'},
   {name: '3', image: 'https://unsplash.com/photos/u3WmDyKGsrY'},
@@ -65,9 +38,7 @@ const cards2 = [
   {name: '13', image: 'https://unsplash.com/photos/MlT0BQk4Qdk'},
 ]
  
-
-
-export default class Swiper extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,12 +47,12 @@ export default class Swiper extends React.Component {
     }
   }
  
-  handleHappy (card) {
-    console.log("yup")
+  handleYup (card) {
+    console.log("happy")
   }
  
-  handleSad (card) {
-    console.log("nope")
+  handleNope (card) {
+    console.log("sad")
   }
  
   cardRemoved (index) {
@@ -107,7 +78,7 @@ export default class Swiper extends React.Component {
  
   render() {
     return (
-      <SwipeCards
+      <Card
         cards={this.state.cards}
         loop={false}
  
@@ -123,14 +94,14 @@ export default class Swiper extends React.Component {
     )
   }
 }
-
- const styles = StyleSheet.create({
+ 
+const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     borderRadius: 5,
     overflow: 'hidden',
     borderColor: 'grey',
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     borderWidth: 1,
     elevation: 1,
   },
@@ -150,7 +121,4 @@ export default class Swiper extends React.Component {
   }
 })
 
-
-
-
-
+export { Card };

@@ -1,21 +1,10 @@
-
 'use strict';
+ 
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
-import SwipeCards from './SwipeCards';
-
-//Component = React.Component;
-
-// design imports
-// import Icon from 'react-native-vector-icons/FontAwesome';
-// import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
-// const remote = 'https://images.unsplash.com/photo-1502210600188-51a3adffa4aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59d5264e02cb977d8e7a0acbb1e52ded&auto=format&fit=crop&w=634&q=80';
-// const lightText = "#e4e4e4";
-// const darkText = "#364652";
-// const mainColor = "#3989E1";
-// const secondaryGreen = "#30E849";
-// const secondaryRed = "#E83A30";
-
+import {StyleSheet, Text, View, Image} from 'react-native';
+ 
+import SwipeCards from 'react-native-swipe-cards';
+ 
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -24,14 +13,13 @@ class Card extends React.Component {
   render() {
     return (
       <View style={styles.card}>
-      <SwipeCards style={{flex: 1}} />
         <Image style={styles.thumbnail} source={{uri: this.props.image}} />
         <Text style={styles.text}>This is card {this.props.name}</Text>
       </View>
     )
   }
 }
-
+ 
 class NoMoreCards extends React.Component {
   constructor(props) {
     super(props);
@@ -45,29 +33,28 @@ class NoMoreCards extends React.Component {
     )
   }
 }
-
+ 
 const cards = [
-  {name: '1', image: 'https://unsplash.com/photos/4K2lIP0zc_k'},
-  {name: '2', image: 'https://unsplash.com/photos/FaiZNiofP-U'},
-  {name: '3', image: 'https://unsplash.com/photos/u3WmDyKGsrY'},
-  {name: '4', image: 'https://unsplash.com/photos/VBoa34qcW4w'},
-  {name: '5', image: 'https://unsplash.com/photos/lVCHfXn3VME'},
-  {name: '6', image: 'https://unsplash.com/photos/HRZUzoX1e6w'},
-  {name: '7', image: 'https://unsplash.com/photos/-DqEUX1QSVc'},
-  {name: '8', image: 'https://unsplash.com/photos/v-NBXj3Yv5o'},
-  {name: '9', image: 'https://unsplash.com/photos/UMe87yYt2JU'},
+  //see if images are ok to use
+  {name: '1', image: 'https://media.giphy.com/media/GfXFVHUzjlbOg/giphy.gif'},
+  {name: '2', image: 'https://media.giphy.com/media/irTuv1L1T34TC/giphy.gif'},
+  {name: '3', image: 'https://media.giphy.com/media/LkLL0HJerdXMI/giphy.gif'},
+  {name: '4', image: 'https://media.giphy.com/media/fFBmUMzFL5zRS/giphy.gif'},
+  {name: '5', image: 'https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif'},
+  {name: '6', image: 'https://media.giphy.com/media/7r4g8V2UkBUcw/giphy.gif'},
+  {name: '7', image: 'https://media.giphy.com/media/K6Q7ZCdLy8pCE/giphy.gif'},
+  {name: '8', image: 'https://media.giphy.com/media/hEwST9KM0UGti/giphy.gif'},
+  {name: '9', image: 'https://media.giphy.com/media/3oEduJbDtIuA2VrtS0/giphy.gif'},
 ]
  
 const cards2 = [
-  {name: '10', image: 'https://unsplash.com/photos/NPmR0RblyhQ'},
-  {name: '11', image: 'https://unsplash.com/photos/7KHCNCddn2U'},
-  {name: '12', image: 'https://unsplash.com/photos/W82dYwtQrTk'},
-  {name: '13', image: 'https://unsplash.com/photos/MlT0BQk4Qdk'},
+  {name: '10', image: 'https://media.giphy.com/media/12b3E4U9aSndxC/giphy.gif'},
+  {name: '11', image: 'https://media4.giphy.com/media/6csVEPEmHWhWg/200.gif'},
+  {name: '12', image: 'https://media4.giphy.com/media/AA69fOAMCPa4o/200.gif'},
+  {name: '13', image: 'https://media.giphy.com/media/OVHFny0I7njuU/giphy.gif'},
 ]
  
-
-
-export default class Swiper extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,12 +63,12 @@ export default class Swiper extends React.Component {
     }
   }
  
-  handleHappy (card) {
-    console.log("yup")
+  handleYup (card) {
+    console.log("happy")
   }
  
-  handleSad (card) {
-    console.log("nope")
+  handleNope (card) {
+    console.log("sad")
   }
  
   cardRemoved (index) {
@@ -123,14 +110,14 @@ export default class Swiper extends React.Component {
     )
   }
 }
-
- const styles = StyleSheet.create({
+ 
+const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     borderRadius: 5,
     overflow: 'hidden',
     borderColor: 'grey',
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     borderWidth: 1,
     elevation: 1,
   },
@@ -149,8 +136,3 @@ export default class Swiper extends React.Component {
     alignItems: 'center',
   }
 })
-
-
-
-
-
