@@ -85,3 +85,8 @@ npm start
 i
 ```
 
+7. If you want to simulate the app running on a real device (e.g. a phone)...
+- download an app called 'Expo Client' from your phone's app store onto your phone
+- use that app to scan the QR code that appeared when you started the node.js server above
+- this simulates the app within a web browser in the app, so it is not exactly the same as running the native version
+
