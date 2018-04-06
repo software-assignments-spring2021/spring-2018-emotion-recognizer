@@ -3,18 +3,10 @@ import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react
 import {initFirebase} from './InitFirebase';
 const firebaseApp = new initFirebase();
 
-const Component = React.Component;
-
 //design imports
 import {  Overlay, FormLabel, FormInput, Button, Icon } from 'react-native-elements';
 
-const lightText = "#e4e4e4";
-const darkText = "#364652";
-const mainColor = "#3989E1";
-const secondaryGreen = "#30E849";
-const secondaryRed = "#E83A30";
-
-class Dashboard extends Component {
+class Dashboard extends React.Component {
 
   authenticate() {
     firebaseApp.auth().signInWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
@@ -52,7 +44,7 @@ const styles = StyleSheet.create({
       alignItems: 'flex-start',
    },
    headerText: {
-       color: darkText,
+       color: global.darkText,
        fontSize: 48,
        fontFamily: 'montserrat-bold',
        margin: 15,

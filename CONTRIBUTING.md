@@ -80,10 +80,12 @@ sudo sysctl -w kern.maxfilesperproc=524288
 npm start
 ```
 
-6. When the menu appears, press 'i' to launch xCode Simulator
+6. When the menu appears, press 'i' to launch XCode Simulator
 ```
 i
 ```
+
+If you see a ``Unable to verify Xcode and Simulator installation`` error, make sure to [enable XCode's command-line tools] (https://stackoverflow.com/questions/45537048/react-native-ios-simulator-simulator-is-installed-but-is-identified-as-don#45537180).
 
 7. If you want to simulate the app running on a real device (e.g. a phone)...
 - download an app called 'Expo Client' from your phone's app store onto your phone
