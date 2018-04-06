@@ -7,7 +7,7 @@ Our team follows a ~~Feature Branch Workflow~~ slow-motion version of a **trunk-
 3. Pull requests are used to ensure peer review of the changes in these branches
 4. Peer review is completed within 1 day of the initiation of the pull request and the branch is merged with master
 
-## How we will resolve conflicts:
+## How we will resolve conflicts
 1. Communicate about **all decisions** to avoid problems when possible
 1. Work together to compromise to come to a decision
 2. In case of ties, use a random number generator
@@ -46,12 +46,12 @@ Team members can claim any unassigned task in the "To Do" column of the Task Boa
 
 Let team members know in advance if you will be unavailable 
 
-## In case of a member not meeting expectations:
+## In case of a member not meeting expectations
 Diagreements or problems with team members will be addressed as follows:
 1. Group meeting to find out why
 2. **Notify the stakeholders** if the problem is not resolved within 2 days
  
-## Set up development environment##
+## Set up development environment
 The following steps will set up the development environment for anyone interested in contributing:
 
 1. Clone the git repository
