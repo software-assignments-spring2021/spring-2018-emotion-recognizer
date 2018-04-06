@@ -54,10 +54,14 @@ Diagreements or problems with team members will be addressed as follows:
 ## Setup ##
 
 Clone the git repository
-```git clone https://github.com/nyu-software-engineering/emotion-recognizer.git```
+```
+git clone https://github.com/nyu-software-engineering/emotion-recognizer.git
+```
 
 Have npm install all dependencies listed in package.json
-```npm install```
+```
+npm install
+```
 
 Set system kernel max file size and files per process (this was necessary on a Mac running OS X... but it may not be necessary for all machines, and is only available for UNIX/Mac machines):
 ```
@@ -66,8 +70,12 @@ sudo sysctl -w kern.maxfilesperproc=524288
 ```
 
 Start node.js server
-```npm start```
+```
+npm start
+```
 
 When the menu appears, press 'i' to launch xCode Simulator
-```i```
+```
+i
+```
 
