@@ -1,7 +1,7 @@
 # Contributing
 
-## Work Flow Type
-Our team follows a slow-motion version of a **trunk-based workflow**:
+## Work Flow
+Our team follows a ~~Feature Branch Workflow~~ slow-motion version of a **trunk-based workflow**:
 1. Changes are committed to local branches
 2. These new branches are pushed to GitHub no more than 2 days after they were initially created
 3. Pull requests are used to ensure peer review of the changes in these branches
@@ -54,18 +54,20 @@ Diagreements or problems with team members will be addressed as follows:
 ## Setup ##
 
 Clone the git repository
-``git clone https://github.com/nyu-software-engineering/emotion-recognizer.git``
+```git clone https://github.com/nyu-software-engineering/emotion-recognizer.git```
 
 Have npm install all dependencies listed in package.json
-``npm install``
+```npm install```
 
 Set system kernel max file size and files per process (this was necessary on a Mac running OS X... but it may not be necessary for all machines, and is only available for UNIX/Mac machines):
-``sudo sysctl -w kern.maxfiles=5242880``
-``sudo sysctl -w kern.maxfilesperproc=524288``
+```
+sudo sysctl -w kern.maxfiles=5242880
+sudo sysctl -w kern.maxfilesperproc=524288
+```
 
 Start node.js server
-``npm start``
+```npm start```
 
 When the menu appears, press 'i' to launch xCode Simulator
-``i``
+```i```
 
