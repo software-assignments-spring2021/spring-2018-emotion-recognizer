@@ -50,31 +50,37 @@ Let team members know in advance if you will be unavailable
 Diagreements or problems with team members will be addressed as follows:
 1. Group meeting to find out why
 2. **Notify the stakeholders** if the problem is not resolved within 2 days
+ 
+## Set up development environment##
+The following steps will set up the development environment for anyone interested in contributing:
 
-## Setup ##
-
-Clone the git repository
+1. Clone the git repository
 ```
 git clone https://github.com/nyu-software-engineering/emotion-recognizer.git
 ```
 
-Have npm install all dependencies listed in package.json
+2. Navigate the working directory to the 'app' directory where the application code resides:
+```
+cd emotion-recognizer/app
+```
+
+3. Have npm install all dependencies listed in package.json
 ```
 npm install
 ```
 
-Set system kernel max file size and files per process (this was necessary on a Mac running OS X... but it may not be necessary for all machines, and is only available for UNIX/Mac machines):
+4. Set system kernel max file size and files per process (this was necessary on a Mac running OS X... but it may not be necessary for all machines, and is only available for UNIX/Mac machines):
 ```
 sudo sysctl -w kern.maxfiles=5242880
 sudo sysctl -w kern.maxfilesperproc=524288
 ```
 
-Start node.js server
+5. Start node.js server
 ```
 npm start
 ```
 
-When the menu appears, press 'i' to launch xCode Simulator
+6. When the menu appears, press 'i' to launch xCode Simulator
 ```
 i
 ```
