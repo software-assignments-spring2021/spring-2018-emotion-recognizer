@@ -11,6 +11,10 @@ import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elemen
 //console.log('firebaseApp from Signup.js:',firebaseApp);
 
 class Signup extends React.Component {
+    //set up the title of this screen
+    static navigationOptions = {
+        title: "Sign Up"
+    };
 
     //sign up a new user via Firebase
     signUp() {
@@ -24,7 +28,6 @@ class Signup extends React.Component {
     return (
       <View style={styles.container}>
 
-
         <Image
             style={{
                 backgroundColor: '#ccc',
@@ -36,7 +39,6 @@ class Signup extends React.Component {
             }}
             source={{ uri: global.orangeSkyImgUrl }}
         />
-     
 
         <Text style={{
             color: global.lightText,

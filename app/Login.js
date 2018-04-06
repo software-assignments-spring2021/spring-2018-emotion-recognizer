@@ -10,6 +10,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
 class Login extends React.Component {
+  //set up the title of this screen
+  static navigationOptions = {
+    title: "Log In"
+  };
 
   // method to log in via Firebase...
   // you should share a test email/password combo on your CONTRIBUTING.md document
@@ -21,6 +25,8 @@ class Login extends React.Component {
 
   //render the view for this component
   render() {
+    //get a reference to the App.js class's navigation
+    const { navigate } = this.props.navigation;
 
     //return a nicely-formatted JSX view
     return (
@@ -119,7 +125,8 @@ class Login extends React.Component {
               borderWidth: 0,
               borderRadius: 5
           }}
-          onPress={() => this.props.navigation.navigate('SignupScreen')}
+          onPress={() => this.props.navigation.navigate('Signup')}
+          
         />
 
       </View>

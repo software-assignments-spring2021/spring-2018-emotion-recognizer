@@ -32,7 +32,6 @@ const RootStack = StackNavigator(
 //handle fonts
 import { AppLoading, Font } from 'expo';
 
-
 export default class App extends React.Component {
 
   //this constructor method is called before the componentWillMount method
