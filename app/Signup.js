@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
+import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
 import {initFirebase} from './InitFirebase';
 const firebaseApp = new initFirebase();
 
@@ -16,11 +16,57 @@ class Signup extends React.Component {
         title: "Sign Up"
     };
 
-    //sign up a new user via Firebase
+    //this constructor method is called before the componentWillMount method
+    //use it to set up the starting state of the component
+    constructor(props) {
+        super(props); // call the parent class's (React.Component) constructor first before anything else
+
+        //set starting values of email and password
+        this.state = { 
+          email: "",
+          password: ""
+        };
+
+    } //constructor
+
+    // sign up a new user via Firebase
     signUp() {
+
+        // debug the current state
         console.log(this.state);
-            firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-                throw error;
+
+        //what to do once the user signs in
+        firebaseApp.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // success!
+            console.log("Log in success!");
+            console.log(user);
+
+            //navigate to the Dashboard view
+            this.props.navigation.navigate('Dashboard');
+          }
+          else {
+            // failure!
+            console.log("Log in failure!");
+          }
+        });
+
+        // try to create account
+        firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+            // if error, show an alert dialog with the error message displayed
+            Alert.alert(
+                'Sign Up Failed',
+                error.message,
+                [
+                    {text: "Ok, I'll fix this", onPress: () => console.log('Ok pressed')},
+                    {text: 'Whatever', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+                ],
+                { cancelable: false }
+            );
+
+            //debug error
+            console.log(error)
+            //throw error;
         });
     }
 
@@ -46,8 +92,8 @@ class Signup extends React.Component {
             fontWeight: "bold",
             margin: 15,
             marginBottom: 40,
-        }}> Sign Up
-
+        }}> 
+            Sign Up
         </Text>
 
         <TextInput
@@ -146,9 +192,7 @@ class Signup extends React.Component {
 
         </Text>
 
-
-
-                <Button
+        <Button
             title={"Sign up with google"}
             color={"#364652"}
             buttonStyle={{
@@ -160,8 +204,6 @@ class Signup extends React.Component {
                 borderRadius: 5
             }}
         />
-
-
 
       </View>
 
