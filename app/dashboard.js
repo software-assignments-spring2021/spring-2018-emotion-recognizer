@@ -1,18 +1,50 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
 import {initFirebase} from './InitFirebase';
-const firebaseApp = new initFirebase();
+const firebase = new initFirebase();
 
 //design imports
 import {  Overlay, FormLabel, FormInput, Button, Icon } from 'react-native-elements';
 
 class Dashboard extends React.Component {
+  //this constructor method is called before the componentWillMount method
+  //use it to set up the starting state of the component
+  constructor(props) {
+      console.log("Constructing...");
 
-  authenticate() {
-    firebaseApp.auth().signInWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-      throw error;
-    });
-  }
+      super(props); // call the parent class's (React.Component) constructor first before anything else
+
+      console.log(props);
+
+      // set starting values of email and password
+      // this.state = {         
+      // };
+
+      //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
+      //global.navigation = this.props.navigation;
+      const { navigation } = this.props; //pull navigation from the props into its own variable
+
+      // figure it whether user is already logged-in
+      var user = firebase.auth().currentUser;
+      if (user) {
+        // User is signed in.
+        console.log("User " + user.email + " is signed in..");
+
+        //keep a reference to this user's info
+        this.state = {
+          user: user
+        };
+
+      } else {
+        // No user is signed in.
+        console.log("No user is signed in!");
+        navigation.pop();
+
+      }
+
+    } // constructor
+
+
 
   render() {
     return (
@@ -27,7 +59,7 @@ class Dashboard extends React.Component {
       />
 
 
-   <Text style={styles.headerText}> 21 </Text>
+   <Text style={styles.headerText}> {this.state.user.email} </Text>
 
       </View>
 
@@ -45,7 +77,7 @@ const styles = StyleSheet.create({
    },
    headerText: {
        color: global.darkText,
-       fontSize: 48,
+       fontSize: 28,
        fontFamily: 'montserrat-bold',
        margin: 15,
        marginBottom: 40,

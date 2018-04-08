@@ -2,13 +2,13 @@
 import React from 'react';
 import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
 import {initFirebase} from './InitFirebase';
-const firebaseApp = new initFirebase();
+const firebase = new initFirebase();
 
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
-//console.log('firebaseApp from Signup.js:',firebaseApp);
+//console.log('firebase from Signup.js:',firebase);
 
 class Signup extends React.Component {
     //set up the title of this screen
@@ -20,6 +20,9 @@ class Signup extends React.Component {
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
+
+        console.log("Getting props...");
+        console.log(props);
 
         //set starting values of email and password
         this.state = { 
@@ -36,23 +39,23 @@ class Signup extends React.Component {
         console.log(this.state);
 
         //what to do once the user signs in
-        firebaseApp.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-            // success!
-            console.log("Log in success!");
+            // user is signed in!
+            console.log("Log in success for " + user.email + " (userId " + user.uid + ")!");
             console.log(user);
 
             //navigate to the Dashboard view
             this.props.navigation.navigate('Dashboard');
           }
           else {
-            // failure!
-            console.log("Log in failure!");
+            // user logged out!
+            console.log("User logged out!");
           }
         });
 
         // try to create account
-        firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
             // if error, show an alert dialog with the error message displayed
             Alert.alert(
                 'Sign Up Failed',

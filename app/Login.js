@@ -3,7 +3,7 @@ import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from
 import {initFirebase} from './InitFirebase';
 
 //instantiate the Firebase app
-const firebaseApp = new initFirebase();
+const firebase = new initFirebase();
 
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -18,42 +18,73 @@ class Login extends React.Component {
   //this constructor method is called before the componentWillMount method
   //use it to set up the starting state of the component
   constructor(props) {
+      console.log("Constructing...");
+
       super(props); // call the parent class's (React.Component) constructor first before anything else
 
-      //set starting values of email and password
+      console.log(props);
+
+      // set starting values of email and password
       this.state = { 
         email: "",
         password: ""
       };
+
+      //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
+      //global.navigation = this.props.navigation;
+      const { navigation } = this.props; //pull navigation from the props into its own variable
+
+      // figure it whether user is already logged-in
+/*
+      var user = firebase.auth().currentUser;
+      if (user) {
+        // User is signed in.
+        console.log("User is signed in..");
+        // go to dashboard
+        this.props.navigation.navigate('Dashboard', {
+          navigation: this.props.navigation
+        });
+      } else {
+        console.log("No user is signed in!");
+        // No user is signed in.
+      }
+*/
+
+      // indicate what to do once the user signs in
+      firebase.auth().onAuthStateChanged(function(user) {
+        console.log("Auth state change...");
+        if (user) {
+          // user is signed in!
+          console.log("Log in success for " + user.email + " (userId " + user.uid + ")!");
+          //console.log(user);
+
+          // navigate to the Dashboard view, passing the navigation property
+          console.log("Navigating to Dashboard...");
+
+          // switch to Dashboard component view
+          navigation.navigate('Dashboard', {
+            navigation: navigation
+          });
+
+        }
+        else {
+          // user logged out!
+          console.log("User logged out!");
+        }
+      });
 
   } //constructor
 
   // method to log in via Firebase...
   // you should share a test email/password combo on your CONTRIBUTING.md document
   authenticate() {
+    console.log("Authenticating...");
 
     // debug the current state
-    console.log(this.state);
-
-    //what to do once the user signs in
-    firebaseApp.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // success!
-        console.log("Log in success for " + user.email + "!");
-        //console.log(user);
-
-        //navigate to the Dashboard view
-        console.log("Navigating to Dashboard...");
-        this.props.navigation.navigate('Dashboard');
-      }
-      else {
-        // failure!
-        console.log("Log in failure!");
-      }
-    });
+    //console.log(this.state);
 
     //try to sign in
-    firebaseApp.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
       // if error, show an alert dialog with the error message displayed
       Alert.alert(
           'Log In Failed',
@@ -66,19 +97,19 @@ class Login extends React.Component {
       );
       //debug error
       console.log(error);
-    }).then((data) => {
-      console.log("Then came some data...");
-      console.log(data);
-      this.props.navigation.navigate('Dashboard');
-      //this.setState(data);
-    }).catch((error)=>{
-       console.log("Caught an  error...");
-       console.log(error.message);
     });
   }
 
+  //this method is called just before the component is inserted/mounted into the DOM
+  componentWillMount() {
+      console.log("Mounting...");
+
+  } //componentWillMount
+
+
   //render the view for this component
   render() {
+    console.log("Rendering...");
 
     //return a nicely-formatted JSX view
     return (
@@ -177,7 +208,7 @@ class Login extends React.Component {
               borderWidth: 0,
               borderRadius: 5
           }}
-          onPress={() => this.props.navigation.navigate('Signup')}
+          onPress={() => this.props.navigation.navigate('Signup', {navigation: this.props.navigation})}
 
         />
 
