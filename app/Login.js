@@ -1,126 +1,216 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
+import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
 import {initFirebase} from './InitFirebase';
-const firebaseApp = new initFirebase();
 
-const Component = React.Component;
+//instantiate the Firebase app
+const firebase = new initFirebase();
 
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
-const remote = 'https://images.unsplash.com/photo-1490094139523-6c26ddc4e518?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f5e048023772b7e6f129c11e8159ff6&auto=format&fit=crop&w=2550&q=80';
-const lightText = "#e4e4e4";
-const darkText = "#364652";
-const mainColor = "#3989E1";
-const secondaryGreen = "#30E849";
-const secondaryRed = "#E83A30";
+class Login extends React.Component {
+  //set up the title of this screen
+  static navigationOptions = {
+    title: "Log In"
+  };
 
+  //this constructor method is called before the componentWillMount method
+  //use it to set up the starting state of the component
+  constructor(props) {
+      console.log("Constructing...");
 
-class Login extends Component {
+      super(props); // call the parent class's (React.Component) constructor first before anything else
 
+      console.log(props);
+
+      // set starting values of email and password
+      this.state = { 
+        email: "",
+        password: ""
+      };
+
+      //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
+      //global.navigation = this.props.navigation;
+      const { navigation } = this.props; //pull navigation from the props into its own variable
+
+      // figure it whether user is already logged-in
+/*
+      var user = firebase.auth().currentUser;
+      if (user) {
+        // User is signed in.
+        console.log("User is signed in..");
+        // go to dashboard
+        this.props.navigation.navigate('Dashboard', {
+          navigation: this.props.navigation
+        });
+      } else {
+        console.log("No user is signed in!");
+        // No user is signed in.
+      }
+*/
+
+      // indicate what to do once the user signs in
+      firebase.auth().onAuthStateChanged(function(user) {
+        console.log("Auth state change...");
+        if (user) {
+          // user is signed in!
+          console.log("Log in success for " + user.email + " (userId " + user.uid + ")!");
+          //console.log(user);
+
+          // navigate to the Dashboard view, passing the navigation property
+          console.log("Navigating to Dashboard...");
+
+          // switch to Dashboard component view
+          navigation.navigate('Dashboard', {
+            navigation: navigation
+          });
+
+        }
+        else {
+          // user logged out!
+          console.log("User logged out!");
+        }
+      });
+
+  } //constructor
+
+  // method to log in via Firebase...
+  // you should share a test email/password combo on your CONTRIBUTING.md document
   authenticate() {
-    firebaseApp.auth().signInWithEmailAndPassword(this.state.username, this.state.password).catch(function(error) {
-      throw error;
+    console.log("Authenticating...");
+
+    // debug the current state
+    //console.log(this.state);
+
+    //try to sign in
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+      // if error, show an alert dialog with the error message displayed
+      Alert.alert(
+          'Log In Failed',
+          error.message,
+          [
+              {text: "Ok, I'll fix this", onPress: () => console.log('Ok pressed')},
+              {text: 'Whatever', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+          ],
+          { cancelable: false }
+      );
+      //debug error
+      console.log(error);
     });
   }
 
+  //this method is called just before the component is inserted/mounted into the DOM
+  componentWillMount() {
+      console.log("Mounting...");
+
+  } //componentWillMount
+
+
+  //render the view for this component
   render() {
+    console.log("Rendering...");
+
+    //return a nicely-formatted JSX view
     return (
       <View style={styles.container}>
 
-
-      <Image
-        style={{
-         backgroundColor: '#ccc',
-         flex: 1,
-         position: 'absolute',
-         width: '100%',
-         height: '100%',
-         justifyContent: 'center',
-       }}
-       source={{ uri: remote }}
-     >
-     </Image>
-
-     <Text
-        style={{
-            color: lightText,
-            fontSize: 48,
-            fontWeight: "bold",
-            margin: 15,
-            marginBottom: 40,
-          }}> SMILE!
-
-      </Text>
-
-      <TextInput
-          placeholder='Email'
-          shake={true}
-          placeholderTextColor={darkText}
-          style= {{
-              width: '50%',
-              padding: 10,
-              borderWidth: 1,
-              borderColor: "#999",
-              borderRadius:3,
-              backgroundColor: "rgba(204,204,204, .8)",
-              color: darkText,
+        <Image
+          style={{
+            backgroundColor: '#ccc',
+            flex: 1,
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            justifyContent: 'center',
           }}
-          onChangeText={(username) => this.setState({username})}
-      />
+          source={{ uri: global.happyGirlImgUrl }}
+        />
 
-      <TextInput
-        placeholder='Password'
-        placeholderTextColor={darkText}
-        shake={true}
-        style={{
-          width: '50%',
-          padding: 10,
-          margin: 40,
-          borderWidth: 1,
-          borderColor: "#999",
-          borderRadius: 3,
-          backgroundColor: "rgba(204,204,204, .8)",
-          color: darkText,
-        }}
-        onChangeText={(password) => this.setState({password})}
-      />
+        <Text
+          style={{
+          color: global.lightText,
+          fontSize: 48,
+          fontWeight: "bold",
+          margin: 15,
+          marginBottom: 40,
+          }}> 
+            SMILE!
+        </Text>
 
-      <Button
-        title={"Sign in"}
-        color={"#364652"}
-        buttonStyle={{
-            backgroundColor: "rgba(255,255,255, .6)",
-            width: 250,
-            height: 45,
-            borderColor: "transparent",
+        <TextInput
+            placeholder='Email'
+            shake={true}
+            placeholderTextColor={global.darkText}
+            style= {{
+                width: '50%',
+                padding: 10,
+                borderWidth: 1,
+                borderColor: "#999",
+                borderRadius:3,
+                backgroundColor: "rgba(204,204,204, .8)",
+                color: global.darkText,
+            }}
+            onChangeText={(username) => this.setState({
+                email: username
+            })}
+        />
+
+        <TextInput
+          placeholder='Password'
+          placeholderTextColor={global.darkText}
+          secureTextEntry={true}
+          shake={true}
+          style={{
+            width: '50%',
+            padding: 10,
+            margin: 40,
             borderWidth: 1,
-            borderRadius: 5
-        }}
-        onPress={() => this.authenticate()}
-      />
+            borderColor: "#999",
+            borderRadius: 3,
+            backgroundColor: "rgba(204,204,204, .8)",
+            color: global.darkText,
+          }}
+          onChangeText={(password) => this.setState({
+            password: password
+          })}
+        />
 
-      <Text style={{
-          color: lightText,
-          margin: 15
-        }}> or
+        <Button
+          title={"Sign in"}
+          color={"#364652"}
+          buttonStyle={{
+              backgroundColor: "rgba(255,255,255, .6)",
+              width: 250,
+              height: 45,
+              borderColor: "transparent",
+              borderWidth: 1,
+              borderRadius: 5
+          }}
+          onPress={() => this.authenticate()}
+        />
 
-      </Text>
+        <Text style={{
+            color: global.lightText,
+            margin: 15
+          }}> or
 
-      <Button
-        title={"Sign up"}
-        color={"#364652"}
-        buttonStyle={{
-            backgroundColor: "rgba(255,255,255, .6)",
-            width: 250,
-            height: 45,
-            borderColor: "transparent",
-            borderWidth: 0,
-            borderRadius: 5
-        }}
-        onPress={() => this.props.navigation.navigate('SignupScreen')}
-      />
+        </Text>
+
+        <Button
+          title={"Sign up"}
+          color={"#364652"}
+          buttonStyle={{
+              backgroundColor: "rgba(255,255,255, .6)",
+              width: 250,
+              height: 45,
+              borderColor: "transparent",
+              borderWidth: 0,
+              borderRadius: 5
+          }}
+          onPress={() => this.props.navigation.navigate('Signup', {navigation: this.props.navigation})}
+
+        />
 
       </View>
 

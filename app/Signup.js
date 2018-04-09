@@ -1,64 +1,107 @@
 
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
+import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
 import {initFirebase} from './InitFirebase';
-const firebaseApp = new initFirebase();
-
-const Component = React.Component;
+const firebase = new initFirebase();
 
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
-const remote = 'https://images.unsplash.com/photo-1502210600188-51a3adffa4aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59d5264e02cb977d8e7a0acbb1e52ded&auto=format&fit=crop&w=634&q=80';
-const lightText = "#e4e4e4";
-const darkText = "#364652";
-const mainColor = "#3989E1";
-const secondaryGreen = "#30E849";
-const secondaryRed = "#E83A30";
+//console.log('firebase from Signup.js:',firebase);
 
-//console.log('firebaseApp from Signup.js:',firebaseApp);
+class Signup extends React.Component {
+    //set up the title of this screen
+    static navigationOptions = {
+        title: "Sign Up"
+    };
 
-class Signup extends Component {
+    //this constructor method is called before the componentWillMount method
+    //use it to set up the starting state of the component
+    constructor(props) {
+        super(props); // call the parent class's (React.Component) constructor first before anything else
 
-  signUp() {
-    console.log(this.state);
-    firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-    throw error;
-    });
-  }
+        console.log("Getting props...");
+        console.log(props);
+
+        //set starting values of email and password
+        this.state = { 
+          email: "",
+          password: ""
+        };
+
+    } //constructor
+
+    // sign up a new user via Firebase
+    signUp() {
+
+        // debug the current state
+        console.log(this.state);
+
+        //what to do once the user signs in
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // user is signed in!
+            console.log("Log in success for " + user.email + " (userId " + user.uid + ")!");
+            console.log(user);
+
+            //navigate to the Dashboard view
+            this.props.navigation.navigate('Dashboard');
+          }
+          else {
+            // user logged out!
+            console.log("User logged out!");
+          }
+        });
+
+        // try to create account
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+            // if error, show an alert dialog with the error message displayed
+            Alert.alert(
+                'Sign Up Failed',
+                error.message,
+                [
+                    {text: "Ok, I'll fix this", onPress: () => console.log('Ok pressed')},
+                    {text: 'Whatever', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+                ],
+                { cancelable: false }
+            );
+
+            //debug error
+            console.log(error)
+            //throw error;
+        });
+    }
 
   render() {
     return (
       <View style={styles.container}>
 
-
         <Image
-       style={{
-         backgroundColor: '#ccc',
-         flex: 1,
-         position: 'absolute',
-         width: '100%',
-         height: '100%',
-         justifyContent: 'center',
-       }}
-       source={{ uri: remote }}
-     >
-     </Image>
+            style={{
+                backgroundColor: '#ccc',
+                flex: 1,
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+            }}
+            source={{ uri: global.orangeSkyImgUrl }}
+        />
 
-     <Text style={{
-            color: lightText,
+        <Text style={{
+            color: global.lightText,
             fontSize: 48,
             fontWeight: "bold",
             margin: 15,
             marginBottom: 40,
-          }}> Sign Up
-
+        }}> 
+            Sign Up
         </Text>
 
-          <TextInput
+        <TextInput
             placeholder='Email'
-            placeholderTextColor={darkText}
+            placeholderTextColor={global.darkText}
             shake={true}
             style={{
                 width: '50%',
@@ -67,14 +110,16 @@ class Signup extends Component {
                 borderColor: "#999",
                 borderRadius:3,
                 backgroundColor: "rgba(204,204,204, .8)",
-                color: darkText,
+                color: global.darkText,
             }}
-            onChangeText={(email) => this.setState({email})}
+            onChangeText={(email) => this.setState({
+                email: email
+            })}
         />
 
         <TextInput
             placeholder='Name'
-            placeholderTextColor={darkText}
+            placeholderTextColor={global.darkText}
             shake={true}
             style={{
                 width: '50%',
@@ -83,14 +128,16 @@ class Signup extends Component {
                 borderColor: "#999",
                 borderRadius:3,
                 backgroundColor: "rgba(204,204,204, .8)",
-                color: darkText,
+                color: global.darkText,
             }}
-            onChangeText={(name) => this.setState({name})}
+            onChangeText={(name) => this.setState({
+                name: name
+            })}
         />
 
         <TextInput
             placeholder='Username'
-            placeholderTextColor={darkText}
+            placeholderTextColor={global.darkText}
             shake={true}
             style={{
                 width: '50%',
@@ -99,14 +146,17 @@ class Signup extends Component {
                 borderColor: "#999",
                 borderRadius:3,
                 backgroundColor: "rgba(204,204,204, .8)",
-                color: darkText,
+                color: global.darkText,
             }}
-            onChangeText={(username) => this.setState({username})}
+            onChangeText={(username) => this.setState({
+                username: username
+            })}
         />
 
         <TextInput
             placeholder='Password'
-            placeholderTextColor={darkText}
+            placeholderTextColor={global.darkText}
+            secureTextEntry={true}
             shake={true}
             style={{
                 width: '50%',
@@ -116,9 +166,11 @@ class Signup extends Component {
                 borderColor: "#999",
                 borderRadius: 3,
                 backgroundColor: "rgba(204,204,204, .8)",
-                color: darkText,
+                color: global.darkText,
             }}
-            onChangeText={(password) => this.setState({password})}
+            onChangeText={(password) => this.setState({
+                password: password
+            })}
         />
 
         <Button
@@ -137,15 +189,13 @@ class Signup extends Component {
 
 
         <Text style={{
-            color: lightText,
+            color: global.lightText,
             margin: 15
           }}> or
 
         </Text>
 
-
-
-                <Button
+        <Button
             title={"Sign up with google"}
             color={"#364652"}
             buttonStyle={{
@@ -157,8 +207,6 @@ class Signup extends Component {
                 borderRadius: 5
             }}
         />
-
-
 
       </View>
 
