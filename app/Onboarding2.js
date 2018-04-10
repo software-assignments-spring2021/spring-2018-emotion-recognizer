@@ -7,10 +7,10 @@ import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elemen
 
 //console.log('firebase from Signup.js:',firebase);
 
-class Onboarding1 extends React.Component {
+class Onboarding2 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Onboarding 1"
+        title: "Onboarding 2"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -28,22 +28,22 @@ class Onboarding1 extends React.Component {
         <Text style={styles.text}> 
             These people are&nbsp; 
             <Text style={styles.boldText}> 
-            happy:
+            sad:
         </Text>
         </Text>
 
         <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
             <View>
                 <Image style={styles.image}
-                    source={{ uri: global.happyKidImgUrl }}
+                    source={{ uri: global.sadKidImgUrl }}
                 />
 
                 <Image style={styles.image}
-                    source={{ uri: global.happyGuyImgUrl }}
+                    source={{ uri: global.sadGirlImgUrl }}
                 />
 
                 <Image style={styles.image}
-                    source={{ uri: global.happyGirlImgUrl2 }}
+                    source={{ uri: global.sadKidImgUrl2 }}
                 />
             </View>
 
@@ -61,7 +61,7 @@ class Onboarding1 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'lightblue',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -98,4 +98,4 @@ const styles = StyleSheet.create({
 })
 
 
-export { Onboarding1 };
+export { Onboarding2 };
