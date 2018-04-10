@@ -18,15 +18,6 @@ class Onboarding1 extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
 
-        console.log("Getting props...");
-        console.log(props);
-
-        //set starting values of email and password
-        this.state = { 
-          email: "",
-          password: ""
-        };
-
     } //constructor
 
 
