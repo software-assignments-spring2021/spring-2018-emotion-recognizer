@@ -9,18 +9,27 @@ import { Signup as SignupScreen } from './Signup';
 import { Dashboard as DashboardScreen } from './Dashboard';
 
 //import our global design settings
-import './global-design-constants.js'
+import './global-design-constants.js';
 
 const RootStack = StackNavigator(
   {
     Login: {
       screen: LoginScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Login',
+        }),
     },
     Signup: {
       screen: SignupScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Sign Up',
+        }),
     },
     Dashboard: {
       screen: DashboardScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Dashboard',
+        }),
     },
   },
   {
@@ -39,7 +48,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props); // call the parent class's (React.Component) constructor first before anything else
 
-    this.state = { 
+    this.state = {
       isReady: false
     };
 
@@ -47,13 +56,13 @@ export default class App extends React.Component {
 
   //this method is called just before the component is inserted/mounted into the DOM
   componentWillMount() {
-    (async() => {
+    (async function() {
 
       //load all the fonts defined in global-design-constants.js
       await Font.loadAsync(global.fonts);
 
       //set the initial state of this component
-      this.setState({ 
+      this.setState({
         isReady: true
       });
 

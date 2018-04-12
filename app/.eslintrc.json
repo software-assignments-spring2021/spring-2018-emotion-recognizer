@@ -11,6 +11,7 @@
   },
   "extends": ["eslint:recommended", "plugin:react-native/all"],
   "parserOptions": {
+		"ecmaVersion": 2017,
     "ecmaFeatures": {
           "experimentalObjectRestSpread": true,
 					"jsx": true
