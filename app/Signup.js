@@ -10,11 +10,33 @@ import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elemen
 
 //console.log('firebase from Signup.js:',firebase);
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fieldText: {
+      width: '50%',
+      padding: 10,
+      margin: 40,
+      borderWidth: 1,
+      borderColor: "#999",
+      borderRadius: 3,
+      backgroundColor: "rgba(204,204,204, .8)",
+      color: global.darkText,
+  },
+  button: {
+    backgroundColor: "rgba(255,255,255, .6)",
+    width: 300,
+    height: 45,
+    borderColor: "transparent",
+    borderWidth: 0,
+    borderRadius: 5
+  }
+});
+
 class Signup extends React.Component {
-    //set up the title of this screen
-    static navigationOptions = {
-        title: "Sign Up"
-    };
 
     //this constructor method is called before the componentWillMount method
     //use it to set up the starting state of the component
@@ -25,7 +47,7 @@ class Signup extends React.Component {
         console.log(props);
 
         //set starting values of email and password
-        this.state = { 
+        this.state = {
           email: "",
           password: ""
         };
@@ -68,7 +90,7 @@ class Signup extends React.Component {
             );
 
             //debug error
-            console.log(error)
+            console.log(error);
             //throw error;
         });
     }
@@ -95,7 +117,7 @@ class Signup extends React.Component {
             fontWeight: "bold",
             margin: 15,
             marginBottom: 40,
-        }}> 
+        }}>
             Sign Up
         </Text>
 
@@ -103,15 +125,7 @@ class Signup extends React.Component {
             placeholder='Email'
             placeholderTextColor={global.darkText}
             shake={true}
-            style={{
-                width: '50%',
-                padding: 10,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius:3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: global.darkText,
-            }}
+            style={ styles.fieldText }
             onChangeText={(email) => this.setState({
                 email: email
             })}
@@ -121,15 +135,7 @@ class Signup extends React.Component {
             placeholder='Name'
             placeholderTextColor={global.darkText}
             shake={true}
-            style={{
-                width: '50%',
-                padding: 10,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius:3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: global.darkText,
-            }}
+            style={ styles.fieldText }
             onChangeText={(name) => this.setState({
                 name: name
             })}
@@ -139,15 +145,7 @@ class Signup extends React.Component {
             placeholder='Username'
             placeholderTextColor={global.darkText}
             shake={true}
-            style={{
-                width: '50%',
-                padding: 10,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius:3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: global.darkText,
-            }}
+            style={ styles.fieldText }
             onChangeText={(username) => this.setState({
                 username: username
             })}
@@ -158,16 +156,7 @@ class Signup extends React.Component {
             placeholderTextColor={global.darkText}
             secureTextEntry={true}
             shake={true}
-            style={{
-                width: '50%',
-                padding: 10,
-                margin: 40,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius: 3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: global.darkText,
-            }}
+            style={ styles.fieldText }
             onChangeText={(password) => this.setState({
                 password: password
             })}
@@ -176,14 +165,7 @@ class Signup extends React.Component {
         <Button
             title={"Sign up"}
             color={"#364652"}
-            buttonStyle={{
-                backgroundColor: "rgba(255,255,255, .6)",
-                width: 300,
-                height: 45,
-                borderColor: "transparent",
-                borderWidth: 1,
-                borderRadius: 5
-            }}
+            buttonStyle={ styles.button }
             onPress={() => this.signUp()}
         />
 
@@ -198,28 +180,13 @@ class Signup extends React.Component {
         <Button
             title={"Sign up with google"}
             color={"#364652"}
-            buttonStyle={{
-                backgroundColor: "rgba(255,255,255, .6)",
-                width: 300,
-                height: 45,
-                borderColor: "transparent",
-                borderWidth: 0,
-                borderRadius: 5
-            }}
+            buttonStyle={ styles.button }
         />
 
       </View>
 
-    )
+    );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
 
 export { Signup };
