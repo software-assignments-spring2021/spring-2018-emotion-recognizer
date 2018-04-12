@@ -19,8 +19,15 @@ global.sadKidImgUrl = 'https://images.unsplash.com/photo-1519716833415-33e950589
 global.sadGirlImgUrl = 'https://images.unsplash.com/photo-1517857651972-b13347c76b1f?ixlib=rb-0.3.5&s=8cf9d2eb666c2aa64a79fc8651333b47&auto=format&fit=crop&w=1050&q=80';
 global.sadKidImgUrl2 = 'https://images.unsplash.com/photo-1517545084371-4a575dde2a02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f3f880e6a5a1d09c0f772d00e518a124&auto=format&fit=crop&w=634&q=80';
 //some global color pallette settings
-global.lightText = "#e4e4e4";
-global.darkText = "#364652";
-global.mainColor = "#3989E1";
-global.secondaryGreen = "#30E849";
-global.secondaryRed = "#E83A30";
+global.lightGrey = "#e4e4e4";
+global.midGrey = "#9B9B9B";
+global.darkGrey = "#364652";
+
+global.mainBlue = "#3989E1";
+global.backgroundGreen = "#69F0AE";
+
+global.white = "FFFFFF";
+global.backgroundWhite = "rgba(255,255,255, 0.6)";
+
+global.starYellow = "FFFF4D";
+global.backgroundYellow = "rgba(255,255,77, 0.6)";
