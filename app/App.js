@@ -8,6 +8,7 @@ import { Login as LoginScreen } from './Login';
 import { Signup as SignupScreen } from './Signup';
 import { Onboarding1 as Onboarding1Screen} from './Onboarding1';
 import { Onboarding2 as Onboarding2Screen} from './Onboarding2';
+import { Congratulations as CongratulationsScreen} from './Congratulations';
 //import our global design settings
 import './global-design-constants.js'
 
@@ -25,10 +26,13 @@ const RootStack = StackNavigator(
     Onboarding2: {
       screen: Onboarding2Screen,
     },
+    Congratulations: {
+      screen: CongratulationsScreen,
+    },
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Login',
+    initialRouteName: 'Congratulations',
   }
 );
 

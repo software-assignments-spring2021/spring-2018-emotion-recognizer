@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity, AppRegistry } from 'react-native';
+import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity, AppRegistry, TouchableHighlight } from 'react-native';
 import './global-design-constants.js';
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -17,41 +17,54 @@ class Onboarding2 extends React.Component {
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-
+        this.state = { uri: global.sadKidImgUrl };
+        this.count = 0;
     } //constructor
 
+
+    changePicture = () => {
+    this.count++;
+    if(this.count == 1) {
+        this.setState({
+            uri: global.sadGirlImgUrl
+        });
+    }
+    else if (this.count == 2) {
+        this.setState({
+            uri: global.sadKidImgUrl2
+        });
+    }
+    else {
+        this.setState({
+            uri: global.sadKidImgUrl
+        });
+        this.count = 0;
+    }
+  }
 
   render() {
     return (
       <View style={styles.container}>
 
         <Text style={styles.text}> 
-            These people are&nbsp; 
+            This is a    &nbsp; 
             <Text style={styles.boldText}> 
-            sad:
+            sad face!
         </Text>
         </Text>
-
-        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
-            <View>
-                <Image style={styles.image}
-                    source={{ uri: global.sadKidImgUrl }}
-                />
-
-                <Image style={styles.image}
-                    source={{ uri: global.sadGirlImgUrl }}
-                />
-
-                <Image style={styles.image}
-                    source={{ uri: global.sadKidImgUrl2 }}
-                />
-            </View>
-
-            <Button style={styles.button}
-                title={"Next"}
-                color={global.secondaryGreen}
+        <Image
+                source={this.state}
+                style={styles.image}
             />
-        </View>
+        <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
+            <Text style = {styles.textButton}>
+                Click here to see more faces!
+                </Text>
+        </TouchableHighlight> 
+
+        <Button style={styles.button}
+            title="Next"
+        />
 
       </View>
 
@@ -61,20 +74,31 @@ class Onboarding2 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'yellow',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
     color: global.darkText,
-    fontSize: 30,
+    justifyContent: 'center',
+    fontSize: 50,
     margin: 15,
+    marginTop: 1,
     marginBottom: 5,
+  },
+  textButton: {
+    color: global.darkText,
+    fontSize: 20,
+    margin: 5,
+    marginTop: 5,
+    marginBottom: 15,
+    textShadowColor: 'white',
   },
   boldText: {
     color: global.darkText,
-    fontSize: 30,
+    justifyContent: 'center',
+    fontSize: 50,
     margin: 15,
     marginBottom: 10,
     fontWeight:"bold",
@@ -83,10 +107,11 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 10,
     borderWidth: 10,
-    width: 150,
-    height: 200,
+    width: 300,
+    height: 350,
     justifyContent: 'center',
-    marginBottom: 10,
+    marginBottom: 1,
+    marginTop: 15,
   },
   button: {
     width: 100,
