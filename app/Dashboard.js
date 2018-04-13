@@ -118,7 +118,7 @@ class Dashboard extends React.Component {
       <Icon
          name='star'
          size= {30}
-         color= '#FFFF4D'
+         color= {global.starYellow}
          Raised
          iconStyle={styles.starStyle}
       />

@@ -46,9 +46,9 @@ class Onboarding2 extends React.Component {
     return (
       <View style={styles.container}>
 
-        <Text style={styles.text}> 
-            This is a    &nbsp; 
-            <Text style={styles.boldText}> 
+        <Text style={styles.text}>
+            This is a    &nbsp;
+            <Text style={styles.boldText}>
             sad face!
         </Text>
         </Text>
@@ -60,7 +60,7 @@ class Onboarding2 extends React.Component {
             <Text style = {styles.textButton}>
                 Click here to see more faces!
                 </Text>
-        </TouchableHighlight> 
+        </TouchableHighlight>
 
         <Button style={styles.button}
             title="Next"
@@ -74,13 +74,13 @@ class Onboarding2 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'yellow',
+    backgroundColor: global.backgroundYellow,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
-    color: global.darkText,
+    color: global.darkGrey,
     justifyContent: 'center',
     fontSize: 50,
     margin: 15,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textButton: {
-    color: global.darkText,
+    color: global.darkGrey,
     fontSize: 20,
     margin: 5,
     marginTop: 5,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     textShadowColor: 'white',
   },
   boldText: {
-    color: global.darkText,
+    color: global.darkGrey,
     justifyContent: 'center',
     fontSize: 50,
     margin: 15,

@@ -25,7 +25,7 @@ class Login extends React.Component {
       console.log(props);
 
       // set starting values of email and password
-      this.state = { 
+      this.state = {
         email: "",
         password: ""
       };
@@ -129,19 +129,19 @@ class Login extends React.Component {
 
         <Text
           style={{
-          color: global.lightText,
+          color: global.lightGrey,
           fontSize: 48,
           fontWeight: "bold",
           margin: 15,
           marginBottom: 40,
-          }}> 
+          }}>
             SMILE!
         </Text>
 
         <TextInput
             placeholder='Email'
             shake={true}
-            placeholderTextColor={global.darkText}
+            placeholderTextColor={global.darkGrey}
             style= {{
                 width: '50%',
                 padding: 10,
@@ -158,7 +158,7 @@ class Login extends React.Component {
 
         <TextInput
           placeholder='Password'
-          placeholderTextColor={global.darkText}
+          placeholderTextColor={global.darkGrey}
           secureTextEntry={true}
           shake={true}
           style={{
@@ -169,7 +169,7 @@ class Login extends React.Component {
             borderColor: "#999",
             borderRadius: 3,
             backgroundColor: "rgba(204,204,204, .8)",
-            color: global.darkText,
+            color: global.darkGrey,
           }}
           onChangeText={(password) => this.setState({
             password: password
@@ -180,7 +180,7 @@ class Login extends React.Component {
           title={"Sign in"}
           color={"#364652"}
           buttonStyle={{
-              backgroundColor: "rgba(255,255,255, .6)",
+              backgroundColor: global.backgroundWhite,
               width: 250,
               height: 45,
               borderColor: "transparent",
@@ -191,7 +191,7 @@ class Login extends React.Component {
         />
 
         <Text style={{
-            color: global.lightText,
+            color: global.lightGrey,
             margin: 15
           }}> or
 
@@ -201,7 +201,7 @@ class Login extends React.Component {
           title={"Sign up"}
           color={"#364652"}
           buttonStyle={{
-              backgroundColor: "rgba(255,255,255, .6)",
+              backgroundColor: global.backgroundWhite,
               width: 250,
               height: 45,
               borderColor: "transparent",
