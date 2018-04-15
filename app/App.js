@@ -10,6 +10,7 @@ import { Onboarding1 as Onboarding1Screen} from './Onboarding1';
 import { Onboarding2 as Onboarding2Screen} from './Onboarding2';
 import { Congratulations as CongratulationsScreen} from './Congratulations';
 import { Dashboard as DashboardScreen } from './Dashboard';
+import { SmileGame as SmileGameScreen } from './SmileGame'
 //import our global design settings
 import './global-design-constants.js';
 
@@ -45,13 +46,19 @@ const RootStack = StackNavigator(
           title: 'Onboarding2',
         }),
     },
+    SmileGame: {
+      screen: SmileGameScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'SmileGame',
+        }),
+    },
     Congratulations: {
       screen: CongratulationsScreen,
     },
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'Login',
   }
 );
 

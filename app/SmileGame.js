@@ -4,13 +4,14 @@ import './global-design-constants.js';
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
 
 //console.log('firebase from Signup.js:',firebase);
 
-class Onboarding2 extends React.Component {
+class SmileGame extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Onboarding 2"
+        title: "SmileGame"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -46,24 +47,28 @@ class Onboarding2 extends React.Component {
     return (
       <View style={styles.container}>
 
+      <Image
+          style={styles.bgImage}
+          source={{ uri: global.orangeSkyImgUrl }}
+        />
+
         <Text style={styles.text}>
-            This is a    &nbsp;
+            Is this person   &nbsp;
             <Text style={styles.boldText}>
-            sad face!
+            happy?
         </Text>
         </Text>
         <Image
                 source={this.state}
                 style={styles.image}
             />
-        <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
-            <Text style = {styles.textButton}>
-                Click here to see more faces!
-                </Text>
-        </TouchableHighlight>
 
         <Button style={styles.button}
-            title="Next"
+            title="Yes"
+        />
+
+        <Button style={styles.button}
+            title="No"
         />
 
       </View>
@@ -74,7 +79,6 @@ class Onboarding2 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'lightblue',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -113,14 +117,22 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 15,
   },
+    bgImage: {
+     backgroundColor: '#ccc',
+     flex: 1,
+     position: 'absolute',
+     width: '100%',
+     height: '100%',
+     justifyContent: 'center',
+ },
   button: {
     width: 100,
     height: 30,
     borderColor: "transparent",
-    borderWidth: 0,
-    borderRadius: 5,
-  }
+    borderWidth: 5,
+    borderRadius: 15,
+  },
 })
 
 
-export { Onboarding2 };
+export { SmileGame };
