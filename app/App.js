@@ -10,6 +10,7 @@ import { Onboarding1 as Onboarding1Screen} from './Onboarding1';
 import { Onboarding2 as Onboarding2Screen} from './Onboarding2';
 import { Congratulations as CongratulationsScreen} from './Congratulations';
 import { Dashboard as DashboardScreen } from './Dashboard';
+import { SmileGame as SmileGameScreen } from './SmileGame'
 //import our global design settings
 import './global-design-constants.js';
 
@@ -43,6 +44,12 @@ const RootStack = StackNavigator(
       screen: Onboarding2Screen,
       navigationOptions: ({ navigation }) => ({
           title: 'Onboarding2',
+        }),
+    },
+    SmileGame: {
+      screen: SmileGameScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'SmileGame',
         }),
     },
     Congratulations: {

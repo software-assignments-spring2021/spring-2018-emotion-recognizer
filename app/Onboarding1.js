@@ -4,6 +4,7 @@ import './global-design-constants.js';
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
 
 //console.log('firebase from Signup.js:',firebase);
 
