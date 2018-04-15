@@ -86,7 +86,7 @@ class Dashboard extends React.Component {
             {
             games.map((u, i) => {
                return (
-                 <Card key={i} style={styles.gameCard}>
+                 <Card key={i} containerStyle={styles.gameCard}>
                    <View>
                      <Text style={styles.itemHeader}>{u.name}</Text>
                      <Text style={styles.paragraph}>{u.shortDesc}</Text>
@@ -105,7 +105,7 @@ class Dashboard extends React.Component {
       </View>
 
       <View style={styles.analyticsView}>
-         
+
       </View>
    </View>
 
@@ -158,17 +158,19 @@ styles = StyleSheet.create({
    gameCard: {
       flex: 1,
       flexDirection: 'row',
-      alignItems: 'flex-start',
-      borderRadius: 10,
-      margin: 15,
-      padding: 10,
-      backgroundColor: global.backgroundWhite,
+      alignItems: 'center',
+      borderRadius: 5,
+      alignSelf: 'stretch',
+      padding: 15,
+      paddingBottom: 5,
+      backgroundColor: global.backgroundGreen,
    },
    itemHeader: {
       color: global.darkGrey,
       alignSelf: 'flex-start',
       //fontFamily: 'open-sans-bold',
-      fontSize: 12,
+      fontSize: 14,
+      paddingBottom: 5,
    },
    levelNum: {
       alignSelf: 'flex-end',
@@ -178,7 +180,7 @@ styles = StyleSheet.create({
    paragraph: {
       color: global.darkGrey,
       //fontFamily: 'open-sans',
-      fontSize: 11,
+      fontSize: 13,
    },
    playButton: {
       backgroundColor: global.lightGrey,
