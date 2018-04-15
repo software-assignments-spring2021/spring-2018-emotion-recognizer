@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+import { Pie, SmoothLine } from 'react-native-pathjs-charts';
 import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
@@ -25,6 +26,225 @@ const games = [
     level: 3
  },
 ];
+
+const pieData = [{
+   "name": "Washington",
+   "population": 7694980
+ },
+  {
+   "name": "Oregon",
+   "population": 2584160
+ }, {
+   "name": "Minnesota",
+   "population": 6590667,
+   "color": {'r':223,'g':154,'b':20}
+ }, {
+   "name": "Alaska",
+   "population": 7284698
+ }
+];
+
+ const pieOptions = {
+   margin: {
+     top: 20,
+     left: 20,
+     right: 20,
+     bottom: 20
+   },
+   width: 350,
+   height: 350,
+   color: '#2980B9',
+   r: 50,
+   R: 150,
+   legendPosition: 'topLeft',
+   animate: {
+     enabled: true,
+     type: 'oneByOne',
+     duration: 200,
+     fillTransition: 3
+   },
+   label: {
+     fontFamily: 'Arial',
+     fontSize: 8,
+     fontWeight: true,
+     color: '#ECF0F1'
+   }
+};
+
+let data = [
+    [{
+      "x": -10,
+      "y": -1000
+    }, {
+      "x": -9,
+      "y": -729
+    }, {
+      "x": -8,
+      "y": -512
+    }, {
+      "x": -7,
+      "y": -343
+    }, {
+      "x": -6,
+      "y": -216
+    }, {
+      "x": -5,
+      "y": -125
+    }, {
+      "x": -4,
+      "y": -64
+    }, {
+      "x": -3,
+      "y": -27
+    }, {
+      "x": -2,
+      "y": -8
+    }, {
+      "x": -1,
+      "y": -1
+    }, {
+      "x": 0,
+      "y": 0
+    }, {
+      "x": 1,
+      "y": 1
+    }, {
+      "x": 2,
+      "y": 8
+    }, {
+      "x": 3,
+      "y": 27
+    }, {
+      "x": 4,
+      "y": 64
+    }, {
+      "x": 5,
+      "y": 125
+    }, {
+      "x": 6,
+      "y": 216
+    }, {
+      "x": 7,
+      "y": 343
+    }, {
+      "x": 8,
+      "y": 512
+    }, {
+      "x": 9,
+      "y": 729
+    }, {
+      "x": 10,
+      "y": 1000
+    }],
+    [{
+      "x": -10,
+      "y": 100
+    }, {
+      "x": -9,
+      "y": 81
+    }, {
+      "x": -8,
+      "y": 64
+    }, {
+      "x": -7,
+      "y": 49
+    }, {
+      "x": -6,
+      "y": 36
+    }, {
+      "x": -5,
+      "y": 25
+    }, {
+      "x": -4,
+      "y": 16
+    }, {
+      "x": -3,
+      "y": 9
+    }, {
+      "x": -2,
+      "y": 4
+    }, {
+      "x": -1,
+      "y": 1
+    }, {
+      "x": 0,
+      "y": 0
+    }, {
+      "x": 1,
+      "y": 1
+    }, {
+      "x": 2,
+      "y": 4
+    }, {
+      "x": 3,
+      "y": 9
+    }, {
+      "x": 4,
+      "y": 16
+    }, {
+      "x": 5,
+      "y": 25
+    }, {
+      "x": 6,
+      "y": 36
+    }, {
+      "x": 7,
+      "y": 49
+    }, {
+      "x": 8,
+      "y": 64
+    }, {
+      "x": 9,
+      "y": 81
+    }, {
+      "x": 10,
+      "y": 100
+    }]
+  ]
+
+  let options = {
+    width: 280,
+    height: 280,
+    color: '#2980B9',
+    margin: {
+      top: 20,
+      left: 45,
+      bottom: 25,
+      right: 20
+    },
+    animate: {
+      type: 'delayed',
+      duration: 200
+    },
+    axisX: {
+      showAxis: true,
+      showLines: true,
+      showLabels: true,
+      showTicks: true,
+      zeroAxis: false,
+      orient: 'bottom',
+      label: {
+        fontFamily: 'Arial',
+        fontSize: 14,
+        fontWeight: true,
+        fill: '#34495E'
+      }
+    },
+    axisY: {
+      showAxis: true,
+      showLines: true,
+      showLabels: true,
+      showTicks: true,
+      zeroAxis: false,
+      orient: 'left',
+      label: {
+        fontFamily: 'Arial',
+        fontSize: 14,
+        fontWeight: true,
+        fill: '#34495E'
+      }
+    }
+  };
 
 let styles = {};
 
@@ -73,7 +293,7 @@ class Dashboard extends React.Component {
     console.log("rendering UI");
     return (
 
-   <View style={styles.container}>
+   <ScrollView contentContainerStyle={styles.container}>
 
       <View style={styles.pageTabs}>
          <View style={styles.pageTab}><Text style={styles.tabText}>Games</Text></View>
@@ -105,9 +325,40 @@ class Dashboard extends React.Component {
       </View>
 
       <View style={styles.analyticsView}>
+         <Text style={styles.mainViewHeader}>Analytics</Text>
+            <View>
+            <Pie data={pieData}
 
+             options={pieOptions}
+             accessorKey="population"
+             margin={{ top: 20, left: 20, right: 20, bottom: 20 }}
+             color="#2980B9"
+             pallete={
+               [
+                 { 'r': 25, 'g': 99, 'b': 201 },
+                 { 'r': 24, 'g': 175, 'b': 35 },
+                 { 'r': 190, 'g': 31, 'b': 69 },
+                 { 'r': 100, 'g': 36, 'b': 199 },
+                 { 'r': 214, 'g': 207, 'b': 32 },
+                 { 'r': 198, 'g': 84, 'b': 45 }
+               ]
+             }
+             r={50}
+             R={150}
+             legendPosition="topLeft"
+             label={{
+               fontFamily: 'Arial',
+               fontSize: 8,
+               fontWeight: true,
+               color: '#ECF0F1'
+             }}
+             />
+         </View>
+         <View>
+            <SmoothLine data={data} options={options} xKey="x" yKey="y" />
+         </View>
       </View>
-   </View>
+   </ScrollView>
 
 
 );
@@ -117,9 +368,8 @@ class Dashboard extends React.Component {
 
 styles = StyleSheet.create({
   container: {
-      flex: 1,
       justifyContent: 'flex-start',
-      alignItems: 'flex-start',
+      alignItems: 'stretch',
    },
    pageTabs: {
       flex: 1,
@@ -144,7 +394,7 @@ styles = StyleSheet.create({
        margin: 10,
    },
    gamesView: {
-      flex: 1,
+      flex: 2,
       flexDirection: 'column',
       alignItems: 'stretch',
       justifyContent: 'flex-start',
@@ -161,7 +411,7 @@ styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 5,
       alignSelf: 'stretch',
-      padding: 15,
+      padding: 20,
       paddingBottom: 5,
       backgroundColor: global.backgroundGreen,
    },
@@ -192,6 +442,12 @@ styles = StyleSheet.create({
    playButtonText: {
       color: global.mainBlue,
       fontSize: 13,
+   },
+   analyticsView: {
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      justifyContent: 'flex-start',
    },
 
 
