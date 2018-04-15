@@ -31,6 +31,7 @@
     "react-native-elements": "^0.19.1",
     "react-native-material-design": "^0.3.7",
     "react-navigation": "^1.5.11",
+    "regenerator": "^0.12.3",
     "rnpm": "^1.9.0",
     "watchman": "^1.0.0"
   }

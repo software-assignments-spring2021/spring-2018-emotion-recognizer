@@ -51,7 +51,7 @@ const RootStack = StackNavigator(
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Congratulations',
+    initialRouteName: 'Dashboard',
   }
 );
 
@@ -66,36 +66,32 @@ export default class App extends React.Component {
     super(props); // call the parent class's (React.Component) constructor first before anything else
 
     this.state = {
-      isReady: false
-    };
-
+      isReady: true
+   };//TODO: change back to false once async is solved
   } //constructor
 
   //this method is called just before the component is inserted/mounted into the DOM
-  componentWillMount() {
-    (async function() {
-
-      //load all the fonts defined in global-design-constants.js
-      await Font.loadAsync(global.fonts);
-
-      //set the initial state of this component
-      this.setState({
-        isReady: true
-      });
-
-    })();
-
-  } //componentWillMount
+  // async componentWillMount() {
+  //   await Font.loadAsync(global.fonts);
+  //
+  //     //set the initial state of this component
+  //     this.state = {
+  //       isReady: true
+  //     };
+  //     console.log(this.state, " state changed to ready");
+  //
+  // } //componentWillMount
 
   //render this component's View onto the screen
   render() {
-
     // if this componenet is not ready to be displayed, return a loading View
     if (!this.state.isReady) {
+      console.log("in AppLoading");
       //return the Expo app's default AppLoading view
       return <AppLoading />;
     }
 
+    console.log("now loading RootStack");
     // otherwise, show the Login component, which is the default in the RootStack
     return (
       /*<Text style={{marginTop: 30}}>

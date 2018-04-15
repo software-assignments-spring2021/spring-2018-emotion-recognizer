@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
 //design imports
-import {Overlay, FormLabel, FormInput, Button, Icon } from 'react-native-elements';
+import {Overlay, FormLabel, FormInput, Button, Card } from 'react-native-elements';
 
 
 //hard code sample games
@@ -31,6 +31,7 @@ let styles = {};
 class Dashboard extends React.Component {
   //this constructor method is called before the componentWillMount method
   //use it to set up the starting state of the component
+
   constructor(props) {
       console.log("Constructing...");
 
@@ -38,15 +39,16 @@ class Dashboard extends React.Component {
 
       console.log(props);
 
-      // set starting values of email and password
-      // this.state = {
-      // };
+      /*
+      set starting values of email and password
+      this.state = {
+      };
 
-      //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
-      //global.navigation = this.props.navigation;
+      hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
+      global.navigation = this.props.navigation;
       const { navigation } = this.props; //pull navigation from the props into its own variable
 
-      // figure it whether user is already logged-in
+      figure it whether user is already logged-in
       const user = firebase.auth().currentUser;
       if (user) {
         // User is signed in.
@@ -63,124 +65,85 @@ class Dashboard extends React.Component {
         navigation.pop();
 
       }
+      */
 
     } // constructor
 
-
-
-
   render() {
+    console.log("rendering UI");
     return (
-      <View style={styles.container}>
 
-         <Icon
-            name='star'
-            size= {30}
-            color= { global.starYellow }
-            Raised
-            iconStyle={styles.starStyle}
-         />
-         <Text style={styles.headerText}> 21 </Text>
-         <Text style={styles.paragraph}> Next Level in: </Text><Text style={styles.levelHighlight}>30 Points</Text>
-         <Card style={styles.sectionCard}>
-            {
-            games.map((u, i) => {
-               return (
-                 <View key={i} style={styles.gameCard}>
-                   <View>
-                      <Text style={styles.itemHeader}>{u.name}</Text>
-                      <Text style={styles.paragraph}>{u.shortDesc}</Text>
-                   </View>
-                   <View>
-                     <Text style={styles.levelNum}>{u.level}</Text>
-                     <Icon
-                        name='info-circle'
-                        size= {20}
-                        color= {global.darkGrey}
-                     />
-                     <Icon
-                        name='check-circle'
-                        size= {20}
-                        color= { global.darkGrey }
-                     />
-                     <Icon
-                        name='cog'
-                        size= {20}
-                        color= { global.darkGrey }
-                     />
-                   </View>
-                 </View>
-               );
-            })
-         }
-         </Card>
+   <View style={styles.container}>
 
-      <Icon
-         name='star'
-         size= {30}
-         color= {global.starYellow}
-         Raised
-         iconStyle={styles.starStyle}
-      />
-
-
-   <Text style={styles.headerText}> {this.state.user.email} </Text>
-
+      <View style={styles.pageTabs}>
+         <View style={styles.pageTab}><Text style={styles.tabText}>Games</Text></View>
+         <View style={styles.pageTab}><Text style={styles.tabText}>Analytics</Text></View>
       </View>
 
-    );
+      <View style={styles.gamesView}>
+         <Text style={styles.mainViewHeader}>Games</Text>
+
+         <Card style={styles.gameCard}>
+            
+         </Card>
+      </View>
+
+      <View style={styles.analyticsView}>
+
+      </View>
+   </View>
+
+
+);
+
   }
 }
 
 styles = StyleSheet.create({
   container: {
       flex: 1,
-      flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
    },
-   headerText: {
-       color: {global.darkGrey},
-       fontSize: 48,
-       fontFamily: 'montserrat-bold',
-       margin: 15,
-       marginBottom: 40,
-    },
-    starStyle: {
-      marginTop: 20,
-      marginLeft: 30,
-   },
-   levelHighlight: {
-      fontFamily: 'open-sans-bold',
-      fontSize: 12,
-      color: global.mainBlue
-   },
-   sectionCard: {
-      backgroundColor: global.backgroundGreen,
-   },
-   gameCard: {
-      borderRadius: 5,
-      margin: 10,
-      padding: 5,
+   pageTabs: {
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: global.backgroundWhite,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      maxHeight: 50,
+      borderBottomWidth: 1,
+      borderColor: global.darkGrey,
    },
-   itemHeader: {
+   pageTab: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: 15,
+   },
+   tabText: {
+       color: global.darkGrey,
+       fontSize: 18,
+       //fontFamily: 'montserrat-bold',
+       margin: 10,
+   },
+   gamesView: {
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+   },
+   mainViewHeader: {
       color: global.darkGrey,
-      fontFamily: 'open-sans-bold',
-      fontSize: 12,
+      fontSize: 18,
+      //fontFamily: 'montserrat-bold',
+      margin: 15,
    },
-   paragraph: {
-      color: global.darkGrey,
-      fontFamily: 'open-sans',
-      fontSize: 11,
+   gameCard: {
+      flex: 1,
+      flexDirection: 'row',
    },
-   levelNum: {
-      color: global.mainBlue,
-      fontFamily: 'open-sans-bold',
-      fontSize: 21
-   },
+
 
 });
 

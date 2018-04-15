@@ -9,10 +9,45 @@ const firebase = new initFirebase();
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bgImage: {
+     backgroundColor: '#ccc',
+     flex: 1,
+     position: 'absolute',
+     width: '100%',
+     height: '100%',
+     justifyContent: 'center',
+ },
+ fieldText: {
+      width: '50%',
+      padding: 10,
+      margin: 40,
+      borderWidth: 1,
+      borderColor: "#999",
+      borderRadius: 3,
+      backgroundColor: "rgba(204,204,204, .8)",
+      color: global.darkText,
+ },
+ button: {
+   backgroundColor: global.backgroundWhite,
+   width: 300,
+   height: 45,
+   borderColor: "transparent",
+   borderWidth: 0,
+   borderRadius: 5
+ }
+});
+
+
 class Login extends React.Component {
   //set up the title of this screen
   static navigationOptions = {
-    title: "Log In"
+   title: "Log In"
   };
 
   //this constructor method is called before the componentWillMount method
@@ -116,14 +151,7 @@ class Login extends React.Component {
       <View style={styles.container}>
 
         <Image
-          style={{
-            backgroundColor: '#ccc',
-            flex: 1,
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            justifyContent: 'center',
-          }}
+          style={styles.bgImage}
           source={{ uri: global.happyGirlImgUrl }}
         />
 
@@ -142,15 +170,7 @@ class Login extends React.Component {
             placeholder='Email'
             shake={true}
             placeholderTextColor={global.darkGrey}
-            style= {{
-                width: '50%',
-                padding: 10,
-                borderWidth: 1,
-                borderColor: "#999",
-                borderRadius:3,
-                backgroundColor: "rgba(204,204,204, .8)",
-                color: global.darkText,
-            }}
+            style= {styles.fieldText}
             onChangeText={(username) => this.setState({
                 email: username
             })}
@@ -161,16 +181,7 @@ class Login extends React.Component {
           placeholderTextColor={global.darkGrey}
           secureTextEntry={true}
           shake={true}
-          style={{
-            width: '50%',
-            padding: 10,
-            margin: 40,
-            borderWidth: 1,
-            borderColor: "#999",
-            borderRadius: 3,
-            backgroundColor: "rgba(204,204,204, .8)",
-            color: global.darkGrey,
-          }}
+          style={styles.fieldText}
           onChangeText={(password) => this.setState({
             password: password
           })}
@@ -179,14 +190,7 @@ class Login extends React.Component {
         <Button
           title={"Sign in"}
           color={"#364652"}
-          buttonStyle={{
-              backgroundColor: global.backgroundWhite,
-              width: 250,
-              height: 45,
-              borderColor: "transparent",
-              borderWidth: 1,
-              borderRadius: 5
-          }}
+          buttonStyle={styles.button}
           onPress={() => this.authenticate()}
         />
 
@@ -200,14 +204,7 @@ class Login extends React.Component {
         <Button
           title={"Sign up"}
           color={"#364652"}
-          buttonStyle={{
-              backgroundColor: global.backgroundWhite,
-              width: 250,
-              height: 45,
-              borderColor: "transparent",
-              borderWidth: 0,
-              borderRadius: 5
-          }}
+          buttonStyle={styles.button}
           onPress={() => this.props.navigation.navigate('Signup', {navigation: this.props.navigation})}
 
         />
@@ -217,14 +214,5 @@ class Login extends React.Component {
     );
   }
 }
-//TODO: firebase google authentication
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export { Login };
