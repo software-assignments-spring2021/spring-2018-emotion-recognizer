@@ -6,7 +6,7 @@ global.fonts = {
 	'montserrat': require('./src/assets/fonts/MontserratRegular.ttf'),
 	'open-sans-bold': require('./src/assets/fonts/OpenSansBold.ttf'),
 	'montserrat-bold': require('./src/assets/fonts/MontserratBold.ttf'),
-}
+};
 
 //the background image for the login and sign up views - you should really get a local copy of this
 global.orangeSkyImgUrl = 'https://images.unsplash.com/photo-1502210600188-51a3adffa4aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59d5264e02cb977d8e7a0acbb1e52ded&auto=format&fit=crop&w=634&q=80';

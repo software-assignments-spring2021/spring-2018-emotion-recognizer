@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
 //design imports
-import {Overlay, FormLabel, FormInput, Button, Card } from 'react-native-elements';
+import {Overlay, FormLabel, FormInput, Button, Card, TouchableOpacity } from 'react-native-elements';
 
 
 //hard code sample games
@@ -83,13 +83,29 @@ class Dashboard extends React.Component {
       <View style={styles.gamesView}>
          <Text style={styles.mainViewHeader}>Games</Text>
 
-         <Card style={styles.gameCard}>
-            
-         </Card>
+            {
+            games.map((u, i) => {
+               return (
+                 <Card key={i} style={styles.gameCard}>
+                   <View>
+                     <Text style={styles.itemHeader}>{u.name}</Text>
+                     <Text style={styles.paragraph}>{u.shortDesc}</Text>
+                   </View>
+                   <View>
+
+                   </View>
+                   <View>
+                      <Button buttonStyle={styles.playButton} titleStyle={styles.playButtonText} title="Play Now" ></Button>
+                   </View>
+                </Card>
+               );
+            })
+         }
+
       </View>
 
       <View style={styles.analyticsView}>
-
+         
       </View>
    </View>
 
@@ -130,7 +146,7 @@ styles = StyleSheet.create({
    gamesView: {
       flex: 1,
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: 'stretch',
       justifyContent: 'flex-start',
    },
    mainViewHeader: {
@@ -142,6 +158,38 @@ styles = StyleSheet.create({
    gameCard: {
       flex: 1,
       flexDirection: 'row',
+      alignItems: 'flex-start',
+      borderRadius: 10,
+      margin: 15,
+      padding: 10,
+      backgroundColor: global.backgroundWhite,
+   },
+   itemHeader: {
+      color: global.darkGrey,
+      alignSelf: 'flex-start',
+      //fontFamily: 'open-sans-bold',
+      fontSize: 12,
+   },
+   levelNum: {
+      alignSelf: 'flex-end',
+      textAlign: 'right',
+      fontSize: 12,
+   },
+   paragraph: {
+      color: global.darkGrey,
+      //fontFamily: 'open-sans',
+      fontSize: 11,
+   },
+   playButton: {
+      backgroundColor: global.lightGrey,
+      margin: 10,
+      marginTop: 15,
+      width: 120,
+      alignSelf: 'center',
+   },
+   playButtonText: {
+      color: global.mainBlue,
+      fontSize: 13,
    },
 
 
