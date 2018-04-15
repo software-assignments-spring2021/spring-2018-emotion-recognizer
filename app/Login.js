@@ -6,6 +6,7 @@ import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
 //design imports
+import './global-design-constants.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bgImage: {
-     backgroundColor: '#ccc',
+     backgroundColor: global.lightGrey,
      flex: 1,
      position: 'absolute',
      width: '100%',
@@ -28,18 +29,25 @@ const styles = StyleSheet.create({
       padding: 10,
       margin: 40,
       borderWidth: 1,
-      borderColor: "#999",
+      borderColor: global.midGrey,
       borderRadius: 3,
-      backgroundColor: "rgba(204,204,204, .8)",
+      backgroundColor: global.lightGreySemiTransparent,
       color: global.darkText,
  },
  button: {
    backgroundColor: global.backgroundWhite,
    width: 300,
    height: 45,
-   borderColor: "transparent",
+   borderColor: global.transparent,
    borderWidth: 0,
    borderRadius: 5
+ },
+ text: {
+   color: global.lightGrey,
+   fontSize: 48,
+   fontWeight: "bold",
+   margin: 15,
+   marginBottom: 40,
  }
 });
 
@@ -156,13 +164,7 @@ class Login extends React.Component {
         />
 
         <Text
-          style={{
-          color: global.lightGrey,
-          fontSize: 48,
-          fontWeight: "bold",
-          margin: 15,
-          marginBottom: 40,
-          }}>
+          style={styles.text}>
             SMILE!
         </Text>
 
@@ -194,11 +196,8 @@ class Login extends React.Component {
           onPress={() => this.authenticate()}
         />
 
-        <Text style={{
-            color: global.lightGrey,
-            margin: 15
-          }}> or
-
+        <Text style={styles.text}>
+        or
         </Text>
 
         <Button

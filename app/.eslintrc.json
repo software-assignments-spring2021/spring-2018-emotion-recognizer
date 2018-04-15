@@ -10,6 +10,7 @@
 			"react-native/react-native": true
   },
   "extends": ["eslint:recommended", "plugin:react-native/all"],
+	"parser": "babel-eslint",
   "parserOptions": {
 		"ecmaVersion": 2017,
     "ecmaFeatures": {
@@ -19,6 +20,7 @@
 		"sourceType": "module"
   },
   "rules": {
+		"strict": 0,
     "semi": [
         "error",
         "always"

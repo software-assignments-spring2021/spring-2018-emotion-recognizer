@@ -5,6 +5,7 @@ import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
 //design imports
+import './global-design-constants.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
 
@@ -16,28 +17,35 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bgImage: {
-     backgroundColor: '#ccc',
+     backgroundColor: global.lightGrey,
      flex: 1,
      position: 'absolute',
      width: '100%',
      height: '100%',
      justifyContent: 'center',
  },
+ text: {
+   color: global.lightGrey,
+   fontSize: 48,
+   fontWeight: "bold",
+   margin: 15,
+   marginBottom: 40,
+ },
  fieldText: {
       width: '50%',
       padding: 10,
       margin: 40,
       borderWidth: 1,
-      borderColor: "#999",
+      borderColor: global.midGrey,
       borderRadius: 3,
-      backgroundColor: "rgba(204,204,204, .8)",
+      backgroundColor: global.lightGreySemiTransparent,
       color: global.darkText,
  },
  button: {
    backgroundColor: global.backgroundWhite,
    width: 300,
    height: 45,
-   borderColor: "transparent",
+   borderColor: global.transparent,
    borderWidth: 0,
    borderRadius: 5
  }
@@ -104,7 +112,7 @@ class Signup extends React.Component {
             );
 
             //debug error
-            console.log(error)
+            console.log(error);
             //throw error;
         });
     }
@@ -118,13 +126,7 @@ class Signup extends React.Component {
             source={{ uri: global.orangeSkyImgUrl }}
         />
 
-        <Text style={{
-            color: global.lightGrey,
-            fontSize: 48,
-            fontWeight: "bold",
-            margin: 15,
-            marginBottom: 40,
-        }}>
+        <Text style={styles.text}>
             Sign Up
         </Text>
 
@@ -177,29 +179,19 @@ class Signup extends React.Component {
         />
 
 
-        <Text style={{
-            color: global.lightGrey,
-            margin: 15
-          }}> or
-
+        <Text style={styles.text}>
+        or
         </Text>
 
         <Button
             title={"Sign up with google"}
             color={"#364652"}
-            buttonStyle={{
-                backgroundColor: global.backgroundWhite,
-                width: 300,
-                height: 45,
-                borderColor: "transparent",
-                borderWidth: 0,
-                borderRadius: 5
-            }}
+            buttonStyle={styles.button}
         />
 
       </View>
 
-    )
+    );
   }
 }
 

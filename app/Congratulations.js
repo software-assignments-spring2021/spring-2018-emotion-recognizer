@@ -7,42 +7,6 @@ import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elemen
 
 //console.log('firebase from Signup.js:',firebase);
 
-class Congratulations extends React.Component {
-    //set up the title of this screen
-    static navigationOptions = {
-        title: "Congratulations"
-    };
-
-    //this constructor method is called before the componentWillMount method
-    //use it to set up the starting state of the component
-    constructor(props) {
-        super(props); // call the parent class's (React.Component) constructor first before anything else
-
-    } //constructor
-
-
-  render() {
-    return (
-      <View style={styles.container}>
-
-        <Text style={styles.text}> 
-            Congraulations! You completed the tutorial. 
-        </Text>
-
-        <Button style={styles.button}
-            title={"Play the smile game"}
-        />
-
-        <Button style={styles.button}
-            title={"Try it yourself"}
-        />
-
-      </View>
-
-    )
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: global.secondaryGreen,
@@ -64,7 +28,7 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
   },
   image: {
-    borderColor: 'white',
+    borderColor: global.white,
     borderRadius: 10,
     borderWidth: 10,
     width: 150,
@@ -76,11 +40,47 @@ const styles = StyleSheet.create({
     width: 300,
     height: 30,
     margin: 15,
-    borderColor: "transparent",
+    borderColor: global.transparent,
     borderWidth: 0,
     borderRadius: 5,
   }
-})
+});
 
+
+class Congratulations extends React.Component {
+    //set up the title of this screen
+    static navigationOptions = {
+        title: "Congratulations"
+    };
+
+    //this constructor method is called before the componentWillMount method
+    //use it to set up the starting state of the component
+    constructor(props) {
+        super(props); // call the parent class's (React.Component) constructor first before anything else
+
+    } //constructor
+
+
+  render() {
+    return (
+      <View style={styles.container}>
+
+        <Text style={styles.text}>
+            Congraulations! You completed the tutorial.
+        </Text>
+
+        <Button style={styles.button}
+            title={"Play the smile game"}
+        />
+
+        <Button style={styles.button}
+            title={"Try it yourself"}
+        />
+
+      </View>
+
+    );
+  }
+}
 
 export { Congratulations };
