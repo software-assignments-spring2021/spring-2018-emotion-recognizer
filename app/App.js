@@ -51,7 +51,7 @@ const RootStack = StackNavigator(
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'Login',
   }
 );
 
@@ -65,41 +65,42 @@ export default class App extends React.Component {
   constructor(props) {
     super(props); // call the parent class's (React.Component) constructor first before anything else
 
+    //set the initial state of this component
     this.state = {
-      isReady: true
-   };//TODO: change back to false once async is solved
+      isReady: false,
+    };
   } //constructor
 
   //this method is called just before the component is inserted/mounted into the DOM
-  // async componentWillMount() {
-  //   await Font.loadAsync(global.fonts);
-  //
-  //     //set the initial state of this component
-  //     this.state = {
-  //       isReady: true
-  //     };
-  //     console.log(this.state, " state changed to ready");
-  //
-  // } //componentWillMount
+  componentWillMount() {
+    Font.loadAsync(global.fonts)
+      .then( () => {
+      this.setState(previousState => {
+        return { isReady: true };
+      });
+      console.log("state changed to ready");
+      })
+      .catch( (err) => {
+        console.log(err);
+      });
+  } //componentWillMount
 
   //render this component's View onto the screen
   render() {
     // if this componenet is not ready to be displayed, return a loading View
+    console.log(this.state);
+
+    let screen;
     if (!this.state.isReady) {
-      console.log("in AppLoading");
-      //return the Expo app's default AppLoading view
-      return <AppLoading />;
+      //fonts have not loaded yet
+      screen = <AppLoading />;
+    }
+    else {
+      // fonts have loaded
+      screen = <RootStack />;
     }
 
-    console.log("now loading RootStack");
-    // otherwise, show the Login component, which is the default in the RootStack
-    return (
-      /*<Text style={{marginTop: 30}}>
-      This is not a drill!
-      </Text>*/
-
-      <RootStack />
-    );
+    return (screen);
   }
 
 }
