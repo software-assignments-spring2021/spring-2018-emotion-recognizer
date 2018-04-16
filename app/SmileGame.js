@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     borderColor: global.transparent,
     borderWidth: 5,
     borderRadius: 15,
+    marginBottom: 5,
   },
 });
 
@@ -75,7 +76,7 @@ class SmileGame extends React.Component {
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-        this.state = { uri: global.sadKidImgUrl };
+        this.state = { uri: global.sadKidImgUrl3 };
         this.count = 0;
     } //constructor
 

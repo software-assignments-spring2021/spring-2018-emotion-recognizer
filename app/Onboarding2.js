@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   button: {
-    width: 100,
+    width: 200,
     height: 30,
     borderColor: global.transparent,
     borderWidth: 0,
@@ -97,7 +97,7 @@ class Onboarding2 extends React.Component {
       <View style={styles.container}>
 
         <Text style={styles.text}>
-            This is a    &nbsp;
+            This is a          &nbsp;
             <Text style={styles.boldText}>
             sad face!
         </Text>
@@ -108,13 +108,13 @@ class Onboarding2 extends React.Component {
             />
         <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
             <Text style = {styles.textButton}>
-                Click here to see more faces!
+                Touch here to see more faces!
                 </Text>
         </TouchableHighlight>
 
         <Button
           style={styles.button}
-          title="Next"
+          title="Play the game!"
           onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
         />
 

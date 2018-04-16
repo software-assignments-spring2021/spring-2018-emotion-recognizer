@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     margin: 5,
     marginTop: 5,
     marginBottom: 15,
+    borderColor: global.white,
     textShadowColor: global.white,
   },
   boldText: {
@@ -111,7 +112,7 @@ class Onboarding1 extends React.Component {
             />
         <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
             <Text style = {styles.textButton}>
-                Click here to see more faces!
+                Touch here to see more faces!
                 </Text>
         </TouchableHighlight>
 

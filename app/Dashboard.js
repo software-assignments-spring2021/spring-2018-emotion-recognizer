@@ -31,18 +31,18 @@ const games = [
 ];
 
 const pieData = [{
-   "name": "Washington",
+   "name": "Happy",
    "population": 7694980
  },
   {
-   "name": "Oregon",
+   "name": "Sad",
    "population": 2584160
  }, {
-   "name": "Minnesota",
+   "name": "Excited",
    "population": 6590667,
    "color": {'r':223,'g':154,'b':20}
  }, {
-   "name": "Alaska",
+   "name": "Angry",
    "population": 7284698
  }
 ];
