@@ -7,6 +7,56 @@ import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elemen
 
 //console.log('firebase from Signup.js:',firebase);
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: global.backgroundBlue,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    color: global.darkGrey,
+    justifyContent: 'center',
+    fontSize: 50,
+    margin: 15,
+    marginTop: 1,
+    marginBottom: 5,
+  },
+  textButton: {
+    color: global.darkGrey,
+    fontSize: 20,
+    margin: 5,
+    marginTop: 5,
+    marginBottom: 15,
+    textShadowColor: global.white,
+  },
+  boldText: {
+    color: global.darkGrey,
+    justifyContent: 'center',
+    fontSize: 50,
+    margin: 15,
+    marginBottom: 10,
+    fontWeight:"bold",
+  },
+  image: {
+    borderColor: global.white,
+    borderRadius: 10,
+    borderWidth: 10,
+    width: 300,
+    height: 350,
+    justifyContent: 'center',
+    marginBottom: 1,
+    marginTop: 15,
+  },
+  button: {
+    width: 100,
+    height: 30,
+    borderColor: global.transparent,
+    borderWidth: 0,
+    borderRadius: 5,
+  }
+});
+
 class Onboarding2 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
@@ -24,12 +74,12 @@ class Onboarding2 extends React.Component {
 
     changePicture = () => {
     this.count++;
-    if(this.count == 1) {
+    if(this.count === 1) {
         this.setState({
             uri: global.sadGirlImgUrl
         });
     }
-    else if (this.count == 2) {
+    else if (this.count === 2) {
         this.setState({
             uri: global.sadKidImgUrl2
         });
@@ -62,65 +112,16 @@ class Onboarding2 extends React.Component {
                 </Text>
         </TouchableHighlight>
 
-        <Button style={styles.button}
-            title="Next"
+        <Button
+          style={styles.button}
+          title="Next"
+          onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
         />
 
       </View>
 
-    )
+    );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'lightblue',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: global.darkGrey,
-    justifyContent: 'center',
-    fontSize: 50,
-    margin: 15,
-    marginTop: 1,
-    marginBottom: 5,
-  },
-  textButton: {
-    color: global.darkGrey,
-    fontSize: 20,
-    margin: 5,
-    marginTop: 5,
-    marginBottom: 15,
-    textShadowColor: 'white',
-  },
-  boldText: {
-    color: global.darkGrey,
-    justifyContent: 'center',
-    fontSize: 50,
-    margin: 15,
-    marginBottom: 10,
-    fontWeight:"bold",
-  },
-  image: {
-    borderColor: 'white',
-    borderRadius: 10,
-    borderWidth: 10,
-    width: 300,
-    height: 350,
-    justifyContent: 'center',
-    marginBottom: 1,
-    marginTop: 15,
-  },
-  button: {
-    width: 100,
-    height: 30,
-    borderColor: "transparent",
-    borderWidth: 0,
-    borderRadius: 5,
-  }
-})
-
 
 export { Onboarding2 };

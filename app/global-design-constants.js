@@ -25,6 +25,8 @@ global.midGrey = "#9B9B9B";
 global.darkGrey = "#364652";
 
 global.mainBlue = "#3989E1";
+global.backgroundBlue = "#b7d9ff";
+
 global.backgroundGreen = "#69F0AE";
 
 global.white = "#FFFFFF";
