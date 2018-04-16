@@ -13,16 +13,19 @@ const games = [
  {
     name: 'Happy Or Sad',
     shortDesc: 'Click "thumbs up" for happy and "thumbs down" for sad',
+    path: 'Onboarding1',
     level: 1
  },
  {
     name: 'Happy',
     shortDesc: 'Click on the picture that has a happy face',
+    path: '',
     level: 1
  },
  {
     name: 'Match the face',
     shortDesc: 'Repeat after the game and make the same face',
+    path: '',
     level: 3
  },
 ];
@@ -71,7 +74,7 @@ const pieData = [{
    }
 };
 
-let data = [
+const data = [
     [{
       "x": -10,
       "y": -1000
@@ -200,9 +203,9 @@ let data = [
       "x": 10,
       "y": 100
     }]
-  ]
+  ];
 
-  let options = {
+  const options = {
     width: 280,
     height: 280,
     color: '#2980B9',
@@ -315,7 +318,13 @@ class Dashboard extends React.Component {
 
                    </View>
                    <View>
-                      <Button buttonStyle={styles.playButton} titleStyle={styles.playButtonText} title="Play Now" ></Button>
+                      <Button
+                        buttonStyle={styles.playButton}
+                        titleStyle={styles.playButtonText}
+                        title="Play Now"
+                        onPress={() => this.props.navigation.navigate(u.path, {navigation: this.props.navigation})}
+                        >
+                      </Button>
                    </View>
                 </Card>
                );
