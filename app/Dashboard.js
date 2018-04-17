@@ -11,14 +11,8 @@ import {Button, Card, TouchableOpacity } from 'react-native-elements';
 //hard code sample games
 const games = [
  {
-    name: 'Learn Emotions',
-    shortDesc: 'Click "thumbs up" for happy and "thumbs down" for sad',
-    path: 'Onboarding1',
-    level: 1
- },
- {
     name: 'Happy Or Sad',
-    shortDesc: 'Test yourself by',
+    shortDesc: 'Check how well you\'ve learned the emotions with this quiz ',
     path: 'SmileGame',
     level: 1
  },
@@ -350,7 +344,26 @@ class Dashboard extends React.Component {
       { this.state.gamesStatus ? <View style={styles.gamesView}>
          <Text style={styles.mainViewHeader}>Games</Text>
 
-            {
+         <Card containerStyle={styles.gameCard}>
+             <View>
+                <Text style={styles.itemHeader}>Learn Emotions</Text>
+                <Text style={styles.paragraph}>Go through faces to learn how emotions look and to prepare for the games</Text>
+             </View>
+             <View>
+
+             </View>
+             <View>
+                 <Button
+                   buttonStyle={styles.playButton}
+                   color={global.lightGrey}
+                   title="Learn Now"
+                   onPress={() => this.props.navigation.navigate('Onboarding1', {navigation: this.props.navigation})}
+                   >
+                 </Button>
+             </View>
+          </Card>
+       
+          {
             games.map((u, i) => {
                return (
                  <Card key={i} containerStyle={styles.gameCard}>
