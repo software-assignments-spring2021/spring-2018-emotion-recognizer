@@ -19,7 +19,7 @@ const games = [
  {
     name: 'Happy',
     shortDesc: 'Click on the picture that has a happy face',
-    path: '',
+    path: 'Onboarding2',
     level: 1
  },
  {
@@ -270,7 +270,6 @@ class Dashboard extends React.Component {
 
       //set starting values of email and password
       this.state = {
-         status: false
       };
 
       //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
@@ -285,7 +284,9 @@ class Dashboard extends React.Component {
 
         //keep a reference to this user's info
         this.state = {
-          user: user
+          user: user,
+          gamesStatus: true,
+          analyticsStatus: true
         };
 
       } else {
@@ -306,17 +307,21 @@ class Dashboard extends React.Component {
   //    console.log('toggle button handler: '+ this.state.showAnalytics);
   // }
 
-  ShowHideTextComponentView = () => {
+  ShowHideView () {
      console.log("button pressed");
-     if (this.state.status === true) {
-       this.setState({status: false});
+     if (this.state.gamesStatus === true) {
+       this.setState({gamesStatus: false, analyticsStatus: true});
+       console.log("state change: showing analytics");
      } else {
-       this.setState({status: true});
+        this.setState({gamesStatus: true, analyticsStatus: false});
+        console.log("state change: showing games");
      }
    }
 
   render() {
     console.log("rendering UI");
+    console.log("gamesStatus: " + this.state.gamesStatus);
+    console.log("analyticsStatus: " + this.state.analyticsStatus);
     return (
 
    <ScrollView contentContainerStyle={styles.container}>
@@ -327,7 +332,7 @@ class Dashboard extends React.Component {
             title="Games"
             buttonStyle={styles.topButton}
             color={global.darkGrey}>
-            onPress={this.ShowHideTextComponentView}
+            onPress={() => this.ShowHideView.bind(this)}
          </Button>
          </View>
          <View style={styles.pageTab}>
@@ -335,12 +340,12 @@ class Dashboard extends React.Component {
                title="Analytics"
                buttonStyle={styles.topButton}
                color={global.darkGrey}>
-               onPress={this.ShowHideTextComponentView}
+               onPress={() => this.ShowHideView.bind(this)}
             </Button>
          </View>
       </View>
 
-      <View style={styles.gamesView}>
+      { this.state.gamesStatus ? <View style={styles.gamesView}>
          <Text style={styles.mainViewHeader}>Games</Text>
 
             {
@@ -368,9 +373,10 @@ class Dashboard extends React.Component {
             })
          }
 
-      </View>
+      </View> : null
+      }
 
-      { this.state.status ?
+      { this.state.analyticsStatus ?
          <View style={styles.analyticsView}>
             <Text style={styles.mainViewHeader}>Analytics</Text>
             <View style={styles.chartStyles}>
@@ -413,7 +419,7 @@ class Dashboard extends React.Component {
    </ScrollView>
 
 
-);
+   );
 
   }
 }
