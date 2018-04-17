@@ -292,14 +292,8 @@ class Dashboard extends React.Component {
 
     } // constructor
 
-  //set up toggle status to show and hide views
-  // toggleStatus() {
-  //   this.setState({
-  //     showAnalytics : true
-  //    });
-  //    console.log('toggle button handler: '+ this.state.showAnalytics);
-  // }
 
+  //show the selected view in the top nav bar
   ShowHideView () {
      console.log("button pressed");
      if (this.state.gamesStatus === true) {
@@ -362,7 +356,7 @@ class Dashboard extends React.Component {
                  </Button>
              </View>
           </Card>
-       
+
           {
             games.map((u, i) => {
                return (
@@ -427,7 +421,8 @@ class Dashboard extends React.Component {
             <View style={styles.chartStyles}>
                <Text style={styles.graphHeader}>Scores Over Time</Text>
 
-               <SmoothLine data={smoothData} options={smoothOptions} xKey="x" yKey="y" />
+               <SmoothLine data={smoothData} options={smoothOptions} xKey="x" yKey="y"/>
+               <Text style={styles.graphSubHeader}>Games Played</Text>
             </View>
          </View> : null
       }
@@ -547,6 +542,11 @@ styles = StyleSheet.create({
       color: global.mainBlue,
       textAlign: 'center',
       fontFamily: 'montserrat-bold',
+   },
+   graphSubHeader: {
+      color: global.darkGrey,
+      fontSize: 12,
+      fontFamily: 'open-sans',
    },
 
 
