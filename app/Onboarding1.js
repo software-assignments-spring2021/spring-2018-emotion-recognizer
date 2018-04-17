@@ -8,6 +8,59 @@ import { StackNavigator } from 'react-navigation';
 
 //console.log('firebase from Signup.js:',firebase);
 
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: global.backgroundYellow,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    color: global.darkGrey,
+    justifyContent: 'center',
+    fontSize: 50,
+    margin: 15,
+    marginTop: 1,
+    marginBottom: 5,
+  },
+  textButton: {
+    color: global.darkGrey,
+    fontSize: 20,
+    margin: 5,
+    marginTop: 5,
+    marginBottom: 15,
+    borderColor: global.white,
+    textShadowColor: global.white,
+  },
+  boldText: {
+    color: global.darkGrey,
+    justifyContent: 'center',
+    fontSize: 50,
+    margin: 15,
+    marginBottom: 10,
+    fontWeight:"bold",
+  },
+  image: {
+    borderColor: global.white,
+    borderRadius: 10,
+    borderWidth: 10,
+    width: 300,
+    height: 350,
+    justifyContent: 'center',
+    marginBottom: 1,
+    marginTop: 15,
+  },
+  button: {
+    width: 100,
+    height: 30,
+    borderColor: global.transparent,
+    borderWidth: 0,
+    borderRadius: 5,
+  }
+});
+
+
 class Onboarding1 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
@@ -25,12 +78,12 @@ class Onboarding1 extends React.Component {
 
     changePicture = () => {
     this.count++;
-    if(this.count == 1) {
+    if(this.count === 1) {
         this.setState({
             uri: global.happyGuyImgUrl
         });
     }
-    else if (this.count == 2) {
+    else if (this.count === 2) {
         this.setState({
             uri: global.happyGirlImgUrl2
         });
@@ -59,69 +112,20 @@ class Onboarding1 extends React.Component {
             />
         <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
             <Text style = {styles.textButton}>
-                Click here to see more faces!
+                Touch here to see more faces!
                 </Text>
         </TouchableHighlight>
 
-        <Button style={styles.button}
-            title="Next"
+        <Button
+          style={styles.button}
+          title="Next"
+          onPress={() => this.props.navigation.navigate('Onboarding2', {navigation: this.props.navigation})}
         />
 
       </View>
 
-    )
+    );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: global.backgroundYellow,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: global.darkGrey,
-    justifyContent: 'center',
-    fontSize: 50,
-    margin: 15,
-    marginTop: 1,
-    marginBottom: 5,
-  },
-  textButton: {
-    color: global.darkGrey,
-    fontSize: 20,
-    margin: 5,
-    marginTop: 5,
-    marginBottom: 15,
-    textShadowColor: 'white',
-  },
-  boldText: {
-    color: global.darkGrey,
-    justifyContent: 'center',
-    fontSize: 50,
-    margin: 15,
-    marginBottom: 10,
-    fontWeight:"bold",
-  },
-  image: {
-    borderColor: 'white',
-    borderRadius: 10,
-    borderWidth: 10,
-    width: 300,
-    height: 350,
-    justifyContent: 'center',
-    marginBottom: 1,
-    marginTop: 15,
-  },
-  button: {
-    width: 100,
-    height: 30,
-    borderColor: "transparent",
-    borderWidth: 0,
-    borderRadius: 5,
-  }
-})
-
 
 export { Onboarding1 };

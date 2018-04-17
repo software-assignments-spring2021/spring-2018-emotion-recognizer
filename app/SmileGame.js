@@ -8,6 +8,64 @@ import { StackNavigator } from 'react-navigation';
 
 //console.log('firebase from Signup.js:',firebase);
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    color: global.darkGrey,
+    justifyContent: 'center',
+    fontSize: 50,
+    margin: 15,
+    marginTop: 1,
+    marginBottom: 5,
+  },
+  textButton: {
+    color: global.darkGrey,
+    fontSize: 20,
+    margin: 5,
+    marginTop: 5,
+    marginBottom: 15,
+    textShadowColor: 'white',
+  },
+  boldText: {
+    color: global.darkGrey,
+    justifyContent: 'center',
+    fontSize: 50,
+    margin: 15,
+    marginBottom: 10,
+    fontWeight:"bold",
+  },
+  image: {
+    borderColor: global.white,
+    borderRadius: 10,
+    borderWidth: 10,
+    width: 300,
+    height: 350,
+    justifyContent: 'center',
+    marginBottom: 1,
+    marginTop: 15,
+  },
+    bgImage: {
+     backgroundColor: global.lightGrey,
+     flex: 1,
+     position: 'absolute',
+     width: '100%',
+     height: '100%',
+     justifyContent: 'center',
+ },
+  button: {
+    width: 100,
+    height: 30,
+    borderColor: global.transparent,
+    borderWidth: 5,
+    borderRadius: 15,
+    marginBottom: 5,
+  },
+});
+
 class SmileGame extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
@@ -18,19 +76,19 @@ class SmileGame extends React.Component {
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-        this.state = { uri: global.sadKidImgUrl };
+        this.state = { uri: global.sadKidImgUrl3 };
         this.count = 0;
     } //constructor
 
 
     changePicture = () => {
     this.count++;
-    if(this.count == 1) {
+    if(this.count === 1) {
         this.setState({
             uri: global.sadGirlImgUrl
         });
     }
-    else if (this.count == 2) {
+    else if (this.count === 2) {
         this.setState({
             uri: global.sadKidImgUrl2
         });
@@ -76,63 +134,5 @@ class SmileGame extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: global.darkGrey,
-    justifyContent: 'center',
-    fontSize: 50,
-    margin: 15,
-    marginTop: 1,
-    marginBottom: 5,
-  },
-  textButton: {
-    color: global.darkGrey,
-    fontSize: 20,
-    margin: 5,
-    marginTop: 5,
-    marginBottom: 15,
-    textShadowColor: 'white',
-  },
-  boldText: {
-    color: global.darkGrey,
-    justifyContent: 'center',
-    fontSize: 50,
-    margin: 15,
-    marginBottom: 10,
-    fontWeight:"bold",
-  },
-  image: {
-    borderColor: 'white',
-    borderRadius: 10,
-    borderWidth: 10,
-    width: 300,
-    height: 350,
-    justifyContent: 'center',
-    marginBottom: 1,
-    marginTop: 15,
-  },
-    bgImage: {
-     backgroundColor: '#ccc',
-     flex: 1,
-     position: 'absolute',
-     width: '100%',
-     height: '100%',
-     justifyContent: 'center',
- },
-  button: {
-    width: 100,
-    height: 30,
-    borderColor: "transparent",
-    borderWidth: 5,
-    borderRadius: 15,
-  },
-})
-
 
 export { SmileGame };
