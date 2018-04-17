@@ -13,7 +13,7 @@ import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-eleme
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   bgImage: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
  },
    buttonArea: {
       marginTop: 20,
-      marginBottom: 50
+      marginBottom: 75
    },
    orText: {
      color: global.lightGrey,
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
    },
    signupButton: {
       backgroundColor: global.backgroundWhite,
-      width: 220,
-      height: 35,
+      width: 170,
+      height: 25,
       borderColor: global.transparent,
       borderWidth: 0,
       borderRadius: 5,
@@ -180,7 +180,7 @@ class Login extends React.Component {
 
         <Image
           style={styles.bgImage}
-          source={{ uri: global.happyGirlImgUrl }}
+          source={{ uri: global.orangeSkyImgUrl }}
         />
 
         <Text

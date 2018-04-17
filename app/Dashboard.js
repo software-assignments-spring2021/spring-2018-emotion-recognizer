@@ -11,15 +11,15 @@ import {Button, Card, TouchableOpacity } from 'react-native-elements';
 //hard code sample games
 const games = [
  {
-    name: 'Happy Or Sad',
+    name: 'Learn Emotions',
     shortDesc: 'Click "thumbs up" for happy and "thumbs down" for sad',
     path: 'Onboarding1',
     level: 1
  },
  {
-    name: 'Happy',
-    shortDesc: 'Click on the picture that has a happy face',
-    path: 'Onboarding2',
+    name: 'Happy Or Sad',
+    shortDesc: 'Test yourself by',
+    path: 'SmileGame',
     level: 1
  },
  {
@@ -267,7 +267,6 @@ class Dashboard extends React.Component {
 
       console.log(props);
 
-
       //set starting values of email and password
       this.state = {
       };
@@ -286,7 +285,7 @@ class Dashboard extends React.Component {
         this.state = {
           user: user,
           gamesStatus: true,
-          analyticsStatus: true
+          analyticsStatus: false
         };
 
       } else {
@@ -330,17 +329,20 @@ class Dashboard extends React.Component {
          <View style={styles.pageTab}>
          <Button
             title="Games"
-            buttonStyle={styles.topButton}
-            color={global.darkGrey}>
-            onPress={() => this.ShowHideView.bind(this)}
+            buttonStyle={[styles.topButton, this.state.gamesStatus && styles.topButtonActive]}
+            color={global.darkGrey}
+            onPress={this.ShowHideView.bind(this)}
+            >
          </Button>
          </View>
+         <Text style={styles.tabDivider}></Text>
          <View style={styles.pageTab}>
             <Button
                title="Analytics"
-               buttonStyle={styles.topButton}
-               color={global.darkGrey}>
-               onPress={() => this.ShowHideView.bind(this)}
+               buttonStyle={[styles.topButton, this.state.analyticsStatus && styles.topButtonActive]}
+               color={global.darkGrey}
+               onPress={this.ShowHideView.bind(this)}
+               >
             </Button>
          </View>
       </View>
@@ -447,6 +449,18 @@ styles = StyleSheet.create({
    },
    topButton: {
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      width: 180,
+   },
+   topButtonActive: {
+      backgroundColor: global.backgroundGreen,
+      width: 180,
+      borderRadius: 5,
+      margin: 0,
+   },
+   tabDivider: {
+      borderWidth: 1,
+      borderColor: global.darkGrey,
+      height: 40
    },
    gamesView: {
       flex: 2,
