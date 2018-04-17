@@ -23,8 +23,23 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textButton: {
-    color: global.darkGrey,
-    fontSize: 20,
+    color: 'green',
+    fontSize: 40,
+    backgroundColor: 'white',
+    textDecorationColor: 'white',
+    fontWeight: "bold",
+    margin: 5,
+    marginTop: 5,
+    marginBottom: 15,
+    textShadowColor: 'white',
+    textShadowRadius: 10,
+  },
+    textButtonRed: {
+    color: 'red',
+    backgroundColor: 'white',
+    borderRadius: 40,
+    fontSize: 40,
+    fontWeight: "bold",
     margin: 5,
     marginTop: 5,
     marginBottom: 15,
@@ -85,17 +100,22 @@ class SmileGame extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.sadGirlImgUrl
+            uri: global.smileGame1
         });
     }
     else if (this.count === 2) {
         this.setState({
-            uri: global.sadKidImgUrl2
+            uri: global.smileGame3
+        });
+    }
+    else if (this.count === 3) {
+        this.setState({
+            uri: global.smileGame2
         });
     }
     else {
         this.setState({
-            uri: global.sadKidImgUrl
+            uri: global.smileGame4
         });
         this.count = 0;
     }
@@ -121,13 +141,17 @@ class SmileGame extends React.Component {
                 style={styles.image}
             />
 
-        <Button style={styles.button}
-            title="Yes"
-        />
+        <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
+            <Text style = {styles.textButton}>
+                Yes
+                </Text>
+        </TouchableHighlight>
 
-        <Button style={styles.button}
-            title="No"
-        />
+        <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
+            <Text style = {styles.textButtonRed}>
+                No
+                </Text>
+        </TouchableHighlight>
 
       </View>
 

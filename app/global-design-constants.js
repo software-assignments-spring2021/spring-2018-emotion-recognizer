@@ -19,6 +19,11 @@ global.sadKidImgUrl = 'https://images.unsplash.com/photo-1519716833415-33e950589
 global.sadGirlImgUrl = 'https://images.unsplash.com/photo-1517857651972-b13347c76b1f?ixlib=rb-0.3.5&s=8cf9d2eb666c2aa64a79fc8651333b47&auto=format&fit=crop&w=1050&q=80';
 global.sadKidImgUrl2 = 'https://images.unsplash.com/photo-1517545084371-4a575dde2a02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f3f880e6a5a1d09c0f772d00e518a124&auto=format&fit=crop&w=634&q=80';
 global.sadKidImgUrl3 = 'https://images.freeimages.com/images/small-previews/680/sad-snot-nosed-kid-1429734.jpg';
+//smilegameimages
+global.smileGame1 = 'https://images.freeimages.com/images/large-previews/bdf/medusa-1434410.jpg';
+global.smileGame2 = 'https://images.freeimages.com/images/large-previews/fbc/smiling-girl-1564131.jpg';
+global.smileGame3 = 'https://images.freeimages.com/images/small-previews/a83/poopy-diaper-1524764.jpg';
+global.smileGame4 = 'https://images.freeimages.com/images/small-previews/b90/crybaby-1439092.jpg';
 //some global color pallette settings
 global.lightGrey = "#e4e4e4";
 global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)"
