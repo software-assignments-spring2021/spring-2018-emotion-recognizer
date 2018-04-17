@@ -211,7 +211,7 @@ class Login extends React.Component {
      <View style={styles.buttonArea}>
            <Button
              title={"Sign in"}
-             color={"#364652"}
+             color={global.darkGrey}
              buttonStyle={styles.loginButton}
              onPress={() => this.authenticate()}
            />
@@ -222,7 +222,7 @@ class Login extends React.Component {
 
            <Button
              title={"Sign up"}
-             color={"#364652"}
+             color={global.darkGrey}
              buttonStyle={styles.signupButton}
              onPress={() => this.props.navigation.navigate('Signup', {navigation: this.props.navigation})}
 

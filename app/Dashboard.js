@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import { Pie, SmoothLine } from 'react-native-pathjs-charts';
 import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
 //design imports
-import {Overlay, FormLabel, FormInput, Button, Card, TouchableOpacity } from 'react-native-elements';
+import {Button, Card, TouchableOpacity } from 'react-native-elements';
 
 
 //hard code sample games
@@ -207,7 +207,6 @@ const smoothData = [
 
 ];
 
-];
   const smoothOptions = {
 
 
@@ -271,6 +270,7 @@ class Dashboard extends React.Component {
 
       //set starting values of email and password
       this.state = {
+         status: false
       };
 
       //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
@@ -298,6 +298,23 @@ class Dashboard extends React.Component {
 
     } // constructor
 
+  //set up toggle status to show and hide views
+  // toggleStatus() {
+  //   this.setState({
+  //     showAnalytics : true
+  //    });
+  //    console.log('toggle button handler: '+ this.state.showAnalytics);
+  // }
+
+  ShowHideTextComponentView = () => {
+     console.log("button pressed");
+     if (this.state.status === true) {
+       this.setState({status: false});
+     } else {
+       this.setState({status: true});
+     }
+   }
+
   render() {
     console.log("rendering UI");
     return (
@@ -305,8 +322,22 @@ class Dashboard extends React.Component {
    <ScrollView contentContainerStyle={styles.container}>
 
       <View style={styles.pageTabs}>
-         <View style={styles.pageTab}><Text style={styles.tabText}>Games</Text></View>
-         <View style={styles.pageTab}><Text style={styles.tabText}>Analytics</Text></View>
+         <View style={styles.pageTab}>
+         <Button
+            title="Games"
+            buttonStyle={styles.topButton}
+            color={global.darkGrey}>
+            onPress={this.ShowHideTextComponentView}
+         </Button>
+         </View>
+         <View style={styles.pageTab}>
+            <Button
+               title="Analytics"
+               buttonStyle={styles.topButton}
+               color={global.darkGrey}>
+               onPress={this.ShowHideTextComponentView}
+            </Button>
+         </View>
       </View>
 
       <View style={styles.gamesView}>
@@ -324,10 +355,9 @@ class Dashboard extends React.Component {
 
                    </View>
                    <View>
-                      <Button buttonStyle={styles.playButton} titleStyle= {styles.playButtonText} title="Play Now" ></Button>
                       <Button
                         buttonStyle={styles.playButton}
-                        titleStyle={styles.playButtonText}
+                        color={global.lightGrey}
                         title="Play Now"
                         onPress={() => this.props.navigation.navigate(u.path, {navigation: this.props.navigation})}
                         >
@@ -340,44 +370,46 @@ class Dashboard extends React.Component {
 
       </View>
 
-      <View style={styles.analyticsView}>
-         <Text style={styles.mainViewHeader}>Analytics</Text>
-         <View>
-            <Text style={styles.graphHeader}>Total Answers</Text>
+      { this.state.status ?
+         <View style={styles.analyticsView}>
+            <Text style={styles.mainViewHeader}>Analytics</Text>
+            <View style={styles.chartStyles}>
+               <Text style={styles.graphHeader}>Total Answers</Text>
 
-            <Pie data={pieData}
+               <Pie data={pieData}
 
-             options={pieOptions}
-             accessorKey="population"
-             margin={{ top: 20, left: 20, right: 20, bottom: 20 }}
-             color="#2980B9"
-             pallete={
-               [
-                 { 'r': 25, 'g': 99, 'b': 201 },
-                 { 'r': 24, 'g': 175, 'b': 35 },
-                 { 'r': 190, 'g': 31, 'b': 69 },
-                 { 'r': 100, 'g': 36, 'b': 199 },
-                 { 'r': 214, 'g': 207, 'b': 32 },
-                 { 'r': 198, 'g': 84, 'b': 45 }
-               ]
-             }
-             r={50}
-             R={150}
-             legendPosition="topLeft"
-             label={{
-               fontFamily: 'Arial',
-               fontSize: 8,
-               fontWeight: true,
-               color: '#ECF0F1'
-             }}
-             />
-         </View>
-         <View>
-            <Text style={styles.graphHeader}>Scores Over Time</Text>
+                options={pieOptions}
+                accessorKey="population"
+                margin={{ top: 20, left: 20, right: 20, bottom: 20 }}
+                color="#2980B9"
+                pallete={
+                  [
+                    { 'r': 25, 'g': 99, 'b': 201 },
+                    { 'r': 24, 'g': 175, 'b': 35 },
+                    { 'r': 190, 'g': 31, 'b': 69 },
+                    { 'r': 100, 'g': 36, 'b': 199 },
+                    { 'r': 214, 'g': 207, 'b': 32 },
+                    { 'r': 198, 'g': 84, 'b': 45 }
+                  ]
+                }
+                r={50}
+                R={150}
+                legendPosition="topLeft"
+                label={{
+                  fontFamily: 'Arial',
+                  fontSize: 8,
+                  fontWeight: true,
+                  color: '#ECF0F1'
+                }}
+                />
+            </View>
+            <View style={styles.chartStyles}>
+               <Text style={styles.graphHeader}>Scores Over Time</Text>
 
-            <SmoothLine data={smoothData} options={smoothOptions} xKey="x" yKey="y" />
-         </View>
-      </View>
+               <SmoothLine data={smoothData} options={smoothOptions} xKey="x" yKey="y" />
+            </View>
+         </View> : null
+      }
    </ScrollView>
 
 
@@ -407,11 +439,8 @@ styles = StyleSheet.create({
       justifyContent: 'center',
       margin: 15,
    },
-   tabText: {
-       color: global.darkGrey,
-       fontSize: 18,
-       fontFamily: 'montserrat-bold',
-       margin: 10,
+   topButton: {
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
    },
    gamesView: {
       flex: 2,
@@ -460,6 +489,7 @@ styles = StyleSheet.create({
       marginTop: 15,
       width: 120,
       alignSelf: 'center',
+      borderRadius: 3,
    },
    playButtonText: {
       color: global.mainBlue,
@@ -472,6 +502,12 @@ styles = StyleSheet.create({
       justifyContent: 'flex-start',
       marginTop: 30,
       marginBottom: 50,
+   },
+   chartStyles: {
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
    },
    graphHeader: {
       fontSize: 15,

@@ -183,7 +183,7 @@ class Signup extends React.Component {
 
         <Button
             title={"Sign up"}
-            color={"#364652"}
+            color={global.darkGrey}
             buttonStyle={styles.button}
             onPress={() => this.signUp()}
         />
@@ -195,7 +195,7 @@ class Signup extends React.Component {
 
         <Button
             title={"Sign up with google"}
-            color={"#364652"}
+            color={global.darkGrey}
             buttonStyle={styles.button}
         />
    </View>
