@@ -32,6 +32,7 @@ const RootStack = StackNavigator(
       screen: DashboardScreen,
       navigationOptions: ({ navigation }) => ({
           title: 'Dashboard',
+          //headerLeft: null
         }),
     },
     Onboarding1: {

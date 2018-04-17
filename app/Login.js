@@ -13,7 +13,7 @@ import {  Overlay, FormLabel, FormInput, Button, icon } from 'react-native-eleme
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   bgImage: {
@@ -24,31 +24,51 @@ const styles = StyleSheet.create({
      height: '100%',
      justifyContent: 'center',
  },
+ text: {
+   color: global.lightGrey,
+   fontSize: 48,
+   fontWeight: "bold",
+   margin: 15,
+   marginBottom: 10,
+ },
  fieldText: {
-      width: '50%',
-      padding: 10,
-      margin: 40,
+      width: 300,
+      padding: 15,
+      margin: 15,
       borderWidth: 1,
       borderColor: global.midGrey,
       borderRadius: 3,
       backgroundColor: global.lightGreySemiTransparent,
       color: global.darkText,
  },
- button: {
-   backgroundColor: global.backgroundWhite,
-   width: 300,
-   height: 45,
-   borderColor: global.transparent,
-   borderWidth: 0,
-   borderRadius: 5
- },
- text: {
-   color: global.lightGrey,
-   fontSize: 48,
-   fontWeight: "bold",
-   margin: 15,
-   marginBottom: 40,
- }
+   buttonArea: {
+      marginTop: 20,
+      marginBottom: 50
+   },
+   orText: {
+     color: global.lightGrey,
+     fontSize: 25,
+     margin: 10,
+     textAlign: 'center',
+   },
+   loginButton: {
+      backgroundColor: global.backgroundWhite,
+      width: 220,
+      height: 35,
+      borderColor: global.transparent,
+      borderWidth: 0,
+      borderRadius: 5
+   },
+   signupButton: {
+      backgroundColor: global.backgroundWhite,
+      width: 150,
+      height: 25,
+      borderColor: global.transparent,
+      borderWidth: 0,
+      borderRadius: 5,
+      alignSelf: 'center',
+
+   },
 });
 
 
@@ -160,7 +180,7 @@ class Login extends React.Component {
 
         <Image
           style={styles.bgImage}
-          source={{ uri: global.happyGirlImgUrl }}
+          source={{ uri: global.orangeSkyImgUrl }}
         />
 
         <Text
@@ -188,25 +208,26 @@ class Login extends React.Component {
             password: password
           })}
         />
+     <View style={styles.buttonArea}>
+           <Button
+             title={"Sign in"}
+             color={"#364652"}
+             buttonStyle={styles.loginButton}
+             onPress={() => this.authenticate()}
+           />
 
-        <Button
-          title={"Sign in"}
-          color={"#364652"}
-          buttonStyle={styles.button}
-          onPress={() => this.authenticate()}
-        />
+        <Text style={styles.orText}>
+           or
+           </Text>
 
-        <Text style={styles.text}>
-        or
-        </Text>
+           <Button
+             title={"Sign up"}
+             color={"#364652"}
+             buttonStyle={styles.signupButton}
+             onPress={() => this.props.navigation.navigate('Signup', {navigation: this.props.navigation})}
 
-        <Button
-          title={"Sign up"}
-          color={"#364652"}
-          buttonStyle={styles.button}
-          onPress={() => this.props.navigation.navigate('Signup', {navigation: this.props.navigation})}
-
-        />
+           />
+    </View>
 
       </View>
 

@@ -29,22 +29,31 @@ const styles = StyleSheet.create({
    fontSize: 48,
    fontWeight: "bold",
    margin: 15,
-   marginBottom: 40,
+   marginBottom: 10,
  },
  fieldText: {
-      width: '50%',
-      padding: 10,
-      margin: 40,
-      borderWidth: 1,
-      borderColor: global.midGrey,
-      borderRadius: 3,
-      backgroundColor: global.lightGreySemiTransparent,
-      color: global.darkText,
+   width: 300,
+   padding: 15,
+   margin: 15,
+   borderWidth: 1,
+   borderColor: global.midGrey,
+   borderRadius: 3,
+   backgroundColor: global.lightGreySemiTransparent,
+   color: global.darkText,
  },
+buttonArea: {
+   marginTop: 20
+},
+orText: {
+  color: global.lightGrey,
+  fontSize: 25,
+  margin: 10,
+  textAlign: 'center',
+},
  button: {
    backgroundColor: global.backgroundWhite,
-   width: 300,
-   height: 45,
+   width: 220,
+   height: 35,
    borderColor: global.transparent,
    borderWidth: 0,
    borderRadius: 5
@@ -170,6 +179,7 @@ class Signup extends React.Component {
                 password: password
             })}
         />
+     <View style={styles.buttonArea}>
 
         <Button
             title={"Sign up"}
@@ -179,7 +189,7 @@ class Signup extends React.Component {
         />
 
 
-        <Text style={styles.text}>
+     <Text style={styles.orText}>
         or
         </Text>
 
@@ -188,6 +198,7 @@ class Signup extends React.Component {
             color={"#364652"}
             buttonStyle={styles.button}
         />
+   </View>
 
       </View>
 

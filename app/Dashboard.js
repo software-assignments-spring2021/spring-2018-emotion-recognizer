@@ -71,7 +71,7 @@ const pieData = [{
    }
 };
 
-let data = [
+const smoothData = [
     [{
       "x": -10,
       "y": -1000
@@ -200,9 +200,9 @@ let data = [
       "x": 10,
       "y": 100
     }]
-  ]
+];
 
-  let options = {
+  const smoothOptions = {
     width: 280,
     height: 280,
     color: '#2980B9',
@@ -259,16 +259,16 @@ class Dashboard extends React.Component {
 
       console.log(props);
 
-      /*
-      set starting values of email and password
+
+      //set starting values of email and password
       this.state = {
       };
 
-      hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
+      //hack to get access to the navigation from within the firebase.auth().onAuthStateChanged callback
       global.navigation = this.props.navigation;
       const { navigation } = this.props; //pull navigation from the props into its own variable
 
-      figure it whether user is already logged-in
+      //figure it whether user is already logged-in
       const user = firebase.auth().currentUser;
       if (user) {
         // User is signed in.
@@ -285,7 +285,7 @@ class Dashboard extends React.Component {
         navigation.pop();
 
       }
-      */
+
 
     } // constructor
 
@@ -315,7 +315,7 @@ class Dashboard extends React.Component {
 
                    </View>
                    <View>
-                      <Button buttonStyle={styles.playButton} titleStyle={styles.playButtonText} title="Play Now" ></Button>
+                      <Button buttonStyle={styles.playButton} titleStyle= {styles.playButtonText} title="Play Now" ></Button>
                    </View>
                 </Card>
                );
@@ -326,7 +326,9 @@ class Dashboard extends React.Component {
 
       <View style={styles.analyticsView}>
          <Text style={styles.mainViewHeader}>Analytics</Text>
-            <View>
+         <View>
+            <Text style={styles.graphHeader}>Total Answers</Text>
+
             <Pie data={pieData}
 
              options={pieOptions}
@@ -355,7 +357,9 @@ class Dashboard extends React.Component {
              />
          </View>
          <View>
-            <SmoothLine data={data} options={options} xKey="x" yKey="y" />
+            <Text style={styles.graphHeader}>Scores Over Time</Text>
+
+            <SmoothLine data={smoothData} options={smoothOptions} xKey="x" yKey="y" />
          </View>
       </View>
    </ScrollView>
@@ -390,7 +394,7 @@ styles = StyleSheet.create({
    tabText: {
        color: global.darkGrey,
        fontSize: 18,
-       //fontFamily: 'montserrat-bold',
+       fontFamily: 'montserrat-bold',
        margin: 10,
    },
    gamesView: {
@@ -402,13 +406,14 @@ styles = StyleSheet.create({
    mainViewHeader: {
       color: global.darkGrey,
       fontSize: 18,
-      //fontFamily: 'montserrat-bold',
-      margin: 15,
+      fontFamily: 'montserrat-bold',
+      margin: 20,
+      textAlign: 'center',
    },
    gameCard: {
       flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: 'column',
+      alignItems: 'stretch',
       borderRadius: 5,
       alignSelf: 'stretch',
       padding: 20,
@@ -418,7 +423,7 @@ styles = StyleSheet.create({
    itemHeader: {
       color: global.darkGrey,
       alignSelf: 'flex-start',
-      //fontFamily: 'open-sans-bold',
+      fontFamily: 'open-sans-bold',
       fontSize: 14,
       paddingBottom: 5,
    },
@@ -429,12 +434,13 @@ styles = StyleSheet.create({
    },
    paragraph: {
       color: global.darkGrey,
-      //fontFamily: 'open-sans',
+      fontFamily: 'open-sans',
       fontSize: 13,
    },
    playButton: {
-      backgroundColor: global.lightGrey,
+      backgroundColor: global.mainBlue,
       margin: 10,
+      padding: 10,
       marginTop: 15,
       width: 120,
       alignSelf: 'center',
@@ -448,6 +454,14 @@ styles = StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'stretch',
       justifyContent: 'flex-start',
+      marginTop: 30,
+      marginBottom: 50,
+   },
+   graphHeader: {
+      fontSize: 15,
+      color: global.mainBlue,
+      textAlign: 'center',
+      fontFamily: 'montserrat-bold',
    },
 
 
