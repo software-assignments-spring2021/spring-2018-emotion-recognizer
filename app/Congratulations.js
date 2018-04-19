@@ -11,21 +11,35 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: global.secondaryGreen,
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
-    color: global.darkText,
+    color: global.white,
     fontSize: 30,
-    margin: 15,
-    marginBottom: 5,
+    marginTop: 15,
+    marginBottom: 55,
+    fontWeight: '700',
   },
+  bgImage: {
+     backgroundColor: global.lightGrey,
+     position: 'absolute',
+     width: '100%',
+     height: '100%',
+     justifyContent: 'center',
+ },
   boldText: {
-    color: global.darkText,
-    fontSize: 30,
-    margin: 15,
-    marginBottom: 10,
-    fontWeight:"bold",
+    color: global.white,
+    fontSize: 45,
+    marginTop: 55,
+    marginBottom: 25,
+    fontWeight:'900',
+  },
+  smallText: {
+    color: global.white,
+    fontSize: 25,
+    marginTop: 15,
+    marginBottom: 5,
+    fontWeight:'500',
   },
   image: {
     borderColor: global.white,
@@ -36,13 +50,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 10,
   },
+  movingImage: {
+    borderColor: global.white,
+    width: 400,
+    height: 200,
+    justifyContent: 'center',
+    marginBottom: 30,
+  },
   button: {
-    width: 300,
+    width: 165,
     height: 30,
-    margin: 15,
-    borderColor: global.transparent,
-    borderWidth: 0,
-    borderRadius: 5,
+    marginBottom: 15,
+    marginTop: 15,
   }
 });
 
@@ -50,7 +69,7 @@ const styles = StyleSheet.create({
 class Congratulations extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Congratulations"
+        title: "Tutorial Complete"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -65,16 +84,37 @@ class Congratulations extends React.Component {
     return (
       <View style={styles.container}>
 
+        <Image
+          style={styles.bgImage}
+          source={{ uri: global.confetti2 }}
+        />
+
+        <Text style={styles.boldText}>
+            Congraulations!
+        </Text>
+
         <Text style={styles.text}>
-            Congraulations! You completed the tutorial.
+            You completed the tutorial.
+        </Text>
+
+        <Image style={styles.movingImage}
+            source={{ uri: global.congrats }}
+          />
+
+        <Button
+          style={styles.button}
+          title="Play the game!"
+          titleStyle={{fontWeight: "700" }}
+          onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
+        />
+
+        <Text style={styles.smallText}>
+            -----or------
         </Text>
 
         <Button style={styles.button}
-            title={"Play the smile game"}
-        />
-
-        <Button style={styles.button}
-            title={"Try it yourself"}
+            title={"Match your face!"}
+            onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
         />
 
       </View>

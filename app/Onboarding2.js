@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 class Onboarding2 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Onboarding 2"
+        title: "Learn Sad"
     };
 
     //this constructor method is called before the componentWillMount method

@@ -24,6 +24,10 @@ global.smileGame1 = 'https://images.freeimages.com/images/large-previews/bdf/med
 global.smileGame2 = 'https://images.freeimages.com/images/large-previews/fbc/smiling-girl-1564131.jpg';
 global.smileGame3 = 'https://images.freeimages.com/images/small-previews/a83/poopy-diaper-1524764.jpg';
 global.smileGame4 = 'https://images.freeimages.com/images/small-previews/b90/crybaby-1439092.jpg';
+//congratulations page
+global.congrats = 'https://media.giphy.com/media/fxsqOYnIMEefC/giphy.gif';
+global.confetti = 'https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6b2b3eeca79a80926667ec71b01eac12&auto=format&fit=crop&w=1050&q=80';
+global.confetti2 = 'https://cdn.pixabay.com/photo/2015/10/12/20/45/confetti-985152_960_720.jpg';
 //some global color pallette settings
 global.lightGrey = "#e4e4e4";
 global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)"

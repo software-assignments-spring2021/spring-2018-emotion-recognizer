@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: global.backgroundYellow,
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 50,
     margin: 15,
-    marginTop: 1,
+    marginTop: 15,
     marginBottom: 5,
   },
   textButton: {
@@ -51,6 +50,9 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 15,
   },
+  icon: {
+    color: global.white,
+  },
   button: {
     width: 100,
     height: 30,
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
 class Onboarding1 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Onboarding 1"
+        title: "Learn Happy!"
     };
 
     //this constructor method is called before the componentWillMount method
