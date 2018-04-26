@@ -40,43 +40,43 @@ const RootStack = StackNavigator(
     Onboarding1: {
       screen: Onboarding1Screen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Onboarding1',
+          title: 'Learn Happy',
         }),
     },
     Onboarding2: {
       screen: Onboarding2Screen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Onboarding2',
+          title: 'Larn Sad',
         }),
     },
     Onboarding3: {
       screen: Onboarding3Screen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Onboarding3',
+          title: 'Learn Angry',
         }),
     },
     Onboarding4: {
       screen: Onboarding4Screen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Onboarding4',
+          title: 'Learn Scared',
         }),
     },
     SmileGame: {
       screen: SmileGameScreen,
       navigationOptions: ({ navigation }) => ({
-          title: 'SmileGame',
+          title: 'Play the Game',
         }),
     },
     Congratulations: {
       screen: CongratulationsScreen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Congratulations',
+          title: 'Congratulations!',
         }),
     },
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Onboarding4',
+    initialRouteName: 'Login',
   }
 );
 

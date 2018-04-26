@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 50,
     margin: 15,
-    marginTop: 15,
+    marginTop: 5,
     marginBottom: 5,
   },
   textButton: {

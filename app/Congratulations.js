@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: global.white,
+    color: global.darkGrey,
     fontSize: 30,
     marginTop: 15,
     marginBottom: 55,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
      justifyContent: 'center',
  },
   boldText: {
-    color: global.white,
+    color: global.darkGrey,
     fontSize: 45,
     marginTop: 55,
     marginBottom: 25,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 class Congratulations extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Tutorial Complete"
+        title: "Congratulations!"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -103,9 +103,9 @@ class Congratulations extends React.Component {
 
         <Button
           style={styles.button}
-          title="Play the game!"
+          title="Back to home"
           titleStyle={{fontWeight: "700" }}
-          onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
+          onPress = {() => this.props.navigation.navigate('Dashboard', {navigation: this.props.navigation})}
         />
 
         <Text style={styles.smallText}>
