@@ -1,10 +1,10 @@
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyB2EvVasHywMAgEO30nOUBerazLu61yMc8 ",
   authDomain: "moodio-f230e.firebaseapp.com",
-  databaseURL: "https://moodio-f230e.firebaseio.com/",
-  storageBucket: "moodio-f230e.appspot.com"
+  projectId: "moodio-f230e"
 };
 
 const app = firebase.initializeApp(firebaseConfig);

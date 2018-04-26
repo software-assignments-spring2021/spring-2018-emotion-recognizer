@@ -55,11 +55,14 @@ const RootStack = StackNavigator(
     },
     Congratulations: {
       screen: CongratulationsScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Congratulations',
+        }),
     },
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Onboarding1',
+    initialRouteName: 'Login',
   }
 );
 
