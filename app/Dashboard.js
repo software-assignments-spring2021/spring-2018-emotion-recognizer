@@ -12,9 +12,15 @@ import {Button, Card, TouchableOpacity } from 'react-native-elements';
 const games = [
  {
     name: 'Happy Or Sad',
-    shortDesc: 'Check how well you\'ve learned the emotions with this quiz ',
+    shortDesc: 'Check how well you know the difference between happy and sad with this quiz',
     path: 'SmileGame',
     level: 1
+ },
+ {
+    name: '4 Emotions Quiz',
+    shortDesc: 'Check how well you\'ve learned all emotions with this quiz',
+    path: 'SmileGame2',
+    level: 2
  },
  {
     name: 'Match the face',
