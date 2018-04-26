@@ -8,6 +8,8 @@ import { Login as LoginScreen } from './Login';
 import { Signup as SignupScreen } from './Signup';
 import { Onboarding1 as Onboarding1Screen} from './Onboarding1';
 import { Onboarding2 as Onboarding2Screen} from './Onboarding2';
+import { Onboarding3 as Onboarding3Screen} from './Onboarding3';
+import { Onboarding4 as Onboarding4Screen} from './Onboarding4';
 import { Congratulations as CongratulationsScreen} from './Congratulations';
 import { Dashboard as DashboardScreen } from './Dashboard';
 import { SmileGame as SmileGameScreen } from './SmileGame';
@@ -47,6 +49,18 @@ const RootStack = StackNavigator(
           title: 'Onboarding2',
         }),
     },
+    Onboarding3: {
+      screen: Onboarding3Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Onboarding3',
+        }),
+    },
+    Onboarding4: {
+      screen: Onboarding4Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Onboarding4',
+        }),
+    },
     SmileGame: {
       screen: SmileGameScreen,
       navigationOptions: ({ navigation }) => ({
@@ -62,7 +76,7 @@ const RootStack = StackNavigator(
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Login',
+    initialRouteName: 'Onboarding4',
   }
 );
 

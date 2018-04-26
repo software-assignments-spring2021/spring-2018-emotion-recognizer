@@ -4,14 +4,13 @@ import './global-design-constants.js';
 //design imports
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
 
-//console.log('firebase from Signup.js:',firebase);
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: global.backgroundBlue,
+    backgroundColor: global.backgroundRed,
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
@@ -19,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 50,
     margin: 15,
-    marginTop: 1,
+    marginTop: 15,
     marginBottom: 5,
   },
   textButton: {
@@ -28,6 +27,7 @@ const styles = StyleSheet.create({
     margin: 5,
     marginTop: 5,
     marginBottom: 15,
+    borderColor: global.white,
     textShadowColor: global.white,
   },
   boldText: {
@@ -48,8 +48,11 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 15,
   },
+  icon: {
+    color: global.white,
+  },
   button: {
-    width: 200,
+    width: 100,
     height: 30,
     borderColor: global.transparent,
     borderWidth: 0,
@@ -57,17 +60,18 @@ const styles = StyleSheet.create({
   }
 });
 
-class Onboarding2 extends React.Component {
+
+class Onboarding3 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Learn Sad"
+        title: "Learn Angry!"
     };
 
     //this constructor method is called before the componentWillMount method
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-        this.state = { uri: global.sadKidImgUrl };
+        this.state = { uri: global.angryImgUrl };
         this.count = 0;
     } //constructor
 
@@ -76,17 +80,17 @@ class Onboarding2 extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.sadGirlImgUrl
+            uri: global.angryImgUrl2
         });
     }
     else if (this.count === 2) {
         this.setState({
-            uri: global.sadKidImgUrl2
+            uri: global.angryImgUrl3
         });
     }
     else {
         this.setState({
-            uri: global.sadKidImgUrl
+            uri: global.angryImgUrl4
         });
         this.count = 0;
     }
@@ -97,9 +101,9 @@ class Onboarding2 extends React.Component {
       <View style={styles.container}>
 
         <Text style={styles.text}>
-            This is a          &nbsp;
+            This is an    &nbsp;
             <Text style={styles.boldText}>
-            sad face!
+            angry face!
         </Text>
         </Text>
         <Image
@@ -115,7 +119,7 @@ class Onboarding2 extends React.Component {
         <Button
           style={styles.button}
           title="Next"
-          onPress = {() => this.props.navigation.navigate('Onboarding3', {navigation: this.props.navigation})}
+          onPress={() => this.props.navigation.navigate('Onboarding4', {navigation: this.props.navigation})}
         />
 
       </View>
@@ -124,4 +128,4 @@ class Onboarding2 extends React.Component {
   }
 }
 
-export { Onboarding2 };
+export { Onboarding3 };
