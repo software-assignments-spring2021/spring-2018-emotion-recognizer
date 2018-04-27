@@ -103,7 +103,7 @@ export default class App extends React.Component {
       this.setState(previousState => {
         return { isReady: true };
       });
-      console.log("state changed to ready");
+      console.log("Fonts sucessfully loaded");
       })
       .catch( (err) => {
         console.log(err);

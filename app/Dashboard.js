@@ -30,29 +30,17 @@ const games = [
  },
 ];
 
-const pieData = [{
-   "name": "Happy",
-   "population": 7694980
- },
-  {
-   "name": "Sad",
-   "population": 2584160
- }, {
-   "name": "Excited",
-   "population": 6590667,
-   "color": {'r':223,'g':154,'b':20}
- }, {
-   "name": "Angry",
-   "population": 7284698
- }
-];
+//init variables for charts
+const db = firebase.firestore();
+let uid;
 
- const pieOptions = {
+let pieData = [];
+const pieOptions = {
    margin: {
-     top: 20,
-     left: 20,
-     right: 20,
-     bottom: 20
+    top: 20,
+    left: 20,
+    right: 20,
+    bottom: 20
    },
    width: 350,
    height: 350,
@@ -61,198 +49,127 @@ const pieData = [{
    R: 150,
    legendPosition: 'topLeft',
    animate: {
-     enabled: true,
-     type: 'oneByOne',
-     duration: 200,
-     fillTransition: 3
+    enabled: true,
+    type: 'oneByOne',
+    duration: 200,
+    fillTransition: 3
    },
    label: {
-     fontFamily: 'Arial',
-     fontSize: 8,
-     fontWeight: true,
-     color: '#ECF0F1'
+    fontFamily: 'Arial',
+    fontSize: 8,
+    fontWeight: true,
+    color: '#ECF0F1'
    }
 };
-
-
-const smoothData = [
-    [{
-      "x": -10,
-      "y": -1000
-    }, {
-      "x": -9,
-      "y": -729
-    }, {
-      "x": -8,
-      "y": -512
-    }, {
-      "x": -7,
-      "y": -343
-    }, {
-      "x": -6,
-      "y": -216
-    }, {
-      "x": -5,
-      "y": -125
-    }, {
-      "x": -4,
-      "y": -64
-    }, {
-      "x": -3,
-      "y": -27
-    }, {
-      "x": -2,
-      "y": -8
-    }, {
-      "x": -1,
-      "y": -1
-    }, {
-      "x": 0,
-      "y": 0
-    }, {
-      "x": 1,
-      "y": 1
-    }, {
-      "x": 2,
-      "y": 8
-    }, {
-      "x": 3,
-      "y": 27
-    }, {
-      "x": 4,
-      "y": 64
-    }, {
-      "x": 5,
-      "y": 125
-    }, {
-      "x": 6,
-      "y": 216
-    }, {
-      "x": 7,
-      "y": 343
-    }, {
-      "x": 8,
-      "y": 512
-    }, {
-      "x": 9,
-      "y": 729
-    }, {
-      "x": 10,
-      "y": 1000
-    }],
-    [{
-      "x": -10,
-      "y": 100
-    }, {
-      "x": -9,
-      "y": 81
-    }, {
-      "x": -8,
-      "y": 64
-    }, {
-      "x": -7,
-      "y": 49
-    }, {
-      "x": -6,
-      "y": 36
-    }, {
-      "x": -5,
-      "y": 25
-    }, {
-      "x": -4,
-      "y": 16
-    }, {
-      "x": -3,
-      "y": 9
-    }, {
-      "x": -2,
-      "y": 4
-    }, {
-      "x": -1,
-      "y": 1
-    }, {
-      "x": 0,
-      "y": 0
-    }, {
-      "x": 1,
-      "y": 1
-    }, {
-      "x": 2,
-      "y": 4
-    }, {
-      "x": 3,
-      "y": 9
-    }, {
-      "x": 4,
-      "y": 16
-    }, {
-      "x": 5,
-      "y": 25
-    }, {
-      "x": 6,
-      "y": 36
-    }, {
-      "x": 7,
-      "y": 49
-    }, {
-      "x": 8,
-      "y": 64
-    }, {
-      "x": 9,
-      "y": 81
-    }, {
-      "x": 10,
-      "y": 100
-    }]
-
+let smoothData = [
+   [{
+     "x": -10,
+     "y": -1000
+   }, {
+     "x": -9,
+     "y": -729
+   }, {
+     "x": -8,
+     "y": -512
+   }, {
+     "x": -7,
+     "y": -343
+   }, {
+     "x": -6,
+     "y": -216
+   }, {
+     "x": -5,
+     "y": -125
+   }, {
+     "x": -4,
+     "y": -64
+   }, {
+     "x": -3,
+     "y": -27
+   }, {
+     "x": -2,
+     "y": -8
+   }, {
+     "x": -1,
+     "y": -1
+   }, {
+     "x": 0,
+     "y": 0
+   }, {
+     "x": 1,
+     "y": 1
+   }, {
+     "x": 2,
+     "y": 8
+   }, {
+     "x": 3,
+     "y": 27
+   }, {
+     "x": 4,
+     "y": 64
+   }, {
+     "x": 5,
+     "y": 125
+   }, {
+     "x": 6,
+     "y": 216
+   }, {
+     "x": 7,
+     "y": 343
+   }, {
+     "x": 8,
+     "y": 512
+   }, {
+     "x": 9,
+     "y": 729
+   }, {
+     "x": 10,
+     "y": 1000
+   }]
 ];
-
-  const smoothOptions = {
-
-
-
-    width: 280,
-    height: 280,
-    color: '#2980B9',
-    margin: {
-      top: 20,
-      left: 45,
-      bottom: 25,
-      right: 20
-    },
-    animate: {
-      type: 'delayed',
-      duration: 200
-    },
-    axisX: {
-      showAxis: true,
-      showLines: true,
-      showLabels: true,
-      showTicks: true,
-      zeroAxis: false,
-      orient: 'bottom',
-      label: {
-        fontFamily: 'Arial',
-        fontSize: 14,
-        fontWeight: true,
-        fill: '#34495E'
-      }
-    },
-    axisY: {
-      showAxis: true,
-      showLines: true,
-      showLabels: true,
-      showTicks: true,
-      zeroAxis: false,
-      orient: 'left',
-      label: {
-        fontFamily: 'Arial',
-        fontSize: 14,
-        fontWeight: true,
-        fill: '#34495E'
-      }
-    }
-  };
+const smoothOptions = {
+   width: 280,
+   height: 280,
+   color: '#2980B9',
+   margin: {
+     top: 20,
+     left: 45,
+     bottom: 25,
+     right: 20
+   },
+   animate: {
+     type: 'delayed',
+     duration: 200
+   },
+   axisX: {
+     showAxis: true,
+     showLines: true,
+     showLabels: true,
+     showTicks: true,
+     zeroAxis: false,
+     orient: 'bottom',
+     label: {
+       fontFamily: 'Arial',
+       fontSize: 14,
+       fontWeight: true,
+       fill: '#34495E'
+     }
+   },
+   axisY: {
+     showAxis: true,
+     showLines: true,
+     showLabels: true,
+     showTicks: true,
+     zeroAxis: false,
+     orient: 'left',
+     label: {
+       fontFamily: 'Arial',
+       fontSize: 14,
+       fontWeight: true,
+       fill: '#34495E'
+     }
+   }
+};
 
 let styles = {};
 
@@ -261,11 +178,11 @@ class Dashboard extends React.Component {
   //use it to set up the starting state of the component
 
   constructor(props) {
-      console.log("Constructing...");
+      // console.log("Constructing...");
 
       super(props); // call the parent class's (React.Component) constructor first before anything else
 
-      console.log(props);
+      // console.log(props);
 
       //set starting values of email and password
       this.state = {
@@ -288,20 +205,60 @@ class Dashboard extends React.Component {
           analyticsStatus: false
         };
 
-      } else {
+        //get current user info to call their data
+        uid = firebase.auth().currentUser.uid;
+
+        //get chart information by querying db
+        db.collection('users').doc(uid).get().then(function(doc) {
+           let userData;
+           if (doc.exists) {
+             userData = doc.data();
+           }
+           else {
+             userData = {
+               emotions: [],
+               testResults: []
+             };
+           }
+           //console.log("user data: " + userData);
+
+           //update pie chart w/ total correct, incorrect
+           let totalCorrect = 0;
+           let totalIncorrect = 0;
+
+           for (const e in userData.emotions) {
+             totalCorrect += userData.emotions[e].correct;
+             totalIncorrect += userData.emotions[e].total - userData.emotions[e].correct;
+           }
+
+           pieData = [{
+               "name": "Correct",
+               "percent": totalCorrect
+             },
+              {
+               "name": "Incorrect",
+               "percent": totalIncorrect
+             }];
+
+
+            //TODO get all test results and set counters for total correct,
+            //total questions, and total num of tests (testResults.length)
+
+            //plot x axis as total correct/total questions (figure out how to scale this to 100)
+            //plot y axis as test num / total num of tests ( scale this to total num of tests)
+
+       }); //end db promise (.then)
+
+    } else {
         // No user is signed in.
         console.log("No user is signed in!");
         navigation.pop();
 
       }
-
-
     } // constructor
-
 
   //show the selected view in the top nav bar
   ShowHideView () {
-     console.log("button pressed");
      if (this.state.gamesStatus === true) {
        this.setState({gamesStatus: false, analyticsStatus: true});
        console.log("state change: showing analytics");
@@ -312,9 +269,9 @@ class Dashboard extends React.Component {
    }
 
   render() {
-    console.log("rendering UI");
-    console.log("gamesStatus: " + this.state.gamesStatus);
-    console.log("analyticsStatus: " + this.state.analyticsStatus);
+    // console.log("rendering UI");
+    // console.log("gamesStatus: " + this.state.gamesStatus);
+    // console.log("analyticsStatus: " + this.state.analyticsStatus);
     return (
 
    <ScrollView contentContainerStyle={styles.container}>
@@ -400,17 +357,13 @@ class Dashboard extends React.Component {
                <Pie data={pieData}
 
                 options={pieOptions}
-                accessorKey="population"
+                accessorKey="percent"
                 margin={{ top: 20, left: 20, right: 20, bottom: 20 }}
                 color="#2980B9"
                 pallete={
                   [
                     { 'r': 25, 'g': 99, 'b': 201 },
                     { 'r': 24, 'g': 175, 'b': 35 },
-                    { 'r': 190, 'g': 31, 'b': 69 },
-                    { 'r': 100, 'g': 36, 'b': 199 },
-                    { 'r': 214, 'g': 207, 'b': 32 },
-                    { 'r': 198, 'g': 84, 'b': 45 }
                   ]
                 }
                 r={50}
