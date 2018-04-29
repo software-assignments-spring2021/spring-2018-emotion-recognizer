@@ -16,10 +16,34 @@ const games = [
     path: 'SmileGame',
     level: 1
  },
- {
-    name: '4 Emotions Quiz',
-    shortDesc: 'Check how well you\'ve learned all emotions with this quiz',
+  {
+    name: 'Angry Or Scared',
+    shortDesc: 'Check how well you know the difference between angry and scared with this quiz',
     path: 'SmileGame2',
+    level: 1
+ },
+   {
+    name: 'Surprised Or Sad',
+    shortDesc: 'Check how well you know the difference between surprised and sad with this quiz',
+    path: 'SmileGame3',
+    level: 1
+ },
+  {
+    name: 'Scared or Happy',
+    shortDesc: 'Check how well you know the difference between scared and happy with this quiz',
+    path: 'SmileGame4',
+    level: 1
+ },
+  {
+    name: 'Angry or Surprised',
+    shortDesc: 'Check how well you know the difference between scared and happy with this quiz',
+    path: 'SmileGame5',
+    level: 1
+ },
+ {
+    name: '5 Emotions Quiz',
+    shortDesc: 'Check how well you\'ve learned all emotions with this quiz',
+    path: 'SmileGameAll',
     level: 2
  },
  {

@@ -9,16 +9,12 @@ import { GameDriver } from './GameDriver.js';
 
 const testData = [
   {
-    name: 'happy',
-    imgs: ['http://via.placeholder.com/700x700&text=happy1','http://via.placeholder.com/700x700&text=happy2','http://via.placeholder.com/700x700&text=happy3']
-  },
-  {
-    name: 'sad',
-    imgs: ['http://via.placeholder.com/700x700&text=sad1','http://via.placeholder.com/700x700&text=sad2','http://via.placeholder.com/700x700&text=sad3','http://via.placeholder.com/700x700&text=sad4']
-  },
-  {
     name: 'angry',
-    imgs: ['http://via.placeholder.com/700x700&text=angry1','http://via.placeholder.com/700x700&text=angry2','http://via.placeholder.com/700x700&text=angry3','http://via.placeholder.com/700x700&text=angry4','http://via.placeholder.com/700x700&text=angry5']
+    imgs: [global.angryImgUrl, global.angryImgUrl2, global.angryImgUrl3, global.angryImgUrl4, global.angryImgUrl5]
+  },
+  {
+    name: 'scared',
+    imgs: [global.scaredImgUrl, global.scaredImgUrl2, global.scaredImgUrl3, global.scaredImgUrl4, global.scaredImgUrl5]
   }
 ];
 
@@ -81,7 +77,7 @@ const styles = StyleSheet.create({
 class SmileGame2 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "SmileGame Level 2"
+        title: "SmileGame"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -89,7 +85,7 @@ class SmileGame2 extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
         this.count = 0;
-        this.driver = new GameDriver( testData, 3, 'happy vs sad vs angry' );
+        this.driver = new GameDriver( testData, 5, 'angry vs scared' );
         const firstQuestion = this.driver.getQuestion( this.count );
         this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion };
     } //constructor
@@ -108,7 +104,7 @@ class SmileGame2 extends React.Component {
       }
       else {
         this.driver.reportAnswers();
-        this.props.navigation.navigate('Congratulations', {navigation: this.props.navigation});
+        this.props.navigation.navigate('Congratulations2', {navigation: this.props.navigation});
       }
   }
 

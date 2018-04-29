@@ -139,10 +139,10 @@ class Onboarding5 extends React.Component {
             <Text style={styles.nextText}>Ready to move on?</Text>
             <Button
               buttonStyle={styles.nextButton}
-              title="Next Emotion"
+              title="Next"
               color={global.mainBlue}
               fontFamily='open-sans'
-              onPress={() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
+              onPress={() => this.props.navigation.navigate('Congratulations', {navigation: this.props.navigation})}
             />
        </View>
 

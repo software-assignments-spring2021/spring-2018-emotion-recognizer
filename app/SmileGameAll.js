@@ -15,6 +15,18 @@ const testData = [
   {
     name: 'sad',
     imgs: [global.sadImgUrl, global.sadImgUrl2, global.sadImgUrl3, global.sadImgUrl4, global.sadImgUrl5]
+  },
+  {
+    name: 'angry',
+    imgs: [global.angryImgUrl, global.angryImgUrl2, global.angryImgUrl3, global.angryImgUrl4, global.angryImgUrl5]
+  },
+  {
+    name: 'scared',
+    imgs: [global.scaredImgUrl, global.scaredImgUrl2, global.scaredImgUrl3, global.scaredImgUrl4, global.scaredImgUrl5]
+  },
+  {
+    name: 'surprised',
+    imgs: [global.surprisedImgUrl, global.surprisedImgUrl2, global.surprisedImgUrl3, global.surprisedImgUrl4, global.surprisedImgUrl5]
   }
 ];
 
@@ -74,10 +86,10 @@ const styles = StyleSheet.create({
    },
 });
 
-class SmileGame extends React.Component {
+class SmileGameAll extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "SmileGame"
+        title: "SmileGame: All Emotions"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -85,7 +97,7 @@ class SmileGame extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
         this.count = 0;
-        this.driver = new GameDriver( testData, 5, 'happy vs sad' );
+        this.driver = new GameDriver( testData, 10, 'happy vs sad vs angry vs scared vs surprised' );
         const firstQuestion = this.driver.getQuestion( this.count );
         this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion };
     } //constructor
@@ -161,4 +173,4 @@ class SmileGame extends React.Component {
   }
 }
 
-export { SmileGame };
+export { SmileGameAll };

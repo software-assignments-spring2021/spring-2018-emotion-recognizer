@@ -9,8 +9,8 @@ import { GameDriver } from './GameDriver.js';
 
 const testData = [
   {
-    name: 'happy',
-    imgs: [global.happyImgUrl, global.happyImgUrl2, global.happyImgUrl3, global.happyImgUrl4, global.happyImgUrl5]
+    name: 'surprised',
+    imgs: [global.surprisedImgUrl, global.surprisedImgUrl2, global.surprisedImgUrl3, global.surprisedImgUrl4, global.surprisedImgUrl5]
   },
   {
     name: 'sad',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
    },
 });
 
-class SmileGame extends React.Component {
+class SmileGame3 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
         title: "SmileGame"
@@ -85,7 +85,7 @@ class SmileGame extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
         this.count = 0;
-        this.driver = new GameDriver( testData, 5, 'happy vs sad' );
+        this.driver = new GameDriver( testData, 5, 'surprised vs sad' );
         const firstQuestion = this.driver.getQuestion( this.count );
         this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion };
     } //constructor
@@ -161,4 +161,4 @@ class SmileGame extends React.Component {
   }
 }
 
-export { SmileGame };
+export { SmileGame3 };

@@ -9,12 +9,12 @@ import { GameDriver } from './GameDriver.js';
 
 const testData = [
   {
-    name: 'happy',
-    imgs: [global.happyImgUrl, global.happyImgUrl2, global.happyImgUrl3, global.happyImgUrl4, global.happyImgUrl5]
+    name: 'scared',
+    imgs: [global.scaredImgUrl, global.scaredImgUrl2, global.scaredImgUrl3, global.scaredImgUrl4, global.scaredImgUrl5]
   },
   {
-    name: 'sad',
-    imgs: [global.sadImgUrl, global.sadImgUrl2, global.sadImgUrl3, global.sadImgUrl4, global.sadImgUrl5]
+    name: 'happy',
+    imgs: [global.happyImgUrl, global.happyImgUrl2, global.happyImgUrl3, global.happyImgUrl4, global.happyImgUrl5]
   }
 ];
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
    },
 });
 
-class SmileGame extends React.Component {
+class SmileGame4 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
         title: "SmileGame"
@@ -85,7 +85,7 @@ class SmileGame extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
         this.count = 0;
-        this.driver = new GameDriver( testData, 5, 'happy vs sad' );
+        this.driver = new GameDriver( testData, 5, 'scared vs happy' );
         const firstQuestion = this.driver.getQuestion( this.count );
         this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion };
     } //constructor
@@ -161,4 +161,4 @@ class SmileGame extends React.Component {
   }
 }
 
-export { SmileGame };
+export { SmileGame4 };

@@ -49,7 +49,8 @@ global.smileGame3 = 'https://images.freeimages.com/images/small-previews/a83/poo
 global.smileGame4 = 'https://images.freeimages.com/images/small-previews/b90/crybaby-1439092.jpg';
 //congratulations page
 global.congrats = 'https://media.giphy.com/media/fxsqOYnIMEefC/giphy.gif';
-global.confetti = 'https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6b2b3eeca79a80926667ec71b01eac12&auto=format&fit=crop&w=1050&q=80';
+global.congrats2 = 'https://media3.giphy.com/media/3o6fIUZTTDl0IDjbZS/giphy.gif';
+global.confetti = 'https://www.superiorcelebrations.com/mm5/graphics/00000001/multicolorconfetti-2.jpg';
 global.confetti2 = 'https://s3.envato.com/files/131529625/15_Confetti_backgrounds%20-screen/Confetti_background-7.jpg';
 //some global color pallette settings
 global.lightGrey = "#e4e4e4";

@@ -12,8 +12,14 @@ import { Onboarding3 as Onboarding3Screen} from './Onboarding3';
 import { Onboarding4 as Onboarding4Screen} from './Onboarding4';
 import { Onboarding5 as Onboarding5Screen} from './Onboarding5';
 import { Congratulations as CongratulationsScreen} from './Congratulations';
+import { Congratulations2 as Congratulations2Screen} from './Congratulations2';
 import { Dashboard as DashboardScreen } from './Dashboard';
 import { SmileGame as SmileGameScreen } from './SmileGame';
+import { SmileGame2 as SmileGame2Screen } from './SmileGame2';
+import { SmileGame3 as SmileGame3Screen } from './SmileGame3';
+import { SmileGame4 as SmileGame4Screen } from './SmileGame4';
+import { SmileGame5 as SmileGame5Screen } from './SmileGame5';
+import { SmileGameAll as SmileGameAllScreen } from './SmileGameAll';
 //import our global design settings
 import './global-design-constants.js';
 
@@ -74,8 +80,44 @@ const RootStack = StackNavigator(
           title: 'Play the Game',
         }),
     },
+    SmileGame2: {
+      screen: SmileGame2Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Play the Game',
+        }),
+    },
+    SmileGame3: {
+      screen: SmileGame3Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Play the Game',
+        }),
+    },
+    SmileGame4: {
+      screen: SmileGame4Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Play the Game',
+        }),
+    },
+    SmileGame5: {
+      screen: SmileGame5Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Play the Game',
+        }),
+    },
+    SmileGameAll: {
+      screen: SmileGameAllScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Play the Game',
+        }),
+    },
     Congratulations: {
       screen: CongratulationsScreen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Congratulations',
+        }),
+    },
+    Congratulations2: {
+      screen: Congratulations2Screen,
       navigationOptions: ({ navigation }) => ({
           title: 'Congratulations',
         }),
