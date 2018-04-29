@@ -86,17 +86,27 @@ class Onboarding3 extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.angryImgUrl2
+            uri: global.angryImgUrl
         });
     }
     else if (this.count === 2) {
         this.setState({
+            uri: global.angryImgUrl2
+        });
+    }
+    else if (this.count === 3) {
+        this.setState({
             uri: global.angryImgUrl3
+        });
+    }
+    else if (this.count === 4) {
+        this.setState({
+            uri: global.angryImgUrl4
         });
     }
     else {
         this.setState({
-            uri: global.angryImgUrl4
+            uri: global.angryImgUrl5
         });
         this.count = 0;
     }

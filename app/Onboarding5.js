@@ -3,8 +3,8 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import './global-design-constants.js';
 //design imports
 import { Button } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
 
-//console.log('firebase from Signup.js:',firebase);
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   boldText: {
     color: global.starYellow,
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 45,
     marginBottom: 10,
     fontFamily: 'montserrat-bold'
   },
@@ -66,17 +66,18 @@ const styles = StyleSheet.create({
     },
 });
 
-class Onboarding2 extends React.Component {
+
+class Onboarding5 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Learn Sad"
+        title: "Learn Surprised!"
     };
 
     //this constructor method is called before the componentWillMount method
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-        this.state = { uri: global.sadImgUrl };
+        this.state = { uri: global.surprisedImgUrl };
         this.count = 0;
     } //constructor
 
@@ -85,27 +86,27 @@ class Onboarding2 extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.sadImgUrl
+            uri: global.surprisedImgUrl
         });
     }
     else if (this.count === 2) {
         this.setState({
-            uri: global.sadImgUrl2
+            uri: global.surprisedImgUrl2
         });
     }
     else if (this.count === 3) {
         this.setState({
-            uri: global.sadImgUrl3
+            uri: global.surprisedImgUrl3
         });
     }
     else if (this.count === 4) {
         this.setState({
-            uri: global.sadImgUrl4
+            uri: global.surprisedImgUrl4
         });
     }
     else {
         this.setState({
-            uri: global.sadImgUrl5
+            uri: global.surprisedImgUrl5
         });
         this.count = 0;
     }
@@ -115,34 +116,34 @@ class Onboarding2 extends React.Component {
     return (
       <View style={styles.container}>
 
-        <Text style={styles.headerText}>
+         <Text style={styles.headerText}>
             This is a
-        </Text>
-        <Text style={styles.boldText}>
-           Sad face
-        </Text>
-        <Image
-                source={this.state}
-                style={styles.image}
+         </Text>
+         <Text style={styles.boldText}>
+            Surprised face
+         </Text>
+         <Image
+                 source={this.state}
+                 style={styles.image}
             />
 
-         <Button
+          <Button
             buttonStyle={styles.moreImagesButton}
             title="Touch here to see more faces!"
             color={global.starYellow}
             fontFamily='open-sans'
             onPress={() => this.changePicture(this.count)}>
-        </Button>
+         </Button>
 
-        <View style={styles.nextEmotSection}>
-           <Text style={styles.nextText}>Ready to move on?</Text>
-           <Button
-             buttonStyle={styles.nextButton}
-             title="Next Emotion"
-             color={global.mainBlue}
-             fontFamily='open-sans'
-             onPress={() => this.props.navigation.navigate('Onboarding3', {navigation: this.props.navigation})}
-           />
+         <View style={styles.nextEmotSection}>
+            <Text style={styles.nextText}>Ready to move on?</Text>
+            <Button
+              buttonStyle={styles.nextButton}
+              title="Next Emotion"
+              color={global.mainBlue}
+              fontFamily='open-sans'
+              onPress={() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
+            />
        </View>
 
       </View>
@@ -151,4 +152,4 @@ class Onboarding2 extends React.Component {
   }
 }
 
-export { Onboarding2 };
+export { Onboarding5 };

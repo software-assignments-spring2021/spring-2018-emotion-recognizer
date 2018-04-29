@@ -80,7 +80,7 @@ class Onboarding1 extends React.Component {
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-        this.state = { uri: global.happyKidImgUrl };
+        this.state = { uri: global.happyImgUrl };
         this.count = 0;
     } //constructor
 
@@ -89,17 +89,27 @@ class Onboarding1 extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.happyGuyImgUrl
+            uri: global.happyImgUrl
         });
     }
     else if (this.count === 2) {
         this.setState({
-            uri: global.happyGirlImgUrl2
+            uri: global.happyImgUrl2
+        });
+    }
+    else if (this.count === 3) {
+        this.setState({
+            uri: global.happyImgUrl3
+        });
+    }
+    else if (this.count === 4) {
+        this.setState({
+            uri: global.happyImgUrl4
         });
     }
     else {
         this.setState({
-            uri: global.happyKidImgUrl
+            uri: global.happyImgUrl5
         });
         this.count = 0;
     }

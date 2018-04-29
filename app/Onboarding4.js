@@ -86,17 +86,27 @@ class Onboarding4 extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.scaredImgUrl2
+            uri: global.scaredImgUrl
         });
     }
     else if (this.count === 2) {
         this.setState({
+            uri: global.scaredImgUrl2
+        });
+    }
+    else if (this.count === 3) {
+        this.setState({
             uri: global.scaredImgUrl3
+        });
+    }
+    else if (this.count === 4) {
+        this.setState({
+            uri: global.scaredImgUrl4
         });
     }
     else {
         this.setState({
-            uri: global.scaredImgUrl4
+            uri: global.scaredImgUrl5
         });
         this.count = 0;
     }
@@ -132,7 +142,7 @@ class Onboarding4 extends React.Component {
               title="Next Emotion"
               color={global.mainBlue}
               fontFamily='open-sans'
-              onPress={() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
+              onPress={() => this.props.navigation.navigate('Onboarding5', {navigation: this.props.navigation})}
             />
        </View>
 

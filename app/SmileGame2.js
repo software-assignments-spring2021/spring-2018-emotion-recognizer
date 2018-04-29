@@ -15,6 +15,10 @@ const testData = [
   {
     name: 'sad',
     imgs: ['http://via.placeholder.com/700x700&text=sad1','http://via.placeholder.com/700x700&text=sad2','http://via.placeholder.com/700x700&text=sad3','http://via.placeholder.com/700x700&text=sad4']
+  },
+  {
+    name: 'angry',
+    imgs: ['http://via.placeholder.com/700x700&text=angry1','http://via.placeholder.com/700x700&text=angry2','http://via.placeholder.com/700x700&text=angry3','http://via.placeholder.com/700x700&text=angry4','http://via.placeholder.com/700x700&text=angry5']
   }
 ];
 
@@ -74,10 +78,10 @@ const styles = StyleSheet.create({
    },
 });
 
-class SmileGame extends React.Component {
+class SmileGame2 extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "SmileGame"
+        title: "SmileGame Level 2"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -161,4 +165,4 @@ class SmileGame extends React.Component {
   }
 }
 
-export { SmileGame };
+export { SmileGame2 };

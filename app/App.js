@@ -10,6 +10,7 @@ import { Onboarding1 as Onboarding1Screen} from './Onboarding1';
 import { Onboarding2 as Onboarding2Screen} from './Onboarding2';
 import { Onboarding3 as Onboarding3Screen} from './Onboarding3';
 import { Onboarding4 as Onboarding4Screen} from './Onboarding4';
+import { Onboarding5 as Onboarding5Screen} from './Onboarding5';
 import { Congratulations as CongratulationsScreen} from './Congratulations';
 import { Dashboard as DashboardScreen } from './Dashboard';
 import { SmileGame as SmileGameScreen } from './SmileGame';
@@ -46,7 +47,7 @@ const RootStack = StackNavigator(
     Onboarding2: {
       screen: Onboarding2Screen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Larn Sad',
+          title: 'Learn Sad',
         }),
     },
     Onboarding3: {
@@ -59,6 +60,12 @@ const RootStack = StackNavigator(
       screen: Onboarding4Screen,
       navigationOptions: ({ navigation }) => ({
           title: 'Learn Scared',
+        }),
+    },
+    Onboarding5: {
+      screen: Onboarding5Screen,
+      navigationOptions: ({ navigation }) => ({
+          title: 'Learn Surprised',
         }),
     },
     SmileGame: {
