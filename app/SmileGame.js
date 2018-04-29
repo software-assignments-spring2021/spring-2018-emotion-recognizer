@@ -1,9 +1,8 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity, AppRegistry, TouchableHighlight } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 import './global-design-constants.js';
 //design imports
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { Button} from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 //GameDriver import
 import { GameDriver } from './GameDriver.js';
@@ -31,44 +30,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {
+  headerText: {
     color: global.darkGrey,
-    justifyContent: 'center',
+    textAlign: 'center',
     fontSize: 50,
-    margin: 15,
-    marginTop: 1,
-    marginBottom: 5,
-  },
-  textButton: {
-    color: 'green',
-    fontSize: 40,
-    backgroundColor: 'white',
-    textDecorationColor: 'white',
-    fontWeight: "bold",
-    margin: 5,
-    marginTop: 5,
-    marginBottom: 15,
-    textShadowColor: 'white',
-    textShadowRadius: 10,
-  },
-    textButtonRed: {
-    color: 'red',
-    backgroundColor: 'white',
-    borderRadius: 40,
-    fontSize: 40,
-    fontWeight: "bold",
-    margin: 5,
-    marginTop: 5,
-    marginBottom: 15,
-    textShadowColor: 'white',
+    marginTop: 15,
+    fontFamily: 'montserrat'
   },
   boldText: {
-    color: global.darkGrey,
-    justifyContent: 'center',
+    color: global.starYellow,
+    textAlign: 'center',
     fontSize: 50,
-    margin: 15,
     marginBottom: 10,
-    fontWeight:"bold",
+    fontFamily: 'montserrat-bold'
   },
   image: {
     borderColor: global.white,
@@ -80,22 +54,28 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 15,
   },
-    bgImage: {
-     backgroundColor: global.lightGrey,
+  bgImage: {
+     backgroundColor: global.lightGreySemiTransparent,
      flex: 1,
      position: 'absolute',
      width: '100%',
      height: '100%',
      justifyContent: 'center',
- },
-  button: {
-    width: 100,
-    height: 30,
-    borderColor: global.transparent,
-    borderWidth: 5,
-    borderRadius: 15,
-    marginBottom: 5,
-  },
+   },
+   answerArea: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      margin: 20
+   },
+   answerButton: {
+     backgroundColor: global.mainBlue,
+     marginTop: 20,
+     width: 130,
+     borderColor: global.transparent,
+     borderWidth: 0,
+     borderRadius: 5,
+   },
 });
 
 class SmileGame extends React.Component {
@@ -136,43 +116,48 @@ class SmileGame extends React.Component {
     return (
       <View style={styles.container}>
 
-      <Image
-          style={styles.bgImage}
-          source={{ uri: global.orangeSkyImgUrl }}
-        />
+         <Image
+             style={styles.bgImage}
+             source={{ uri: global.orangeSkyImgUrl }}
+           />
 
-        <Text style={styles.text}>
-            Is this person   &nbsp;
-            <Text style={styles.boldText}>
-            {this.state.emotionPrompt}?
+        <Text style={styles.headerText}>
+               Is this person
         </Text>
+        <Text style={styles.boldText}>
+           {this.state.emotionPrompt}?
         </Text>
         <Image
-                source={{uri: this.state.uri}}
-                style={styles.image}
-            />
+          source={{uri: this.state.uri}}
+          style={styles.image}
+         />
 
-        <TouchableHighlight onPress={
-          () => {
-            this.driver.setAnswer( this.count, true );
-            this.changePicture();
-          }
-        } underlayColor="white">
-            <Text style = {styles.textButton}>
-                Yes
-                </Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={
-          () => {
-            this.driver.setAnswer( this.count, false );
-            this.changePicture();
-          }
-        } underlayColor="white">
-            <Text style = {styles.textButtonRed}>
-                No
-                </Text>
-        </TouchableHighlight>
+         <View style={styles.answerArea}>
+            <Button
+               buttonStyle={styles.answerButton}
+               title="YES"
+               color={global.starYellow}
+               fontFamily='open-sans-bold'
+               onPress={ () => {
+                   this.driver.setAnswer( this.count, true );
+                   this.changePicture();
+                }
+               }
+            >
+            </Button>
+            <Button
+               buttonStyle={styles.answerButton}
+               title="NO"
+               color={global.starYellow}
+               fontFamily='open-sans-bold'
+               onPress={ () => {
+                   this.driver.setAnswer( this.count, false );
+                   this.changePicture();
+                }
+               }
+            >
+            </Button>
+         </View>
 
       </View>
 

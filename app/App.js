@@ -70,7 +70,7 @@ const RootStack = StackNavigator(
     Congratulations: {
       screen: CongratulationsScreen,
       navigationOptions: ({ navigation }) => ({
-          title: 'Congratulations!',
+          title: 'Congratulations',
         }),
     },
   },
@@ -103,7 +103,7 @@ export default class App extends React.Component {
       this.setState(previousState => {
         return { isReady: true };
       });
-      console.log("Fonts sucessfully loaded");
+      console.log("Fonts Sucessfully loaded");
       })
       .catch( (err) => {
         console.log(err);

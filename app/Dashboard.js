@@ -314,6 +314,8 @@ class Dashboard extends React.Component {
                    buttonStyle={styles.playButton}
                    color={global.lightGrey}
                    title="Learn Now"
+                   fontFamily='open-sans-bold'
+                   fontSize={16}
                    onPress={() => this.props.navigation.navigate('Onboarding1', {navigation: this.props.navigation})}
                    >
                  </Button>
@@ -336,6 +338,8 @@ class Dashboard extends React.Component {
                         buttonStyle={styles.playButton}
                         color={global.lightGrey}
                         title="Play Now"
+                        fontFamily='open-sans-bold'
+                        fontSize={16}
                         onPress={() => this.props.navigation.navigate(u.path, {navigation: this.props.navigation})}
                         >
                       </Button>
@@ -456,7 +460,7 @@ styles = StyleSheet.create({
       color: global.darkGrey,
       alignSelf: 'flex-start',
       fontFamily: 'open-sans-bold',
-      fontSize: 14,
+      fontSize: 15,
       paddingBottom: 5,
    },
    levelNum: {
@@ -467,7 +471,7 @@ styles = StyleSheet.create({
    paragraph: {
       color: global.darkGrey,
       fontFamily: 'open-sans',
-      fontSize: 13,
+      fontSize: 14,
    },
    playButton: {
       backgroundColor: global.mainBlue,

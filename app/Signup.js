@@ -6,8 +6,7 @@ const firebase = new initFirebase();
 
 //design imports
 import './global-design-constants.js';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 //console.log('firebase from Signup.js:',firebase);
 const styles = StyleSheet.create({
@@ -52,8 +51,8 @@ orText: {
 },
  button: {
    backgroundColor: global.backgroundWhite,
-   width: 220,
-   height: 35,
+   width: 210,
+   height: 40,
    borderColor: global.transparent,
    borderWidth: 0,
    borderRadius: 5

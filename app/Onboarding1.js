@@ -1,9 +1,8 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity, AppRegistry, TouchableHighlight } from 'react-native';
+import {StyleSheet, Text, View, Image, } from 'react-native';
 import './global-design-constants.js';
 //design imports
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 
 //console.log('firebase from Signup.js:',firebase);
@@ -11,37 +10,26 @@ import { StackNavigator } from 'react-navigation';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: global.backgroundYellow,
+    backgroundColor: global.backgroundGreen,
     flex: 1,
     alignItems: 'center',
   },
-  text: {
+  headerText: {
     color: global.darkGrey,
-    justifyContent: 'center',
+    textAlign: 'center',
     fontSize: 50,
-    margin: 15,
-    marginTop: 5,
-    marginBottom: 5,
-  },
-  textButton: {
-    color: global.darkGrey,
-    fontSize: 20,
-    margin: 5,
-    marginTop: 5,
-    marginBottom: 15,
-    borderColor: global.white,
-    textShadowColor: global.white,
+    marginTop: 15,
+    fontFamily: 'montserrat'
   },
   boldText: {
-    color: global.darkGrey,
-    justifyContent: 'center',
+    color: global.starYellow,
+    textAlign: 'center',
     fontSize: 50,
-    margin: 15,
     marginBottom: 10,
-    fontWeight:"bold",
+    fontFamily: 'montserrat-bold'
   },
   image: {
-    borderColor: global.white,
+    borderColor: global.backgroundYellow,
     borderRadius: 10,
     borderWidth: 10,
     width: 300,
@@ -50,16 +38,35 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 15,
   },
-  icon: {
-    color: global.white,
-  },
-  button: {
-    width: 100,
-    height: 30,
+  moreImagesButton: {
+    backgroundColor: global.mainBlue,
+    margin: 20,
+    padding: 15,
     borderColor: global.transparent,
     borderWidth: 0,
     borderRadius: 5,
-  }
+  },
+   nextEmotSection: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      marginBottom: 35
+   },
+   nextText: {
+      fontSize: 18,
+      textAlign: 'center',
+      margin: 10,
+      color: global.darkGrey,
+      fontFamily: 'open-sans'
+   },
+   nextButton: {
+     width: 200,
+     height: 40,
+     backgroundColor: global.backgroundWhite,
+     borderColor: global.transparent,
+     borderWidth: 0,
+     borderRadius: 5,
+    },
+
 });
 
 
@@ -102,27 +109,35 @@ class Onboarding1 extends React.Component {
     return (
       <View style={styles.container}>
 
-        <Text style={styles.text}>
-            This is a    &nbsp;
-            <Text style={styles.boldText}>
-            happy face!
-        </Text>
-        </Text>
+        <Text style={styles.headerText}>
+            This is a
+         </Text>
+         <Text style={styles.boldText}>
+            Happy face
+         </Text>
+
         <Image
                 source={this.state}
                 style={styles.image}
             />
-        <TouchableHighlight onPress={() => this.changePicture(this.count)} underlayColor="white">
-            <Text style = {styles.textButton}>
-                Touch here to see more faces!
-                </Text>
-        </TouchableHighlight>
+         <Button
+            buttonStyle={styles.moreImagesButton}
+            title="Touch here to see more faces!"
+            color={global.starYellow}
+            fontFamily='open-sans'
+            onPress={() => this.changePicture(this.count)}>
+        </Button>
 
-        <Button
-          style={styles.button}
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Onboarding2', {navigation: this.props.navigation})}
-        />
+        <View style={styles.nextEmotSection}>
+           <Text style={styles.nextText}>Ready to move on?</Text>
+           <Button
+             buttonStyle={styles.nextButton}
+             title="Next Emotion"
+             color={global.mainBlue}
+             fontFamily='open-sans'
+             onPress={() => this.props.navigation.navigate('Onboarding2', {navigation: this.props.navigation})}
+           />
+       </View>
 
       </View>
 

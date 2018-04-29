@@ -53,16 +53,16 @@ const styles = StyleSheet.create({
    },
    loginButton: {
       backgroundColor: global.backgroundWhite,
-      width: 220,
-      height: 35,
+      width: 210,
+      height: 40,
       borderColor: global.transparent,
       borderWidth: 0,
       borderRadius: 5
    },
    signupButton: {
       backgroundColor: global.backgroundWhite,
-      width: 170,
-      height: 25,
+      width: 160,
+      height: 30,
       borderColor: global.transparent,
       borderWidth: 0,
       borderRadius: 5,
@@ -154,7 +154,7 @@ class Login extends React.Component {
           error.message,
           [
               {text: "Ok, I'll fix this", onPress: () => console.log('Ok pressed')},
-              {text: 'Whatever', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+              {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
           ],
           { cancelable: false }
       );

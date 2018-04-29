@@ -1,9 +1,8 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, View, TextInput, Image, TouchableOpacity, AppRegistry } from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import './global-design-constants.js';
 //design imports
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Overlay, FormLabel, FormInput, Button, icon } from 'react-native-elements';
+import { Button} from 'react-native-elements';
 
 //console.log('firebase from Signup.js:',firebase);
 
@@ -13,63 +12,58 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  text: {
-    color: global.darkGrey,
-    fontSize: 30,
-    marginTop: 15,
-    marginBottom: 55,
-    fontWeight: '700',
-  },
   bgImage: {
-     backgroundColor: global.lightGrey,
+     backgroundColor: global.lightGreySemiTransparent,
      position: 'absolute',
      width: '100%',
      height: '100%',
      justifyContent: 'center',
- },
+  },
   boldText: {
     color: global.darkGrey,
-    fontSize: 45,
+    fontSize: 42,
     marginTop: 55,
     marginBottom: 25,
-    fontWeight:'900',
+    fontFamily: 'montserrat-bold'
   },
-  smallText: {
-    color: global.white,
-    fontSize: 25,
-    marginTop: 15,
-    marginBottom: 5,
-    fontWeight:'500',
-  },
-  image: {
-    borderColor: global.white,
-    borderRadius: 10,
-    borderWidth: 10,
-    width: 150,
-    height: 200,
-    justifyContent: 'center',
-    marginBottom: 10,
+  text: {
+    color: global.darkGrey,
+    fontSize: 24,
+    marginBottom: 55,
+    fontFamily: 'montserrat-bold'
   },
   movingImage: {
-    borderColor: global.white,
     width: 400,
     height: 200,
     justifyContent: 'center',
     marginBottom: 30,
+    marginTop: 10
+  },
+  nextStepsArea: {
+     marginTop: 35,
+     alignItems: 'center',
   },
   button: {
-    width: 165,
-    height: 30,
-    marginBottom: 15,
-    marginTop: 15,
-  }
+    width: 210,
+    height: 40,
+    borderColor: global.transparent,
+    borderWidth: 0,
+    borderRadius: 5,
+    backgroundColor: global.backgroundWhite,
+   },
+   smallText: {
+     color: global.white,
+     fontSize: 20,
+     fontFamily: 'open-sans-bold',
+     margin: 10
+   },
 });
 
 
 class Congratulations extends React.Component {
     //set up the title of this screen
     static navigationOptions = {
-        title: "Congratulations!"
+        title: "Congratulations"
     };
 
     //this constructor method is called before the componentWillMount method
@@ -89,33 +83,40 @@ class Congratulations extends React.Component {
           source={{ uri: global.confetti2 }}
         />
 
+     <View>
         <Text style={styles.boldText}>
             Congraulations!
         </Text>
 
         <Text style={styles.text}>
-            You completed the tutorial.
+            You completed the tutorial
         </Text>
+     </View>
 
         <Image style={styles.movingImage}
             source={{ uri: global.congrats }}
           />
 
-        <Button
-          style={styles.button}
-          title="Back to home"
-          titleStyle={{fontWeight: "700" }}
-          onPress = {() => this.props.navigation.navigate('Dashboard', {navigation: this.props.navigation})}
-        />
 
-        <Text style={styles.smallText}>
-            -----or------
-        </Text>
-
-        <Button style={styles.button}
-            title={"Match your face!"}
-            onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
-        />
+       <View style={styles.nextStepsArea}>
+           <Button
+             buttonStyle={styles.button}
+             title="Back to home"
+             fontFamily='open-sans-bold'
+             color={global.mainBlue}
+             onPress = {() => this.props.navigation.navigate('Dashboard', {navigation: this.props.navigation})}
+           />
+           <Text style={styles.smallText}>
+               ----- or ------
+           </Text>
+           <Button
+               buttonStyle={styles.button}
+               title={"Match your face!"}
+               fontFamily='open-sans-bold'
+               color={global.mainBlue}
+               onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
+           />
+       </View>
 
       </View>
 
