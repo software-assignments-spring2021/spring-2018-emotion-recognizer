@@ -36,7 +36,7 @@ const games = [
  },
   {
     name: 'Angry or Surprised',
-    shortDesc: 'Check how well you know the difference between scared and happy with this quiz',
+    shortDesc: 'Check how well you know the difference between angry and surprised with this quiz',
     path: 'SmileGame5',
     level: 1
  },

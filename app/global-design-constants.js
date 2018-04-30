@@ -13,6 +13,7 @@ global.lightGrey = "#e4e4e4";
 global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)";
 global.midGrey = "#9B9B9B";
 global.darkGrey = "#364652";
+global.darkGreySemiTransparent = "rgba(54, 70, 82, 0.6)";
 
 global.mainBlue = "#3989E1";
 global.backgroundBlue = "#b7d9ff";
@@ -23,9 +24,11 @@ global.white = "#FFFFFF";
 global.backgroundWhite = "rgba(255,255,255, 0.6)";
 
 global.starYellow = "#FFFF4D";
-global.backgroundYellow = "rgba(255,255,77, 0.3)";
+global.backgroundYellow = "rgba(255,255,77, 0.6)";
 
-global.backgroundRed = "rgba(237,41,57, 0.9)";
+global.backgroundRed = "rgba(237,41,57, 0.6)";
+
+global.backgroundPurple = "rgba(147,112,219, 0.6)";
 
 global.transparent = 'transparent';
 
@@ -54,7 +57,7 @@ global.angry4= require('./src/assets/images/angry4.jpg');
 global.angry5= require('./src/assets/images/angry5.jpg');
 //scared
 global.scared= require('./src/assets/images/scared.jpeg');
-global.scared2= require('./src/assets/images/scared2.webp');
+global.scared2= require('./src/assets/images/scared2.jpg');
 global.scared3= require('./src/assets/images/scared3.jpg');
 global.scared4= require('./src/assets/images/scared4.jpg');
 global.scared5= require('./src/assets/images/scared5.jpg');

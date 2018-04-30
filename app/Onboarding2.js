@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat'
   },
   boldText: {
-    color: global.starYellow,
+    color: global.darkGrey,
     textAlign: 'center',
     fontSize: 50,
     marginBottom: 10,
     fontFamily: 'montserrat-bold'
   },
   image: {
-    borderColor: global.backgroundYellow,
+    borderColor: global.darkGreySemiTransparent,
     borderRadius: 10,
     borderWidth: 10,
     width: 300,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   moreImagesButton: {
-    backgroundColor: global.mainBlue,
+    backgroundColor: global.darkGrey,
     margin: 20,
     padding: 15,
     borderColor: global.transparent,
@@ -77,7 +77,7 @@ class Onboarding2 extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
         this.state = { uri: global.sad };
-        this.count = 0;
+        this.count = 1;
     } //constructor
 
 
@@ -129,7 +129,7 @@ class Onboarding2 extends React.Component {
          <Button
             buttonStyle={styles.moreImagesButton}
             title="Touch here to see more faces!"
-            color={global.starYellow}
+            color={global.white}
             fontFamily='open-sans'
             onPress={() => this.changePicture(this.count)}>
         </Button>
@@ -139,7 +139,7 @@ class Onboarding2 extends React.Component {
            <Button
              buttonStyle={styles.nextButton}
              title="Next Emotion"
-             color={global.mainBlue}
+             color={global.darkGrey}
              fontFamily='open-sans'
              onPress={() => this.props.navigation.navigate('Onboarding3', {navigation: this.props.navigation})}
            />

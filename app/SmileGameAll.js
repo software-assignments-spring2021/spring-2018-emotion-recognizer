@@ -46,14 +46,14 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat'
   },
   boldText: {
-    color: global.starYellow,
+    color: global.darkGrey,
     textAlign: 'center',
     fontSize: 50,
     marginBottom: 10,
     fontFamily: 'montserrat-bold'
   },
   image: {
-    borderColor: global.white,
+    borderColor: global.darkGreySemiTransparent,
     borderRadius: 10,
     borderWidth: 10,
     width: 300,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
       margin: 20
    },
    answerButton: {
-     backgroundColor: global.mainBlue,
+     backgroundColor: global.darkGrey,
      marginTop: 20,
      width: 130,
      borderColor: global.transparent,
@@ -144,7 +144,7 @@ class SmileGameAll extends React.Component {
             <Button
                buttonStyle={styles.answerButton}
                title="YES"
-               color={global.starYellow}
+               color={global.white}
                fontFamily='open-sans-bold'
                onPress={ () => {
                    this.driver.setAnswer( this.count, true );
@@ -156,7 +156,7 @@ class SmileGameAll extends React.Component {
             <Button
                buttonStyle={styles.answerButton}
                title="NO"
-               color={global.starYellow}
+               color={global.white}
                fontFamily='open-sans-bold'
                onPress={ () => {
                    this.driver.setAnswer( this.count, false );
