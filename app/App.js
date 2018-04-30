@@ -127,7 +127,7 @@ const RootStack = StackNavigator(
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Congratulations2',
+    initialRouteName: 'Login',
   }
 );
 
