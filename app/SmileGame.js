@@ -7,6 +7,8 @@ import { StackNavigator } from 'react-navigation';
 //GameDriver import
 import { GameDriver } from './GameDriver.js';
 
+import { Popover } from './Popover.js'
+
 const testData = [
   {
     name: 'happy',
@@ -91,7 +93,8 @@ class SmileGame extends React.Component {
     } //constructor
 
 
-    changePicture = () => {
+
+    changePicture() {
       if ( !this.driver.gameOver() ) {
         this.count++;
 
@@ -109,13 +112,16 @@ class SmileGame extends React.Component {
   }
 
   render() {
+    const pop = <Popover message="Try Again!" visible={false}/>;
+    console.log(pop);
+
     return (
       <View style={styles.container}>
-
-         <Image
-             style={styles.bgImage}
-             source={global.orangeSkyImgUrl }
-           />
+        {pop}
+        <Image
+          style={styles.bgImage}
+          source={global.orangeSkyImgUrl }
+        />
 
         <Text style={styles.headerText}>
                Is this person
@@ -135,8 +141,12 @@ class SmileGame extends React.Component {
                color={global.white}
                fontFamily='open-sans-bold'
                onPress={ () => {
-                   this.driver.setAnswer( this.count, true );
-                   this.changePicture();
+                   if( this.driver.setAnswer( this.count, true ) ) {
+                     this.changePicture();
+                   }
+                   else {
+                     pop.show();
+                   }
                 }
                }
             >
@@ -147,8 +157,12 @@ class SmileGame extends React.Component {
                color={global.white}
                fontFamily='open-sans-bold'
                onPress={ () => {
-                   this.driver.setAnswer( this.count, false );
-                   this.changePicture();
+                   if( this.driver.setAnswer( this.count, false ) ) {
+                     this.changePicture();
+                   }
+                   else {
+                     pop.show();
+                   }
                 }
                }
             >

@@ -36,11 +36,18 @@ class GameDriver {
       // pick a random emotion for the image to be of
       const emotionImgIndex = Math.floor(Math.random()*emotions.length);
       // pick a random image of that emotion
-      const emotionImg = emotions[emotionImgIndex].imgs[Math.floor(Math.random()*emotions[emotionImgIndex].imgs.length)];
+      const emotionImgMetaIndex = Math.floor(Math.random()*emotions[emotionImgIndex].imgs.length);
+      // get that image's uri
+      const emotionImg = emotions[emotionImgIndex].imgs[emotionImgMetaIndex];
       // pick a random emotion
       const emotionNameIndex = Math.floor(Math.random()*emotions.length);
       // get the name of that emotion
       const emotionName = emotions[emotionNameIndex].name;
+
+      emotions[emotionImgIndex].imgs.splice( emotionImgMetaIndex, 1 );
+      if ( emotions[emotionImgIndex].imgs.length === 0 ) {
+        emotions.splice( emotionImgIndex, 1 );
+      }
 
       // push our newly constructed question to the list, indicating the correct answer (true if the image and emotion name match)
       questions.push({
@@ -81,8 +88,13 @@ class GameDriver {
 
   // n: Number, the index for the question being answered
   // a: Boolean, the answer
+  // only sets answer if question has not been answered previously
+  // returns true if answer is correct, false if incorrect
   setAnswer( n, a ) {
-    this.answers[n].correct = (this.questions[n].correct === a);
+    if( !this.answers[n].hasOwnProperty('correct') ) {
+      this.answers[n].correct = (this.questions[n].correct === a);
+    }
+    return this.questions[n].correct === a;
   }
 
   //reports whether or not all questions have been answered
