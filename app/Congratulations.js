@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: global.darkGrey,
-    fontSize: 26,
-    marginLeft: 15,
+    fontSize: 24,
     marginBottom: 55,
-    fontFamily: 'montserrat-bold'
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center'
   },
   movingImage: {
     width: 400,
@@ -90,7 +90,7 @@ class Congratulations extends React.Component {
         </Text>
 
         <Text style={styles.text}>
-            You learned 5 emotions!
+            You learned 5 emotions
         </Text>
      </View>
 
@@ -112,7 +112,7 @@ class Congratulations extends React.Component {
            </Text>
            <Button
                buttonStyle={styles.button}
-               title={"Match your face!"}
+               title={"Take the quiz"}
                fontFamily='open-sans-bold'
                color={global.mainBlue}
                onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}

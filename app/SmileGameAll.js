@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 50,
     marginTop: 15,
-    fontFamily: 'montserrat'
+    fontFamily: 'montserrat-bold'
   },
   boldText: {
-    color: global.darkGrey,
+    color: global.white,
     textAlign: 'center',
     fontSize: 50,
     marginBottom: 10,
-    fontFamily: 'montserrat-bold'
+    fontFamily: 'montserrat-bold-italic'
   },
   image: {
     borderColor: global.darkGreySemiTransparent,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
       margin: 20
    },
    answerButton: {
-     backgroundColor: global.darkGrey,
+     backgroundColor: global.mainBlue,
      marginTop: 20,
      width: 130,
      borderColor: global.transparent,
@@ -126,7 +126,7 @@ class SmileGameAll extends React.Component {
 
          <Image
              style={styles.bgImage}
-             source={global.orangeSkyImgUrl }
+             source={global.gameBg }
            />
 
         <Text style={styles.headerText}>

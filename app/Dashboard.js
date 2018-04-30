@@ -11,19 +11,19 @@ import {Button, Card } from 'react-native-elements';
 //hard code games
 const games = [
  {
-    name: 'Happy Or Sad',
+    name: 'Happy or Sad',
     shortDesc: 'Check how well you know the difference between happy and sad with this quiz',
     path: 'SmileGame',
     level: 1
  },
   {
-    name: 'Angry Or Scared',
+    name: 'Angry or Scared',
     shortDesc: 'Check how well you know the difference between angry and scared with this quiz',
     path: 'SmileGame2',
     level: 1
  },
    {
-    name: 'Surprised Or Sad',
+    name: 'Surprised or Sad',
     shortDesc: 'Check how well you know the difference between surprised and sad with this quiz',
     path: 'SmileGame3',
     level: 1

@@ -41,7 +41,7 @@ const RootStack = StackNavigator(
       screen: DashboardScreen,
       navigationOptions: ({ navigation }) => ({
           title: 'Dashboard',
-          //headerLeft: null //this disables the back button to Login
+          headerLeft: null //this disables the back button to Login
         }),
     },
     Onboarding1: {
@@ -114,18 +114,20 @@ const RootStack = StackNavigator(
       screen: CongratulationsScreen,
       navigationOptions: ({ navigation }) => ({
           title: 'Congratulations',
+          headerLeft: null //this disables the back button to Login
         }),
     },
     Congratulations2: {
       screen: Congratulations2Screen,
       navigationOptions: ({ navigation }) => ({
           title: 'Congratulations',
+          headerLeft: null //this disables the back button to Login
         }),
     },
   },
   {
     //load up the Login component by default
-    initialRouteName: 'Login',
+    initialRouteName: 'Congratulations2',
   }
 );
 
