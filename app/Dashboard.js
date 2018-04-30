@@ -49,7 +49,7 @@ const games = [
  {
     name: 'Match the face',
     shortDesc: 'Repeat after the game and make the same face',
-    path: '',
+    path: 'deepLinker1',
     level: 3
  },
 ];
