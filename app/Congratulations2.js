@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
      alignItems: 'center',
   },
   button: {
-    width: 210,
-    height: 40,
+    width: 180,
+    height: 70,
     borderColor: global.transparent,
     borderWidth: 0,
     borderRadius: 5,
@@ -94,20 +94,11 @@ class Congratulations2 extends React.Component {
        <View style={styles.nextStepsArea}>
            <Button
              buttonStyle={styles.button}
-             title="Back to home"
+             title="HOME"
+             fontSize={30}
              fontFamily='open-sans-bold'
              color={global.mainBlue}
              onPress = {() => this.props.navigation.navigate('Dashboard', {navigation: this.props.navigation})}
-           />
-           <Text style={styles.smallText}>
-               ----- or ------
-           </Text>
-           <Button
-               buttonStyle={styles.button}
-               title={"Match your face!"}
-               fontFamily='open-sans-bold'
-               color={global.mainBlue}
-               onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation})}
            />
        </View>
 
