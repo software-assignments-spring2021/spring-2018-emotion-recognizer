@@ -114,7 +114,7 @@ class SmileGame extends React.Component {
 
          <Image
              style={styles.bgImage}
-             source={{ uri: global.orangeSkyImgUrl }}
+             source={global.orangeSkyImgUrl }
            />
 
         <Text style={styles.headerText}>
@@ -124,7 +124,7 @@ class SmileGame extends React.Component {
            {this.state.emotionPrompt}?
         </Text>
         <Image
-          source={{uri: this.state.uri}}
+          source={this.state.uri}
           style={styles.image}
          />
 

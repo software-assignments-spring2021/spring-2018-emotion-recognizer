@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
-import { Pie, SmoothLine } from 'react-native-pathjs-charts';
+import { Pie, StockLine } from 'react-native-pathjs-charts';
 import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
@@ -89,47 +89,62 @@ const pieOptions = {
 };
 
 const smoothOptions = {
-   width: 280,
-   height: 280,
-   color: '00C853',
-   margin: {
-     top: 20,
-     left: 45,
-     bottom: 25,
-     right: 20
-   },
-   animate: {
-     type: 'delayed',
-     duration: 200
-   },
-   axisX: {
-     showAxis: true,
-     showLines: false,
-     showLabels: true,
-     showTicks: true,
-     zeroAxis: false,
-     orient: 'bottom',
-     label: {
-       fontFamily: 'open-sans',
-       fontSize: 14,
-       fontWeight: true,
-       fill: global.mainBlue
-     }
-   },
-   axisY: {
-     showAxis: true,
-     showLines: true,
-     showLabels: true,
-     showTicks: true,
-     zeroAxis: false,
-     orient: 'left',
-     label: {
-       fontFamily: 'open-sans',
-       fontSize: 14,
-       fontWeight: true,
-       fill: global.mainBlue
-     }
-   }
+      width: 280,
+      height: 280,
+      color: global.backgroundGreen,
+      margin: {
+        top: 10,
+        left: 35,
+        bottom: 30,
+        right: 10
+      },
+      animate: {
+        type: 'delayed',
+        duration: 200
+      },
+      axisX: {
+        showAxis: true,
+        showLines: false,
+        showLabels: true,
+        showTicks: true,
+        zeroAxis: false,
+        orient: 'bottom',
+        tickValues: [],
+        label: {
+          fontFamily: 'open-sans',
+          fontSize: 13,
+          fontWeight: true,
+          fill: global.darkGrey
+        }
+      },
+      axisY: {
+        showAxis: true,
+        showLines: true,
+        showLabels: true,
+        showTicks: true,
+        zeroAxis: false,
+        orient: 'left',
+        tickValues: [],
+        label: {
+            fontFamily: 'open-sans',
+            fontSize: 13,
+            fontWeight: true,
+            fill: global.darkGrey
+          }
+      },
+      strokeWidth: 2,
+
+      showAreas: (curve: number, index: number) => index === 0,
+
+      showPoints: (graphIndex: number, pointIndex: number) =>
+        graphIndex === 1 && pointIndex === this.state.smoothDataState[1].length - 1,
+      renderPoint: () => [
+        // <Circle key="light" fill={global.darkGrey} cx={0} cy={0} r={10} fillOpacity={0.5} />,
+        <Circle key="full" fill={global.darkGrey} cx={0} cy={0} r={7} fillOpacity={1} />,
+      ],
+
+      strokeDasharray: (curve: number, index: number) => (index === 2 ? [5] : []),
+      strokeOpacity: (curve: number, index: number) => (index === 2 ? 0.3 : 1),
 };
 
 let styles = {};
@@ -205,7 +220,7 @@ class Dashboard extends React.Component {
       uid = firebase.auth().currentUser.uid;
       let pieStuff = [];
       const smoothStuff = [[]];
-      smoothStuff[0].push({x:0, y:0}, {x:0, y:100});
+      smoothStuff[0].push({x:0, y:0}, {x:0, y:110});
       const scope = this;
       //get chart information by querying db
       db.collection('users').doc(uid).get().then(function(doc) {
@@ -384,7 +399,7 @@ class Dashboard extends React.Component {
             <View style={styles.chartStyles}>
                <Text style={styles.graphHeader}>Percent Correct Over Time</Text>
 
-               <SmoothLine data={this.state.smoothDataState} options={smoothOptions} xKey="x" yKey="y"/>
+               <StockLine data={this.state.smoothDataState} options={smoothOptions} xKey="x" yKey="y"/>
                <Text style={styles.graphSubHeader}>Games Played</Text>
             </View>
          </View> : null
