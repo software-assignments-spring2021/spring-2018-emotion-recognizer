@@ -6,15 +6,17 @@ import { Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 
 
+//import { Linking } from 'react-native';
+//Linking.openURL('AffdexEmoji://');
 
+//Expo.Linking.makeUrl('AffdexEmoji://');
 
-
-class deepLinker1 extends React.Component {
-    static navigationOptions = {
-        title: "Make an expression!"
-    };
-
-    
-  }
+class deepLinker1 extends React.component{
+	//Linking.openURL('AffdexEmoji://);
+}
 
 export { deepLinker1 };
+
+
+
+
