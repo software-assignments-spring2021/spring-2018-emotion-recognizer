@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		625021EFB18AF635F09B343C /* Pods_AffdexEmoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E829B3660DB6FBFE46FA396 /* Pods_AffdexEmoji.framework */; };
+		659140F31727E23500DB4E10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 659140F01727E23500DB4E10 /* AppDelegate.m */; };
+		659140F41727E23500DB4E10 /* EmojiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659140F21727E23500DB4E10 /* EmojiViewController.m */; };
+		65920A7316D73F8700D89A4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65920A7216D73F8700D89A4B /* UIKit.framework */; };
+		65920A7516D73F8700D89A4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65920A7416D73F8700D89A4B /* Foundation.framework */; };
+		65920A9816D7414700D89A4B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65920A9716D7414700D89A4B /* CoreImage.framework */; };
+		65920A9A16D7415200D89A4B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65920A9916D7415200D89A4B /* QuartzCore.framework */; };
+		680348831C3B18EC005CF454 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 680348821C3B18EC005CF454 /* Settings.png */; };
+		680348941C3C1413005CF454 /* unknown-noglasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 6803488E1C3C1413005CF454 /* unknown-noglasses.png */; };
+		680348951C3C1413005CF454 /* unknown-glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 6803488F1C3C1413005CF454 /* unknown-glasses.png */; };
+		680348961C3C1413005CF454 /* male-noglasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 680348901C3C1413005CF454 /* male-noglasses.png */; };
+		680348971C3C1413005CF454 /* male-glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 680348911C3C1413005CF454 /* male-glasses.png */; };
+		680348981C3C1413005CF454 /* female-noglasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 680348921C3C1413005CF454 /* female-noglasses.png */; };
+		680348991C3C1413005CF454 /* female-glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 680348931C3C1413005CF454 /* female-glasses.png */; };
+		6803489D1C3C7C05005CF454 /* camera-lens-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6803489C1C3C7C05005CF454 /* camera-lens-icon.png */; };
+		6813DF9D1C517C6E0049B0BA /* EmojiFoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6813DF9C1C517C6E0049B0BA /* EmojiFoundViewController.m */; };
+		68224A111B94E164000CE9BB /* Affdex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68224A101B94E164000CE9BB /* Affdex.framework */; };
+		682664D71766679C004E93E6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682664D61766679C004E93E6 /* CoreVideo.framework */; };
+		682664D9176667A7004E93E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682664D8176667A7004E93E6 /* AVFoundation.framework */; };
+		682664DB176667DC004E93E6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682664DA176667DC004E93E6 /* CoreMedia.framework */; };
+		682B8B73185F6D4F00DB10DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 682B8B72185F6D4F00DB10DE /* main.m */; };
+		686C75E31B95EAC000483C1A /* Square.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C01B95EAC000483C1A /* Square.ttf */; };
+		686C75E51B95EAC000483C1A /* Anger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C31B95EAC000483C1A /* Anger.jpg */; };
+		686C75E61B95EAC000483C1A /* Attention.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C41B95EAC000483C1A /* Attention.jpg */; };
+		686C75E71B95EAC000483C1A /* Brow Furrow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C51B95EAC000483C1A /* Brow Furrow.jpg */; };
+		686C75E81B95EAC000483C1A /* Brow Raise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C61B95EAC000483C1A /* Brow Raise.jpg */; };
+		686C75E91B95EAC000483C1A /* Chin Raise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C71B95EAC000483C1A /* Chin Raise.jpg */; };
+		686C75EA1B95EAC000483C1A /* Contempt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C81B95EAC000483C1A /* Contempt.jpg */; };
+		686C75EB1B95EAC000483C1A /* Disgust.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C91B95EAC000483C1A /* Disgust.jpg */; };
+		686C75EC1B95EAC000483C1A /* Engagement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75CA1B95EAC000483C1A /* Engagement.jpg */; };
+		686C75ED1B95EAC000483C1A /* Expressiveness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75CB1B95EAC000483C1A /* Expressiveness.jpg */; };
+		686C75EE1B95EAC000483C1A /* Eye Closure.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75CC1B95EAC000483C1A /* Eye Closure.jpg */; };
+		686C75EF1B95EAC000483C1A /* Fear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75CD1B95EAC000483C1A /* Fear.jpg */; };
+		686C75F01B95EAC000483C1A /* Inner Brow Raise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75CE1B95EAC000483C1A /* Inner Brow Raise.jpg */; };
+		686C75F11B95EAC000483C1A /* Joy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75CF1B95EAC000483C1A /* Joy.jpg */; };
+		686C75F21B95EAC000483C1A /* Frown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D01B95EAC000483C1A /* Frown.jpg */; };
+		686C75F31B95EAC000483C1A /* Lip Press.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D11B95EAC000483C1A /* Lip Press.jpg */; };
+		686C75F41B95EAC000483C1A /* Lip Pucker.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D21B95EAC000483C1A /* Lip Pucker.jpg */; };
+		686C75F51B95EAC000483C1A /* Lip Suck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D31B95EAC000483C1A /* Lip Suck.jpg */; };
+		686C75F61B95EAC000483C1A /* Mouth Open.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D41B95EAC000483C1A /* Mouth Open.jpg */; };
+		686C75F71B95EAC000483C1A /* Nose Wrinkle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D51B95EAC000483C1A /* Nose Wrinkle.jpg */; };
+		686C75F81B95EAC000483C1A /* Sadness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D61B95EAC000483C1A /* Sadness.jpg */; };
+		686C75FA1B95EAC000483C1A /* Smile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D81B95EAC000483C1A /* Smile.jpg */; };
+		686C75FB1B95EAC000483C1A /* Smirk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75D91B95EAC000483C1A /* Smirk.jpg */; };
+		686C75FC1B95EAC000483C1A /* Surprise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75DA1B95EAC000483C1A /* Surprise.jpg */; };
+		686C75FD1B95EAC000483C1A /* Upper Lip Raise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75DB1B95EAC000483C1A /* Upper Lip Raise.jpg */; };
+		686C75FE1B95EAC000483C1A /* Valence.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75DC1B95EAC000483C1A /* Valence.jpg */; };
+		686C75FF1B95EAC000483C1A /* Enk.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 686C75DE1B95EAC000483C1A /* Enk.m4a */; };
+		686C76001B95EAC000483C1A /* Whit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 686C75DF1B95EAC000483C1A /* Whit.m4a */; };
+		686C76011B95EAC000483C1A /* Whoot.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 686C75E01B95EAC000483C1A /* Whoot.m4a */; };
+		686C76021B95EAC000483C1A /* face1.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 686C75E21B95EAC000483C1A /* face1.m4v */; };
+		68914FF41A9104FE00A6C4D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68914FF31A9104FE00A6C4D7 /* Main.storyboard */; };
+		689DB55E17DA2CAA00751050 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689DB55D17DA2CAA00751050 /* Security.framework */; };
+		689DB56017DA329E00751050 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689DB55F17DA329E00751050 /* CFNetwork.framework */; };
+		689DB56217DA32BD00751050 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689DB56117DA32BD00751050 /* SystemConfiguration.framework */; };
+		68CF76801B83AF500083B32E /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CF767F1B83AF500083B32E /* UIDeviceHardware.m */; };
+		68D0FD931C035AAB00D430A2 /* camera-shutter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68D0FD921C035AAB00D430A2 /* camera-shutter.mp3 */; };
+		68D0FD951C0545C700D430A2 /* camera-swap-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D0FD941C0545C700D430A2 /* camera-swap-icon.png */; };
+		68DCE53D1767642C000DE093 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68DCE53C1767642C000DE093 /* AudioToolbox.framework */; };
+		68DD4B68194784A70077ED24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65920A7616D73F8700D89A4B /* CoreGraphics.framework */; };
+		68E978CF1C17724400EAD971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E978CE1C17724400EAD971 /* LaunchScreen.storyboard */; };
+		68E978D11C1772D200EAD971 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E978D01C1772D200EAD971 /* background.png */; };
+		68F07FA01C4E931200A3E7CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F07F9F1C4E931200A3E7CA /* Images.xcassets */; };
+		68F626BD1B91E502004521CE /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */; };
+		68FA744C1B8E1659004045F3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FA744B1B8E1659004045F3 /* MediaPlayer.framework */; };
+		D908815A1E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */; };
+		D95FACCA1E3C881100E3D17B /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D95FACC91E3C881100E3D17B /* SoundEffect.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		68914F3B1A8F8F9500A6C4D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1E829B3660DB6FBFE46FA396 /* Pods_AffdexEmoji.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AffdexEmoji.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		659140EF1727E23500DB4E10 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		659140F01727E23500DB4E10 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		659140F11727E23500DB4E10 /* EmojiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiViewController.h; sourceTree = "<group>"; };
+		659140F21727E23500DB4E10 /* EmojiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiViewController.m; sourceTree = "<group>"; };
+		65920A6F16D73F8700D89A4B /* AffdexEmoji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AffdexEmoji.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65920A7216D73F8700D89A4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		65920A7416D73F8700D89A4B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		65920A7616D73F8700D89A4B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		65920A7A16D73F8700D89A4B /* Emoji-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Emoji-Info.plist"; sourceTree = "<group>"; };
+		65920A8016D73F8700D89A4B /* Emoji-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emoji-Prefix.pch"; sourceTree = "<group>"; };
+		65920A9716D7414700D89A4B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		65920A9916D7415200D89A4B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		680348821C3B18EC005CF454 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		6803488E1C3C1413005CF454 /* unknown-noglasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unknown-noglasses.png"; sourceTree = "<group>"; };
+		6803488F1C3C1413005CF454 /* unknown-glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unknown-glasses.png"; sourceTree = "<group>"; };
+		680348901C3C1413005CF454 /* male-noglasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "male-noglasses.png"; sourceTree = "<group>"; };
+		680348911C3C1413005CF454 /* male-glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "male-glasses.png"; sourceTree = "<group>"; };
+		680348921C3C1413005CF454 /* female-noglasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female-noglasses.png"; sourceTree = "<group>"; };
+		680348931C3C1413005CF454 /* female-glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female-glasses.png"; sourceTree = "<group>"; };
+		6803489C1C3C7C05005CF454 /* camera-lens-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-lens-icon.png"; sourceTree = "<group>"; };
+		6813DF9B1C517C6E0049B0BA /* EmojiFoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiFoundViewController.h; sourceTree = "<group>"; };
+		6813DF9C1C517C6E0049B0BA /* EmojiFoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiFoundViewController.m; sourceTree = "<group>"; };
+		68224A101B94E164000CE9BB /* Affdex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Affdex.framework; path = "/Users/stevephillips/Affectiva/affdexme-ios/frameworks/Affdex.framework"; sourceTree = "<absolute>"; };
+		682664D61766679C004E93E6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		682664D8176667A7004E93E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		682664DA176667DC004E93E6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		682B8B72185F6D4F00DB10DE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
+		6851F7611C1882E9009BEDB0 /* four_steves.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = four_steves.mp4; path = "../../../../../../Volumes/Affectiva/affdex-ios/affdex-media/testvideos/four_steves.mp4"; sourceTree = "<group>"; };
+		686C75C01B95EAC000483C1A /* Square.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Square.ttf; sourceTree = "<group>"; };
+		686C75C31B95EAC000483C1A /* Anger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Anger.jpg; sourceTree = "<group>"; };
+		686C75C41B95EAC000483C1A /* Attention.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Attention.jpg; sourceTree = "<group>"; };
+		686C75C51B95EAC000483C1A /* Brow Furrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Brow Furrow.jpg"; sourceTree = "<group>"; };
+		686C75C61B95EAC000483C1A /* Brow Raise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Brow Raise.jpg"; sourceTree = "<group>"; };
+		686C75C71B95EAC000483C1A /* Chin Raise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Chin Raise.jpg"; sourceTree = "<group>"; };
+		686C75C81B95EAC000483C1A /* Contempt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Contempt.jpg; sourceTree = "<group>"; };
+		686C75C91B95EAC000483C1A /* Disgust.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Disgust.jpg; sourceTree = "<group>"; };
+		686C75CA1B95EAC000483C1A /* Engagement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Engagement.jpg; sourceTree = "<group>"; };
+		686C75CB1B95EAC000483C1A /* Expressiveness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Expressiveness.jpg; sourceTree = "<group>"; };
+		686C75CC1B95EAC000483C1A /* Eye Closure.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Eye Closure.jpg"; sourceTree = "<group>"; };
+		686C75CD1B95EAC000483C1A /* Fear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fear.jpg; sourceTree = "<group>"; };
+		686C75CE1B95EAC000483C1A /* Inner Brow Raise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Inner Brow Raise.jpg"; sourceTree = "<group>"; };
+		686C75CF1B95EAC000483C1A /* Joy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Joy.jpg; sourceTree = "<group>"; };
+		686C75D01B95EAC000483C1A /* Frown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Frown.jpg; sourceTree = "<group>"; };
+		686C75D11B95EAC000483C1A /* Lip Press.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Lip Press.jpg"; sourceTree = "<group>"; };
+		686C75D21B95EAC000483C1A /* Lip Pucker.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Lip Pucker.jpg"; sourceTree = "<group>"; };
+		686C75D31B95EAC000483C1A /* Lip Suck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Lip Suck.jpg"; sourceTree = "<group>"; };
+		686C75D41B95EAC000483C1A /* Mouth Open.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mouth Open.jpg"; sourceTree = "<group>"; };
+		686C75D51B95EAC000483C1A /* Nose Wrinkle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Nose Wrinkle.jpg"; sourceTree = "<group>"; };
+		686C75D61B95EAC000483C1A /* Sadness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sadness.jpg; sourceTree = "<group>"; };
+		686C75D81B95EAC000483C1A /* Smile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Smile.jpg; sourceTree = "<group>"; };
+		686C75D91B95EAC000483C1A /* Smirk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Smirk.jpg; sourceTree = "<group>"; };
+		686C75DA1B95EAC000483C1A /* Surprise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Surprise.jpg; sourceTree = "<group>"; };
+		686C75DB1B95EAC000483C1A /* Upper Lip Raise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Upper Lip Raise.jpg"; sourceTree = "<group>"; };
+		686C75DC1B95EAC000483C1A /* Valence.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Valence.jpg; sourceTree = "<group>"; };
+		686C75DE1B95EAC000483C1A /* Enk.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Enk.m4a; sourceTree = "<group>"; };
+		686C75DF1B95EAC000483C1A /* Whit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Whit.m4a; sourceTree = "<group>"; };
+		686C75E01B95EAC000483C1A /* Whoot.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Whoot.m4a; sourceTree = "<group>"; };
+		686C75E21B95EAC000483C1A /* face1.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = face1.m4v; sourceTree = "<group>"; };
+		68914F7F1A8FED6600A6C4D7 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		68914F811A8FED6600A6C4D7 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		68914FF31A9104FE00A6C4D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		689DB55D17DA2CAA00751050 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		689DB55F17DA329E00751050 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		689DB56117DA32BD00751050 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		68CF767E1B83AF500083B32E /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		68CF767F1B83AF500083B32E /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
+		68D0FD921C035AAB00D430A2 /* camera-shutter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "camera-shutter.mp3"; sourceTree = "<group>"; };
+		68D0FD941C0545C700D430A2 /* camera-swap-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-swap-icon.png"; sourceTree = "<group>"; };
+		68D7E2461C2073350058E303 /* faces_in_out.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = faces_in_out.mp4; path = "../../../../../../Volumes/Affectiva/affdex-ios/affdex-media/testvideos/faces_in_out.mp4"; sourceTree = "<group>"; };
+		68DCE53C1767642C000DE093 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		68E978CE1C17724400EAD971 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68E978D01C1772D200EAD971 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		68F07F9F1C4E931200A3E7CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		68F626BB1B91E502004521CE /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		68FA744B1B8E1659004045F3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		69CD3E7867334417111DC134 /* Pods-AffdexEmoji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexEmoji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji.debug.xcconfig"; sourceTree = "<group>"; };
+		7E792631EA44485F23940407 /* Pods-AffdexEmoji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexEmoji.release.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji.release.xcconfig"; sourceTree = "<group>"; };
+		D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Affectiva_Logo_Clear_Background.png; sourceTree = "<group>"; };
+		D95FACC81E3C881100E3D17B /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
+		D95FACC91E3C881100E3D17B /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65920A6C16D73F8700D89A4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68FA744C1B8E1659004045F3 /* MediaPlayer.framework in Frameworks */,
+				68DD4B68194784A70077ED24 /* CoreGraphics.framework in Frameworks */,
+				689DB56217DA32BD00751050 /* SystemConfiguration.framework in Frameworks */,
+				689DB56017DA329E00751050 /* CFNetwork.framework in Frameworks */,
+				689DB55E17DA2CAA00751050 /* Security.framework in Frameworks */,
+				68DCE53D1767642C000DE093 /* AudioToolbox.framework in Frameworks */,
+				682664DB176667DC004E93E6 /* CoreMedia.framework in Frameworks */,
+				682664D9176667A7004E93E6 /* AVFoundation.framework in Frameworks */,
+				68224A111B94E164000CE9BB /* Affdex.framework in Frameworks */,
+				682664D71766679C004E93E6 /* CoreVideo.framework in Frameworks */,
+				65920A9A16D7415200D89A4B /* QuartzCore.framework in Frameworks */,
+				65920A9816D7414700D89A4B /* CoreImage.framework in Frameworks */,
+				65920A7316D73F8700D89A4B /* UIKit.framework in Frameworks */,
+				65920A7516D73F8700D89A4B /* Foundation.framework in Frameworks */,
+				625021EFB18AF635F09B343C /* Pods_AffdexEmoji.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24A35D6820979F2C00AE26C0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				68224A101B94E164000CE9BB /* Affdex.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		49BC64EE7DD3A30FD835432B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69CD3E7867334417111DC134 /* Pods-AffdexEmoji.debug.xcconfig */,
+				7E792631EA44485F23940407 /* Pods-AffdexEmoji.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		659140EE1727E23500DB4E10 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D95FACC81E3C881100E3D17B /* SoundEffect.h */,
+				D95FACC91E3C881100E3D17B /* SoundEffect.m */,
+				68F626BB1B91E502004521CE /* HeaderCollectionReusableView.h */,
+				68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */,
+				68CF767E1B83AF500083B32E /* UIDeviceHardware.h */,
+				68CF767F1B83AF500083B32E /* UIDeviceHardware.m */,
+				659140EF1727E23500DB4E10 /* AppDelegate.h */,
+				659140F01727E23500DB4E10 /* AppDelegate.m */,
+				659140F11727E23500DB4E10 /* EmojiViewController.h */,
+				659140F21727E23500DB4E10 /* EmojiViewController.m */,
+				6813DF9B1C517C6E0049B0BA /* EmojiFoundViewController.h */,
+				6813DF9C1C517C6E0049B0BA /* EmojiFoundViewController.m */,
+				68914FF31A9104FE00A6C4D7 /* Main.storyboard */,
+				68E978CE1C17724400EAD971 /* LaunchScreen.storyboard */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		65920A6616D73F8700D89A4B = {
+			isa = PBXGroup;
+			children = (
+				68F07F9F1C4E931200A3E7CA /* Images.xcassets */,
+				D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */,
+				686C75BE1B95EAC000483C1A /* media */,
+				65920A7A16D73F8700D89A4B /* Emoji-Info.plist */,
+				65920A8016D73F8700D89A4B /* Emoji-Prefix.pch */,
+				682B8B72185F6D4F00DB10DE /* main.m */,
+				659140EE1727E23500DB4E10 /* Classes */,
+				65920A7116D73F8700D89A4B /* Frameworks */,
+				65920A7016D73F8700D89A4B /* Products */,
+				49BC64EE7DD3A30FD835432B /* Pods */,
+				24A35D6820979F2C00AE26C0 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		65920A7016D73F8700D89A4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65920A6F16D73F8700D89A4B /* AffdexEmoji.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65920A7116D73F8700D89A4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68FA744B1B8E1659004045F3 /* MediaPlayer.framework */,
+				689DB56117DA32BD00751050 /* SystemConfiguration.framework */,
+				689DB55F17DA329E00751050 /* CFNetwork.framework */,
+				689DB55D17DA2CAA00751050 /* Security.framework */,
+				68DCE53C1767642C000DE093 /* AudioToolbox.framework */,
+				682664DA176667DC004E93E6 /* CoreMedia.framework */,
+				682664D8176667A7004E93E6 /* AVFoundation.framework */,
+				682664D61766679C004E93E6 /* CoreVideo.framework */,
+				65920A9916D7415200D89A4B /* QuartzCore.framework */,
+				65920A9716D7414700D89A4B /* CoreImage.framework */,
+				65920A7216D73F8700D89A4B /* UIKit.framework */,
+				65920A7416D73F8700D89A4B /* Foundation.framework */,
+				65920A7616D73F8700D89A4B /* CoreGraphics.framework */,
+				68914F7F1A8FED6600A6C4D7 /* PhotosUI.framework */,
+				68914F811A8FED6600A6C4D7 /* Photos.framework */,
+				1E829B3660DB6FBFE46FA396 /* Pods_AffdexEmoji.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		686C75BE1B95EAC000483C1A /* media */ = {
+			isa = PBXGroup;
+			children = (
+				68D0FD941C0545C700D430A2 /* camera-swap-icon.png */,
+				6803489C1C3C7C05005CF454 /* camera-lens-icon.png */,
+				6803488E1C3C1413005CF454 /* unknown-noglasses.png */,
+				6803488F1C3C1413005CF454 /* unknown-glasses.png */,
+				680348901C3C1413005CF454 /* male-noglasses.png */,
+				680348911C3C1413005CF454 /* male-glasses.png */,
+				680348921C3C1413005CF454 /* female-noglasses.png */,
+				680348931C3C1413005CF454 /* female-glasses.png */,
+				680348821C3B18EC005CF454 /* Settings.png */,
+				68E978D01C1772D200EAD971 /* background.png */,
+				68D0FD921C035AAB00D430A2 /* camera-shutter.mp3 */,
+				686C75BF1B95EAC000483C1A /* fonts */,
+				686C75C11B95EAC000483C1A /* images */,
+				686C75DD1B95EAC000483C1A /* sounds */,
+				686C75E11B95EAC000483C1A /* videos */,
+			);
+			name = media;
+			path = ../../media;
+			sourceTree = "<group>";
+		};
+		686C75BF1B95EAC000483C1A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				686C75C01B95EAC000483C1A /* Square.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		686C75C11B95EAC000483C1A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				686C75C31B95EAC000483C1A /* Anger.jpg */,
+				686C75C41B95EAC000483C1A /* Attention.jpg */,
+				686C75C51B95EAC000483C1A /* Brow Furrow.jpg */,
+				686C75C61B95EAC000483C1A /* Brow Raise.jpg */,
+				686C75C71B95EAC000483C1A /* Chin Raise.jpg */,
+				686C75C81B95EAC000483C1A /* Contempt.jpg */,
+				686C75C91B95EAC000483C1A /* Disgust.jpg */,
+				686C75CA1B95EAC000483C1A /* Engagement.jpg */,
+				686C75CB1B95EAC000483C1A /* Expressiveness.jpg */,
+				686C75CC1B95EAC000483C1A /* Eye Closure.jpg */,
+				686C75CD1B95EAC000483C1A /* Fear.jpg */,
+				686C75CE1B95EAC000483C1A /* Inner Brow Raise.jpg */,
+				686C75CF1B95EAC000483C1A /* Joy.jpg */,
+				686C75D01B95EAC000483C1A /* Frown.jpg */,
+				686C75D11B95EAC000483C1A /* Lip Press.jpg */,
+				686C75D21B95EAC000483C1A /* Lip Pucker.jpg */,
+				686C75D31B95EAC000483C1A /* Lip Suck.jpg */,
+				686C75D41B95EAC000483C1A /* Mouth Open.jpg */,
+				686C75D51B95EAC000483C1A /* Nose Wrinkle.jpg */,
+				686C75D61B95EAC000483C1A /* Sadness.jpg */,
+				686C75D81B95EAC000483C1A /* Smile.jpg */,
+				686C75D91B95EAC000483C1A /* Smirk.jpg */,
+				686C75DA1B95EAC000483C1A /* Surprise.jpg */,
+				686C75DB1B95EAC000483C1A /* Upper Lip Raise.jpg */,
+				686C75DC1B95EAC000483C1A /* Valence.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		686C75DD1B95EAC000483C1A /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				686C75DE1B95EAC000483C1A /* Enk.m4a */,
+				686C75DF1B95EAC000483C1A /* Whit.m4a */,
+				686C75E01B95EAC000483C1A /* Whoot.m4a */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		686C75E11B95EAC000483C1A /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				68D7E2461C2073350058E303 /* faces_in_out.mp4 */,
+				6851F7611C1882E9009BEDB0 /* four_steves.mp4 */,
+				686C75E21B95EAC000483C1A /* face1.m4v */,
+			);
+			path = videos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65920A6E16D73F8700D89A4B /* AffdexEmoji */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65920A9216D73F8700D89A4B /* Build configuration list for PBXNativeTarget "AffdexEmoji" */;
+			buildPhases = (
+				60DD33D9E5D1768C0F598D86 /* [CP] Check Pods Manifest.lock */,
+				65920A6B16D73F8700D89A4B /* Sources */,
+				65920A6C16D73F8700D89A4B /* Frameworks */,
+				65920A6D16D73F8700D89A4B /* Resources */,
+				68914F3B1A8F8F9500A6C4D7 /* Embed Frameworks */,
+				68F198BA18B642BF00621FBA /* ShellScript */,
+				03D609AA253183A3A8DC0245 /* [CP] Embed Pods Frameworks */,
+				1BA980F502CB02DDF2BB235A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AffdexEmoji;
+			productName = faceDetection;
+			productReference = 65920A6F16D73F8700D89A4B /* AffdexEmoji.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65920A6716D73F8700D89A4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Affectiva;
+				TargetAttributes = {
+					65920A6E16D73F8700D89A4B = {
+						DevelopmentTeam = RL86RDSU7K;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 65920A6A16D73F8700D89A4B /* Build configuration list for PBXProject "Emoji" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65920A6616D73F8700D89A4B;
+			productRefGroup = 65920A7016D73F8700D89A4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65920A6E16D73F8700D89A4B /* AffdexEmoji */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65920A6D16D73F8700D89A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				686C75E91B95EAC000483C1A /* Chin Raise.jpg in Resources */,
+				686C75F01B95EAC000483C1A /* Inner Brow Raise.jpg in Resources */,
+				686C75F61B95EAC000483C1A /* Mouth Open.jpg in Resources */,
+				6803489D1C3C7C05005CF454 /* camera-lens-icon.png in Resources */,
+				686C75EA1B95EAC000483C1A /* Contempt.jpg in Resources */,
+				686C75EE1B95EAC000483C1A /* Eye Closure.jpg in Resources */,
+				686C75F21B95EAC000483C1A /* Frown.jpg in Resources */,
+				686C75E51B95EAC000483C1A /* Anger.jpg in Resources */,
+				686C75FD1B95EAC000483C1A /* Upper Lip Raise.jpg in Resources */,
+				680348971C3C1413005CF454 /* male-glasses.png in Resources */,
+				686C76001B95EAC000483C1A /* Whit.m4a in Resources */,
+				686C75F51B95EAC000483C1A /* Lip Suck.jpg in Resources */,
+				680348941C3C1413005CF454 /* unknown-noglasses.png in Resources */,
+				686C75E31B95EAC000483C1A /* Square.ttf in Resources */,
+				680348981C3C1413005CF454 /* female-noglasses.png in Resources */,
+				680348961C3C1413005CF454 /* male-noglasses.png in Resources */,
+				680348991C3C1413005CF454 /* female-glasses.png in Resources */,
+				686C75EF1B95EAC000483C1A /* Fear.jpg in Resources */,
+				680348831C3B18EC005CF454 /* Settings.png in Resources */,
+				686C75FE1B95EAC000483C1A /* Valence.jpg in Resources */,
+				68E978CF1C17724400EAD971 /* LaunchScreen.storyboard in Resources */,
+				686C75F11B95EAC000483C1A /* Joy.jpg in Resources */,
+				686C75FA1B95EAC000483C1A /* Smile.jpg in Resources */,
+				68D0FD931C035AAB00D430A2 /* camera-shutter.mp3 in Resources */,
+				686C75F41B95EAC000483C1A /* Lip Pucker.jpg in Resources */,
+				686C76021B95EAC000483C1A /* face1.m4v in Resources */,
+				680348951C3C1413005CF454 /* unknown-glasses.png in Resources */,
+				686C75F81B95EAC000483C1A /* Sadness.jpg in Resources */,
+				686C75EC1B95EAC000483C1A /* Engagement.jpg in Resources */,
+				686C75EB1B95EAC000483C1A /* Disgust.jpg in Resources */,
+				D908815A1E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png in Resources */,
+				686C75FB1B95EAC000483C1A /* Smirk.jpg in Resources */,
+				686C75F71B95EAC000483C1A /* Nose Wrinkle.jpg in Resources */,
+				68914FF41A9104FE00A6C4D7 /* Main.storyboard in Resources */,
+				686C75FC1B95EAC000483C1A /* Surprise.jpg in Resources */,
+				686C75FF1B95EAC000483C1A /* Enk.m4a in Resources */,
+				68D0FD951C0545C700D430A2 /* camera-swap-icon.png in Resources */,
+				686C75F31B95EAC000483C1A /* Lip Press.jpg in Resources */,
+				686C75ED1B95EAC000483C1A /* Expressiveness.jpg in Resources */,
+				686C75E61B95EAC000483C1A /* Attention.jpg in Resources */,
+				68F07FA01C4E931200A3E7CA /* Images.xcassets in Resources */,
+				686C75E71B95EAC000483C1A /* Brow Furrow.jpg in Resources */,
+				686C75E81B95EAC000483C1A /* Brow Raise.jpg in Resources */,
+				686C76011B95EAC000483C1A /* Whoot.m4a in Resources */,
+				68E978D11C1772D200EAD971 /* background.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03D609AA253183A3A8DC0245 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSKinesis/AWSKinesis.framework",
+				"${PODS_ROOT}/AffdexSDK-iOS/ios/Affdex.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSKinesis.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Affdex.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BA980F502CB02DDF2BB235A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60DD33D9E5D1768C0F598D86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AffdexEmoji-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68F198BA18B642BF00621FBA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -x\nbuildPlist=${INFOPLIST_FILE}\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $buildPlist)\nCFBundleVersionINCR=$((CFBundleVersion + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBundleVersionINCR\" $buildPlist\nif [ \"$PLATFORM_NAME\" != \"iphonesimulator\" ]; then\n    rm $CODESIGNING_FOLDER_PATH/*.m4v\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65920A6B16D73F8700D89A4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68F626BD1B91E502004521CE /* HeaderCollectionReusableView.m in Sources */,
+				68CF76801B83AF500083B32E /* UIDeviceHardware.m in Sources */,
+				6813DF9D1C517C6E0049B0BA /* EmojiFoundViewController.m in Sources */,
+				D95FACCA1E3C881100E3D17B /* SoundEffect.m in Sources */,
+				659140F31727E23500DB4E10 /* AppDelegate.m in Sources */,
+				682B8B73185F6D4F00DB10DE /* main.m in Sources */,
+				659140F41727E23500DB4E10 /* EmojiViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		65920A9016D73F8700D89A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		65920A9116D73F8700D89A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65920A9316D73F8700D89A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69CD3E7867334417111DC134 /* Pods-AffdexEmoji.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RL86RDSU7K;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Emoji-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Emoji-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = /private/tmp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app2.yuv;
+				PRODUCT_NAME = AffdexEmoji;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_INSTALLED_PRODUCT = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		65920A9416D73F8700D89A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E792631EA44485F23940407 /* Pods-AffdexEmoji.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = RL86RDSU7K;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Emoji-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "Emoji-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = /private/tmp;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app2.yuv;
+				PRODUCT_NAME = AffdexEmoji;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_INSTALLED_PRODUCT = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65920A6A16D73F8700D89A4B /* Build configuration list for PBXProject "Emoji" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65920A9016D73F8700D89A4B /* Debug */,
+				65920A9116D73F8700D89A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65920A9216D73F8700D89A4B /* Build configuration list for PBXNativeTarget "AffdexEmoji" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65920A9316D73F8700D89A4B /* Debug */,
+				65920A9416D73F8700D89A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65920A6716D73F8700D89A4B /* Project object */;
+}
