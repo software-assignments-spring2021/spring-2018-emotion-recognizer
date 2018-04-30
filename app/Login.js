@@ -24,12 +24,16 @@ const styles = StyleSheet.create({
      height: '100%',
      justifyContent: 'center',
  },
- text: {
-   color: global.lightGrey,
-   fontSize: 48,
-   fontWeight: "bold",
-   margin: 15,
-   marginBottom: 10,
+ // text: {
+ //   color: global.lightGrey,
+ //   fontSize: 48,
+ //   fontWeight: "bold",
+ //   margin: 15,
+ //   marginBottom: 10,
+ // },
+ logo: {
+    width: 320,
+    height: 320
  },
  fieldText: {
       width: 300,
@@ -111,7 +115,7 @@ class Login extends React.Component {
         console.log("No user is signed in!");
         // No user is signed in.
       }
-*/  
+*/
 
       // indicate what to do once the user signs in
       firebase.auth().onAuthStateChanged(function(user) {
@@ -179,13 +183,13 @@ class Login extends React.Component {
 
         <Image
           style={styles.bgImage}
-          source={ global.orangeSky }
+          source={ global.turquoisSky }
         />
 
-        <Text
-          style={styles.text}>
-            SMILE!
-        </Text>
+        <Image
+          style={styles.logo}
+          source={ global.roundedLogo }
+        />
 
         <TextInput
             placeholder='Email'

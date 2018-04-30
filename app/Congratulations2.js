@@ -22,16 +22,10 @@ const styles = StyleSheet.create({
   boldText: {
     color: global.white,
     justifyContent: 'center',
+    textAlign: 'center',
     fontSize: 42,
     marginTop: 55,
     marginBottom: 25,
-    fontFamily: 'montserrat-bold'
-  },
-  text: {
-    color: global.white,
-    justifyContent: 'center',
-    fontSize: 24,
-    marginBottom: 55,
     fontFamily: 'montserrat-bold'
   },
   movingImage: {
@@ -82,7 +76,7 @@ class Congratulations2 extends React.Component {
 
         <Image
           style={styles.bgImage}
-          source={global.confetti}
+          source={global.gameBg}
         />
 
      <View>

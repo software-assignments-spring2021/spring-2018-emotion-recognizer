@@ -23,12 +23,18 @@ const styles = StyleSheet.create({
      height: '100%',
      justifyContent: 'center',
  },
+ headerCont: {
+   marginBottom: 20,
+   backgroundColor: global.lightGreySemiTransparent,
+   borderRadius: 10,
+},
  text: {
-   color: global.lightGrey,
+   color: global.darkGrey,
    fontSize: 48,
    fontWeight: "bold",
    margin: 15,
    marginBottom: 10,
+   padding: 1
  },
  fieldText: {
    width: 300,
@@ -42,12 +48,6 @@ const styles = StyleSheet.create({
  },
 buttonArea: {
    marginTop: 20
-},
-orText: {
-  color: global.lightGrey,
-  fontSize: 25,
-  margin: 10,
-  textAlign: 'center',
 },
  button: {
    backgroundColor: global.backgroundWhite,
@@ -131,12 +131,13 @@ class Signup extends React.Component {
 
         <Image
             style={styles.bgImage}
-            source={{ uri: global.orangeSky }}
+            source={global.turquoisSky}
         />
-
-        <Text style={styles.text}>
-            Sign Up
-        </Text>
+     <View style={styles.headerCont}>
+           <Text style={styles.text}>
+               Sign Up
+           </Text>
+        </View>
 
         <TextInput
             placeholder='Email'
@@ -188,15 +189,7 @@ class Signup extends React.Component {
         />
 
 
-     <Text style={styles.orText}>
-        or
-        </Text>
 
-        <Button
-            title={"Sign up with google"}
-            color={global.darkGrey}
-            buttonStyle={styles.button}
-        />
    </View>
 
       </View>

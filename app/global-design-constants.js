@@ -5,7 +5,8 @@ global.fonts = {
 	'open-sans': require('./src/assets/fonts/OpenSansRegular.ttf'),
 	'montserrat': require('./src/assets/fonts/MontserratRegular.ttf'),
 	'open-sans-bold': require('./src/assets/fonts/OpenSansBold.ttf'),
-	'montserrat-bold': require('./src/assets/fonts/MontserratBold.ttf'),
+	'montserrat-bold':require('./src/assets/fonts/MontserratBold.ttf'),
+	'montserrat-bold-italic':require('./src/assets/fonts/Montserrat700italic.ttf'),
 };
 
 //some global color palette settings
@@ -32,9 +33,13 @@ global.backgroundPurple = "rgba(147,112,219, 0.6)";
 
 global.transparent = 'transparent';
 
-
+//logo
+global.logo= require('./src/assets/images/LogoFace.png');
+global.roundedLogo= require('./src/assets/images/LogoRounded.png');
 //background
 global.orangeSky= require('./src/assets/images/orangeSky.jpg');
+global.gameBg= require('./src/assets/images/gameBg.png');
+global.turquoisSky= require('./src/assets/images/skyBg.jpg');
 global.happyGirl= require('./src/assets/images/happyGirl.jpeg');
 global.sunflowers= require('./src/assets/images/sunflowers.jpeg');
 //happy

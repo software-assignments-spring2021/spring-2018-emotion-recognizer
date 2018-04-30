@@ -41,7 +41,7 @@ const RootStack = StackNavigator(
       screen: DashboardScreen,
       navigationOptions: ({ navigation }) => ({
           title: 'Dashboard',
-          //headerLeft: null //this disables the back button to Login
+          headerLeft: null //this disables the back button to Login
         }),
     },
     Onboarding1: {
