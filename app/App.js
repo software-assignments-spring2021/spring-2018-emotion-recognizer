@@ -20,7 +20,7 @@ import { SmileGame3 as SmileGame3Screen } from './SmileGame3';
 import { SmileGame4 as SmileGame4Screen } from './SmileGame4';
 import { SmileGame5 as SmileGame5Screen } from './SmileGame5';
 import { SmileGameAll as SmileGameAllScreen } from './SmileGameAll';
-import { deepLinker1 as linkToAffdex } from './deepLinker1'
+//import { deepLinker1 as linkToAffdex } from './deepLinker1'
 //import our global design settings
 import './global-design-constants.js';
 
@@ -125,12 +125,12 @@ const RootStack = StackNavigator(
           headerLeft: null //this disables the back button to Login
         }),
     },
-    deepLinker1: {
+    /*deepLinker1: {
       screen: linkToAffdex,
       navigationOptions: ({ navigation }) => ({
           title: 'Make an expression!',
         }),
-    },
+    },*/
   },
   {
     //load up the Login component by default
