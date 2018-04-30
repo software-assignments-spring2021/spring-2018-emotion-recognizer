@@ -8,6 +8,27 @@ global.fonts = {
 	'montserrat-bold': require('./src/assets/fonts/MontserratBold.ttf'),
 };
 
+//some global color palette settings
+global.lightGrey = "#e4e4e4";
+global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)"
+global.midGrey = "#9B9B9B";
+global.darkGrey = "#364652";
+
+global.mainBlue = "#3989E1";
+global.backgroundBlue = "#b7d9ff";
+
+global.backgroundGreen = "#69F0AE";
+
+global.white = "#FFFFFF";
+global.backgroundWhite = "rgba(255,255,255, 0.6)";
+
+global.starYellow = "#FFFF4D";
+global.backgroundYellow = "rgba(255,255,77, 0.3)";
+
+global.backgroundRed = "rgba(237,41,57, 0.9)";
+
+global.transparent = 'transparent';
+
 
 //background
 global.orangeSky= require('./src/assets/images/orangeSky.jpg');
@@ -49,7 +70,7 @@ global.confetti2= require('./src/assets/images/confetti2.jpg');
 global.congratsGif= require('./src/assets/images/congratsGif.webp');
 global.congratsGif2= require('./src/assets/images/congratsGif2.webp');
 
-
+/*
 //the background image for the login and sign up views - you should really get a local copy of this
 // global.orangeSkyImgUrl = 'https://images.unsplash.com/photo-1502210600188-51a3adffa4aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59d5264e02cb977d8e7a0acbb1e52ded&auto=format&fit=crop&w=634&q=80';
 // global.happyGirlImgUrl = 'https://images.unsplash.com/photo-1490094139523-6c26ddc4e518?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f5e048023772b7e6f129c11e8159ff6&auto=format&fit=crop&w=2550&q=80';
@@ -94,23 +115,4 @@ global.congratsGif2= require('./src/assets/images/congratsGif2.webp');
 // global.congrats2 = 'https://media3.giphy.com/media/3o6fIUZTTDl0IDjbZS/giphy.gif';
 // global.confetti = 'https://www.superiorcelebrations.com/mm5/graphics/00000001/multicolorconfetti-2.jpg';
 // global.confetti2 = 'https://s3.envato.com/files/131529625/15_Confetti_backgrounds%20-screen/Confetti_background-7.jpg';
-//some global color pallette settings
-global.lightGrey = "#e4e4e4";
-global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)"
-global.midGrey = "#9B9B9B";
-global.darkGrey = "#364652";
-
-global.mainBlue = "#3989E1";
-global.backgroundBlue = "#b7d9ff";
-
-global.backgroundGreen = "#69F0AE";
-
-global.white = "#FFFFFF";
-global.backgroundWhite = "rgba(255,255,255, 0.6)";
-
-global.starYellow = "#FFFF4D";
-global.backgroundYellow = "rgba(255,255,77, 0.3)";
-
-global.backgroundRed = "rgba(237,41,57, 0.9)";
-
-global.transparent = 'transparent';
+*/
