@@ -80,7 +80,7 @@ class Congratulations extends React.Component {
 
         <Image
           style={styles.bgImage}
-          source={{ uri: global.confetti2 }}
+          source={global.confetti2 }
         />
 
      <View>
@@ -94,7 +94,7 @@ class Congratulations extends React.Component {
      </View>
 
         <Image style={styles.movingImage}
-            source={{ uri: global.congrats }}
+            source={global.congrats}
           />
 
 

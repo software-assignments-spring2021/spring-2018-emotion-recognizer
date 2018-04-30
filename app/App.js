@@ -147,7 +147,7 @@ export default class App extends React.Component {
 
   //this method is called just before the component is inserted/mounted into the DOM
   componentWillMount() {
-    Font.loadAsync(global.fonts)
+    Font.loadAsync(global.fonts, global.images)
       .then( () => {
       this.setState(previousState => {
         return { isReady: true };

@@ -131,7 +131,7 @@ class Signup extends React.Component {
 
         <Image
             style={styles.bgImage}
-            source={{ uri: global.orangeSkyImgUrl }}
+            source={{ uri: global.orangeSky }}
         />
 
         <Text style={styles.text}>

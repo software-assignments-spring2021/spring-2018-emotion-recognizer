@@ -111,7 +111,7 @@ class Login extends React.Component {
         console.log("No user is signed in!");
         // No user is signed in.
       }
-*/
+*/  
 
       // indicate what to do once the user signs in
       firebase.auth().onAuthStateChanged(function(user) {
@@ -173,14 +173,13 @@ class Login extends React.Component {
   //render the view for this component
   render() {
     console.log("Rendering...");
-
     //return a nicely-formatted JSX view
     return (
       <View style={styles.container}>
 
         <Image
           style={styles.bgImage}
-          source={{ uri: global.orangeSkyImgUrl }}
+          source={ global.orangeSky }
         />
 
         <Text

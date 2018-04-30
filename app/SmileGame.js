@@ -10,11 +10,11 @@ import { GameDriver } from './GameDriver.js';
 const testData = [
   {
     name: 'happy',
-    imgs: [global.happyImgUrl, global.happyImgUrl2, global.happyImgUrl3, global.happyImgUrl4, global.happyImgUrl5]
+    imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
   },
   {
     name: 'sad',
-    imgs: [global.sadImgUrl, global.sadImgUrl2, global.sadImgUrl3, global.sadImgUrl4, global.sadImgUrl5]
+    imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
   }
 ];
 

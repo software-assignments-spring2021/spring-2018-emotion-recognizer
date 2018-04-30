@@ -10,7 +10,7 @@ import { StackNavigator } from 'react-navigation';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: global.backgroundGreen,
+    backgroundColor: global.backgroundYellow,
     flex: 1,
     alignItems: 'center',
   },
@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat'
   },
   boldText: {
-    color: global.starYellow,
+    color: global.darkGrey,
     textAlign: 'center',
     fontSize: 50,
     marginBottom: 10,
     fontFamily: 'montserrat-bold'
   },
   image: {
-    borderColor: global.backgroundYellow,
+    borderColor: global.lightGreySemiTransparent,
     borderRadius: 10,
     borderWidth: 10,
     width: 300,
@@ -80,7 +80,7 @@ class Onboarding1 extends React.Component {
     //use it to set up the starting state of the component
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
-        this.state = { uri: global.happyImgUrl };
+        this.state = { uri: global.happy };
         this.count = 0;
     } //constructor
 
@@ -89,27 +89,27 @@ class Onboarding1 extends React.Component {
     this.count++;
     if(this.count === 1) {
         this.setState({
-            uri: global.happyImgUrl
+            uri: global.happy
         });
     }
     else if (this.count === 2) {
         this.setState({
-            uri: global.happyImgUrl2
+            uri: global.happy2
         });
     }
     else if (this.count === 3) {
         this.setState({
-            uri: global.happyImgUrl3
+            uri: global.happy3
         });
     }
     else if (this.count === 4) {
         this.setState({
-            uri: global.happyImgUrl4
+            uri: global.happy4
         });
     }
     else {
         this.setState({
-            uri: global.happyImgUrl5
+            uri: global.happy5
         });
         this.count = 0;
     }
@@ -127,13 +127,13 @@ class Onboarding1 extends React.Component {
          </Text>
 
         <Image
-                source={this.state}
+                source={this.state.uri}
                 style={styles.image}
             />
          <Button
             buttonStyle={styles.moreImagesButton}
             title="Touch here to see more faces!"
-            color={global.starYellow}
+            color={global.darkGrey}
             fontFamily='open-sans'
             onPress={() => this.changePicture(this.count)}>
         </Button>

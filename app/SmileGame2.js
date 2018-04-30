@@ -10,11 +10,11 @@ import { GameDriver } from './GameDriver.js';
 const testData = [
   {
     name: 'angry',
-    imgs: [global.angryImgUrl, global.angryImgUrl2, global.angryImgUrl3, global.angryImgUrl4, global.angryImgUrl5]
+    imgs: [global.angry, global.angry2, global.angry3, global.angry4, global.angry5]
   },
   {
     name: 'scared',
-    imgs: [global.scaredImgUrl, global.scaredImgUrl2, global.scaredImgUrl3, global.scaredImgUrl4, global.scaredImgUrl5]
+    imgs: [global.scared, global.scared2, global.scared3, global.scared4, global.scared5]
   }
 ];
 
@@ -114,7 +114,7 @@ class SmileGame2 extends React.Component {
 
          <Image
              style={styles.bgImage}
-             source={{ uri: global.orangeSkyImgUrl }}
+             source={global.orangeSkyImgUrl }
            />
 
         <Text style={styles.headerText}>
@@ -124,7 +124,7 @@ class SmileGame2 extends React.Component {
            {this.state.emotionPrompt}?
         </Text>
         <Image
-          source={{uri: this.state.uri}}
+          source={this.state.uri}
           style={styles.image}
          />
 

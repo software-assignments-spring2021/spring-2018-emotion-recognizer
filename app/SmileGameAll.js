@@ -10,23 +10,23 @@ import { GameDriver } from './GameDriver.js';
 const testData = [
   {
     name: 'happy',
-    imgs: [global.happyImgUrl, global.happyImgUrl2, global.happyImgUrl3, global.happyImgUrl4, global.happyImgUrl5]
+    imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
   },
   {
     name: 'sad',
-    imgs: [global.sadImgUrl, global.sadImgUrl2, global.sadImgUrl3, global.sadImgUrl4, global.sadImgUrl5]
+    imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
   },
   {
     name: 'angry',
-    imgs: [global.angryImgUrl, global.angryImgUrl2, global.angryImgUrl3, global.angryImgUrl4, global.angryImgUrl5]
+    imgs: [global.angry, global.angry2, global.angry3, global.angry4, global.angry5]
   },
   {
     name: 'scared',
-    imgs: [global.scaredImgUrl, global.scaredImgUrl2, global.scaredImgUrl3, global.scaredImgUrl4, global.scaredImgUrl5]
+    imgs: [global.scared, global.scared2, global.scared3, global.scared4, global.scared5]
   },
   {
     name: 'surprised',
-    imgs: [global.surprisedImgUrl, global.surprisedImgUrl2, global.surprisedImgUrl3, global.surprisedImgUrl4, global.surprisedImgUrl5]
+    imgs: [global.surprised, global.surprised2, global.surprised3, global.surprised4, global.surprised5]
   }
 ];
 
@@ -126,7 +126,7 @@ class SmileGameAll extends React.Component {
 
          <Image
              style={styles.bgImage}
-             source={{ uri: global.orangeSkyImgUrl }}
+             source={global.orangeSkyImgUrl }
            />
 
         <Text style={styles.headerText}>
@@ -136,7 +136,7 @@ class SmileGameAll extends React.Component {
            {this.state.emotionPrompt}?
         </Text>
         <Image
-          source={{uri: this.state.uri}}
+          source={this.state.uri}
           style={styles.image}
          />
 
