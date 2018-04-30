@@ -32,49 +32,38 @@ const styles = StyleSheet.create({
     backgroundColor: global.backgroundWhite,
    },
 
-   smallText: {
-     color: global.white,
+   text: {
+     color: global.darkGrey,
      fontSize: 20,
      fontFamily: 'open-sans-bold',
      margin: 10
    },
-})
+});
 
 class Popover extends React.Component {
   constructor ( props ) {
     super( props );
     this.message = props.message;
-    this.state = {
-      visible: props.visible
-    };
-  }
-
-  show () {
-    this.setState( { visible: true } );
+    this.hide = props.hide;
   }
 
   render() {
-    if ( this.state.visible ) {
-      return (
-        <View style={styles.shadow}>
-          <View style={styles.messageBox}>
-            <Text style={styles.smallText}>
-              {this.message}
-            </Text>
-            <Button
-              buttonStyle={styles.button}
-              title={"Ok"}
-              fontFamily='open-sans-bold'
-              color={global.mainBlue}
-              onPress = {() => this.setState( { visible: false } ) }
-            />
-          </View>
+    return (
+      <View style={styles.shadow}>
+        <View style={styles.messageBox}>
+          <Text style={styles.text}>
+            {this.message}
+          </Text>
+          <Button
+            buttonStyle={styles.button}
+            title={"Ok"}
+            fontFamily='open-sans-bold'
+            color={global.mainBlue}
+            onPress = {() => this.hide() }
+          />
         </View>
-      );
-    }
-    else {
-      return null;
-    }
+      </View>
+    );
   }
 }
 

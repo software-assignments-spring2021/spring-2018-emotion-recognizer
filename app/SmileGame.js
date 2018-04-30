@@ -89,7 +89,7 @@ class SmileGame extends React.Component {
         this.count = 0;
         this.driver = new GameDriver( testData, 5, 'happy vs sad' );
         const firstQuestion = this.driver.getQuestion( this.count );
-        this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion };
+        this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion, popped: true };
     } //constructor
 
 
@@ -112,12 +112,11 @@ class SmileGame extends React.Component {
   }
 
   render() {
-    const pop = <Popover message="Try Again!" visible={false}/>;
-    console.log(pop);
-
     return (
       <View style={styles.container}>
-        {pop}
+        {
+          this.state.popped ? (<Popover message="Try Again!" hide={() => this.setState( { popped: false } ) }/>) : null
+        }
         <Image
           style={styles.bgImage}
           source={global.gameBg }
@@ -142,10 +141,11 @@ class SmileGame extends React.Component {
                fontFamily='open-sans-bold'
                onPress={ () => {
                    if( this.driver.setAnswer( this.count, true ) ) {
+                     this.setState({ popped: false });
                      this.changePicture();
                    }
                    else {
-                     pop.show();
+                     this.setState({ popped: true });
                    }
                 }
                }
@@ -158,10 +158,11 @@ class SmileGame extends React.Component {
                fontFamily='open-sans-bold'
                onPress={ () => {
                    if( this.driver.setAnswer( this.count, false ) ) {
+                     this.setState({ popped: false });
                      this.changePicture();
                    }
                    else {
-                     pop.show();
+                     this.setState({ popped: true });
                    }
                 }
                }
