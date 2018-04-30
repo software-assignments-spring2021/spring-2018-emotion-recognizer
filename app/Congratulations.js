@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
     color: global.darkGrey,
     fontSize: 24,
     marginBottom: 55,
-    fontFamily: 'montserrat-bold'
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center'
   },
   movingImage: {
     width: 400,
@@ -89,7 +90,7 @@ class Congratulations extends React.Component {
         </Text>
 
         <Text style={styles.text}>
-            You completed the tutorial
+            You learned 5 emotions
         </Text>
      </View>
 

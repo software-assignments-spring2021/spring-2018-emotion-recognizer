@@ -114,12 +114,14 @@ const RootStack = StackNavigator(
       screen: CongratulationsScreen,
       navigationOptions: ({ navigation }) => ({
           title: 'Congratulations',
+          headerLeft: null //this disables the back button to Login
         }),
     },
     Congratulations2: {
       screen: Congratulations2Screen,
       navigationOptions: ({ navigation }) => ({
           title: 'Congratulations',
+          headerLeft: null //this disables the back button to Login
         }),
     },
   },
