@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: global.darkGrey,
-    fontSize: 24,
+    fontSize: 26,
+    marginLeft: 15,
     marginBottom: 55,
     fontFamily: 'montserrat-bold'
   },
@@ -85,11 +86,11 @@ class Congratulations extends React.Component {
 
      <View>
         <Text style={styles.boldText}>
-            Congraulations!
+            Congratulations!
         </Text>
 
         <Text style={styles.text}>
-            You completed the tutorial
+            You learned 5 emotions!
         </Text>
      </View>
 
