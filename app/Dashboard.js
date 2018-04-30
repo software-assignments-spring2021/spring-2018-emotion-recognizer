@@ -8,7 +8,7 @@ const firebase = new initFirebase();
 import {Button, Card } from 'react-native-elements';
 
 
-//hard code sample games
+//hard code games
 const games = [
  {
     name: 'Happy Or Sad',
@@ -275,12 +275,6 @@ class Dashboard extends React.Component {
 
 
   render() {
-     console.log("in render ");
-     const str1 = JSON.stringify(this.state.pieDataState, null, 4); // (Optional) beautiful indented output.
-     console.log(str1);
-
-     const str2 = JSON.stringify(this.state.smoothDataState, null, 4); // (Optional) beautiful indented output.
-     console.log(str2);
     // console.log("rendering UI");
     // console.log("gamesStatus: " + this.state.gamesStatus);
     // console.log("analyticsStatus: " + this.state.analyticsStatus);
@@ -339,7 +333,9 @@ class Dashboard extends React.Component {
                return (
                  <Card key={i} containerStyle={styles.gameCard}>
                    <View>
-                     <Text style={styles.itemHeader}>{u.name}</Text>
+                     <Text style={styles.itemHeader}>{u.name}
+                        <Text style={styles.levelNum}> Level: {u.level}</Text>
+                     </Text>
                      <Text style={styles.paragraph}>{u.shortDesc}</Text>
                    </View>
                    <View>
@@ -470,7 +466,9 @@ styles = StyleSheet.create({
    levelNum: {
       alignSelf: 'flex-end',
       textAlign: 'right',
-      fontSize: 12,
+      fontFamily: 'open-sans-bold',
+      fontSize: 13,
+      color: global.mainBlue
    },
    paragraph: {
       color: global.darkGrey,

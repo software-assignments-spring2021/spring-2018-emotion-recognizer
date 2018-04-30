@@ -94,7 +94,7 @@ class Congratulations extends React.Component {
      </View>
 
         <Image style={styles.movingImage}
-            source={global.congrats}
+            source={{uri: 'https://media.giphy.com/media/11sBLVxNs7v6WA/giphy-downsized.gif'}}
           />
 
 

@@ -10,7 +10,7 @@ global.fonts = {
 
 //some global color palette settings
 global.lightGrey = "#e4e4e4";
-global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)"
+global.lightGreySemiTransparent = "rgba(228, 228, 228, .8)";
 global.midGrey = "#9B9B9B";
 global.darkGrey = "#364652";
 
