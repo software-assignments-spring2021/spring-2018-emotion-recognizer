@@ -7,18 +7,7 @@ import { StackNavigator } from 'react-navigation';
 //GameDriver import
 import { GameDriver } from './GameDriver.js';
 
-import { Popover } from './Popover.js'
-
-const testData = [
-  {
-    name: 'happy',
-    imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
-  },
-  {
-    name: 'sad',
-    imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
-  }
-];
+import { Popover } from './Popover.js';
 
 //console.log('firebase from Signup.js:',firebase);
 
@@ -87,9 +76,9 @@ class SmileGame extends React.Component {
     constructor(props) {
         super(props); // call the parent class's (React.Component) constructor first before anything else
         this.count = 0;
-        this.driver = new GameDriver( testData, 5, 'happy vs sad' );
+        this.driver = new GameDriver( this.props.navigation.state.params.testData, 5, 'happy vs sad' );
         const firstQuestion = this.driver.getQuestion( this.count );
-        this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion, popped: true };
+        this.state = { uri: firstQuestion.img, emotionPrompt: firstQuestion.emotion, popped: false };
     } //constructor
 
 

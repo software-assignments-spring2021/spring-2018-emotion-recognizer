@@ -7,44 +7,115 @@ const firebase = new initFirebase();
 //design imports
 import {Button, Card } from 'react-native-elements';
 
-
 //hard code games
 const games = [
  {
     name: 'Happy or Sad',
     shortDesc: 'Check how well you know the difference between happy and sad with this quiz',
     path: 'SmileGame',
-    level: 1
+    level: 1,
+    testData: [
+      {
+        name: 'happy',
+        imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
+      },
+      {
+        name: 'sad',
+        imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
+      }
+    ]
  },
   {
     name: 'Angry or Scared',
     shortDesc: 'Check how well you know the difference between angry and scared with this quiz',
     path: 'SmileGame2',
-    level: 1
+    level: 1,
+    testData: [
+      {
+        name: 'angry',
+        imgs: [global.angry, global.angry2, global.angry3, global.angry4, global.angry5]
+      },
+      {
+        name: 'scared',
+        imgs: [global.scared, global.scared2, global.scared3, global.scared4, global.scared5]
+      }
+    ]
  },
    {
     name: 'Surprised or Sad',
     shortDesc: 'Check how well you know the difference between surprised and sad with this quiz',
     path: 'SmileGame3',
-    level: 1
+    level: 1,
+    testData: [
+      {
+        name: 'surprised',
+        imgs: [global.surprised, global.surprised2, global.surprised3, global.surprised4, global.surprised5]
+      },
+      {
+        name: 'sad',
+        imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
+      }
+    ]
  },
   {
     name: 'Scared or Happy',
     shortDesc: 'Check how well you know the difference between scared and happy with this quiz',
     path: 'SmileGame4',
-    level: 1
+    level: 1,
+    testData: [
+      {
+        name: 'scared',
+        imgs: [global.scared, global.scared2, global.scared3, global.scared4, global.scared5]
+      },
+      {
+        name: 'happy',
+        imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
+      }
+    ]
  },
   {
     name: 'Angry or Surprised',
     shortDesc: 'Check how well you know the difference between angry and surprised with this quiz',
     path: 'SmileGame5',
-    level: 1
+    level: 1,
+    testData: [
+      {
+        name: 'angry',
+        imgs: [global.angry, global.angry2, global.angry3, global.angry4, global.angry5]
+      },
+      {
+        name: 'surprised',
+        imgs: [global.surprised, global.surprised2, global.surprised3, global.surprised4, global.surprised5]
+      }
+    ]
  },
  {
     name: '5 Emotions Quiz',
     shortDesc: 'Check how well you\'ve learned all emotions with this quiz',
     path: 'SmileGameAll',
-    level: 2
+    level: 2,
+    testData: [
+      {
+        name: 'happy',
+        imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
+      },
+      {
+        name: 'sad',
+        imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
+      },
+      {
+        name: 'angry',
+        imgs: [global.angry, global.angry2, global.angry3, global.angry4, global.angry5]
+      },
+      {
+        name: 'scared',
+        imgs: [global.scared, global.scared2, global.scared3, global.scared4, global.scared5]
+      },
+      {
+        name: 'surprised',
+        imgs: [global.surprised, global.surprised2, global.surprised3, global.surprised4, global.surprised5]
+      }
+    ]
  },
  {
     name: 'Match the face',
@@ -363,7 +434,7 @@ class Dashboard extends React.Component {
                         title="Play Now"
                         fontFamily='open-sans-bold'
                         fontSize={16}
-                        onPress={() => this.props.navigation.navigate(u.path, {navigation: this.props.navigation})}
+                        onPress={() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation, testData: u.testData})}
                         >
                       </Button>
                    </View>

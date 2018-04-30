@@ -15,11 +15,6 @@ import { Congratulations as CongratulationsScreen} from './Congratulations';
 import { Congratulations2 as Congratulations2Screen} from './Congratulations2';
 import { Dashboard as DashboardScreen } from './Dashboard';
 import { SmileGame as SmileGameScreen } from './SmileGame';
-import { SmileGame2 as SmileGame2Screen } from './SmileGame2';
-import { SmileGame3 as SmileGame3Screen } from './SmileGame3';
-import { SmileGame4 as SmileGame4Screen } from './SmileGame4';
-import { SmileGame5 as SmileGame5Screen } from './SmileGame5';
-import { SmileGameAll as SmileGameAllScreen } from './SmileGameAll';
 import { deepLinker1 as linkToAffdex } from './deepLinker1'
 //import our global design settings
 import './global-design-constants.js';
@@ -77,36 +72,6 @@ const RootStack = StackNavigator(
     },
     SmileGame: {
       screen: SmileGameScreen,
-      navigationOptions: ({ navigation }) => ({
-          title: 'Play the Game',
-        }),
-    },
-    SmileGame2: {
-      screen: SmileGame2Screen,
-      navigationOptions: ({ navigation }) => ({
-          title: 'Play the Game',
-        }),
-    },
-    SmileGame3: {
-      screen: SmileGame3Screen,
-      navigationOptions: ({ navigation }) => ({
-          title: 'Play the Game',
-        }),
-    },
-    SmileGame4: {
-      screen: SmileGame4Screen,
-      navigationOptions: ({ navigation }) => ({
-          title: 'Play the Game',
-        }),
-    },
-    SmileGame5: {
-      screen: SmileGame5Screen,
-      navigationOptions: ({ navigation }) => ({
-          title: 'Play the Game',
-        }),
-    },
-    SmileGameAll: {
-      screen: SmileGameAllScreen,
       navigationOptions: ({ navigation }) => ({
           title: 'Play the Game',
         }),

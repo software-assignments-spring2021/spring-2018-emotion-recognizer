@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableHighlight, Animated, Dimensions} from 'react-native';
 import './global-design-constants.js';
 //design imports
 import { Button} from 'react-native-elements';
@@ -7,8 +7,10 @@ import { Button} from 'react-native-elements';
 const styles = StyleSheet.create({
 
   shadow: {
+    position: 'absolute',
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
     zIndex: 1,
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: global.darkGreySemiTransparent,
@@ -16,7 +18,6 @@ const styles = StyleSheet.create({
 
   messageBox: {
     zIndex: 2,
-    width: 100,
     borderRadius: 5,
     backgroundColor: global.white,
     justifyContent: 'center',
