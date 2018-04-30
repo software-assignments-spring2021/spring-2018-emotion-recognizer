@@ -362,7 +362,7 @@
     [self becomeFirstResponder];
 
 #ifdef DEMO_MODE
-    self.mediaFilename = [[NSBundle mainBundle] pathForResource:@"face1" ofType:@"m4v"];
+    //self.mediaFilename = //[[NSBundle mainBundle] pathForResource:@"face1" ofType:@"m4v"];
 //    self.mediaFilename = [[NSBundle mainBundle] pathForResource:@"faces_in_out" ofType:@"mp4"];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.mediaFilename] == YES)
