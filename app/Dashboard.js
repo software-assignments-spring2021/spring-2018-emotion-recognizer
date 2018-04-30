@@ -5,7 +5,7 @@ import {initFirebase} from './InitFirebase';
 const firebase = new initFirebase();
 
 //design imports
-import {Button, Card, TouchableOpacity } from 'react-native-elements';
+import {Button, Card } from 'react-native-elements';
 
 
 //hard code sample games
@@ -58,18 +58,19 @@ const games = [
 const db = firebase.firestore();
 let uid;
 
-let pieData = [];
+
+
 const pieOptions = {
    margin: {
-    top: 20,
-    left: 20,
-    right: 20,
-    bottom: 20
+      top: 20,
+      left: 45,
+      bottom: 25,
+      right: 20
    },
    width: 350,
    height: 350,
-   color: '#2980B9',
-   r: 50,
+   color: global.mainBlue,
+   r: 40,
    R: 150,
    legendPosition: 'topLeft',
    animate: {
@@ -79,82 +80,18 @@ const pieOptions = {
     fillTransition: 3
    },
    label: {
-    fontFamily: 'Arial',
-    fontSize: 8,
+    fontFamily: 'open-sans',
+    fontSize: 11,
     fontWeight: true,
     color: '#ECF0F1'
-   }
+   },
+   textAnchor:'top'
 };
-let smoothData = [
-   [{
-     "x": -10,
-     "y": -1000
-   }, {
-     "x": -9,
-     "y": -729
-   }, {
-     "x": -8,
-     "y": -512
-   }, {
-     "x": -7,
-     "y": -343
-   }, {
-     "x": -6,
-     "y": -216
-   }, {
-     "x": -5,
-     "y": -125
-   }, {
-     "x": -4,
-     "y": -64
-   }, {
-     "x": -3,
-     "y": -27
-   }, {
-     "x": -2,
-     "y": -8
-   }, {
-     "x": -1,
-     "y": -1
-   }, {
-     "x": 0,
-     "y": 0
-   }, {
-     "x": 1,
-     "y": 1
-   }, {
-     "x": 2,
-     "y": 8
-   }, {
-     "x": 3,
-     "y": 27
-   }, {
-     "x": 4,
-     "y": 64
-   }, {
-     "x": 5,
-     "y": 125
-   }, {
-     "x": 6,
-     "y": 216
-   }, {
-     "x": 7,
-     "y": 343
-   }, {
-     "x": 8,
-     "y": 512
-   }, {
-     "x": 9,
-     "y": 729
-   }, {
-     "x": 10,
-     "y": 1000
-   }]
-];
+
 const smoothOptions = {
    width: 280,
    height: 280,
-   color: '#2980B9',
+   color: '00C853',
    margin: {
      top: 20,
      left: 45,
@@ -167,16 +104,16 @@ const smoothOptions = {
    },
    axisX: {
      showAxis: true,
-     showLines: true,
+     showLines: false,
      showLabels: true,
      showTicks: true,
      zeroAxis: false,
      orient: 'bottom',
      label: {
-       fontFamily: 'Arial',
+       fontFamily: 'open-sans',
        fontSize: 14,
        fontWeight: true,
-       fill: '#34495E'
+       fill: global.mainBlue
      }
    },
    axisY: {
@@ -187,10 +124,10 @@ const smoothOptions = {
      zeroAxis: false,
      orient: 'left',
      label: {
-       fontFamily: 'Arial',
+       fontFamily: 'open-sans',
        fontSize: 14,
        fontWeight: true,
-       fill: '#34495E'
+       fill: global.mainBlue
      }
    }
 };
@@ -200,6 +137,14 @@ let styles = {};
 class Dashboard extends React.Component {
   //this constructor method is called before the componentWillMount method
   //use it to set up the starting state of the component
+
+  //arrange async load for chart states
+  setStateAsync(state) {
+    return new Promise((resolve) => {
+      console.log("changing state");
+      this.setState(state, resolve);
+    });
+  }
 
   constructor(props) {
       // console.log("Constructing...");
@@ -226,52 +171,14 @@ class Dashboard extends React.Component {
         this.state = {
           user: user,
           gamesStatus: true,
-          analyticsStatus: false
+          analyticsStatus: false,
+          pieDataState: false,
+          smoothDataState: false
         };
 
-        //get current user info to call their data
-        uid = firebase.auth().currentUser.uid;
+        //get the chart data from the back end
+        this.getChartData();
 
-        //get chart information by querying db
-        db.collection('users').doc(uid).get().then(function(doc) {
-           let userData;
-           if (doc.exists) {
-             userData = doc.data();
-           }
-           else {
-             userData = {
-               emotions: [],
-               testResults: []
-             };
-           }
-           //console.log("user data: " + userData);
-
-           //update pie chart w/ total correct, incorrect
-           let totalCorrect = 0;
-           let totalIncorrect = 0;
-
-           for (const e in userData.emotions) {
-             totalCorrect += userData.emotions[e].correct;
-             totalIncorrect += userData.emotions[e].total - userData.emotions[e].correct;
-           }
-
-           pieData = [{
-               "name": "Correct",
-               "percent": totalCorrect
-             },
-              {
-               "name": "Incorrect",
-               "percent": totalIncorrect
-             }];
-
-
-            //TODO get all test results and set counters for total correct,
-            //total questions, and total num of tests (testResults.length)
-
-            //plot x axis as total correct/total questions (figure out how to scale this to 100)
-            //plot y axis as test num / total num of tests ( scale this to total num of tests)
-
-       }); //end db promise (.then)
 
     } else {
         // No user is signed in.
@@ -292,7 +199,88 @@ class Dashboard extends React.Component {
      }
    }
 
+   getChartData = async () => {
+
+      //get current user info to call their data
+      uid = firebase.auth().currentUser.uid;
+      let pieStuff = [];
+      const smoothStuff = [[]];
+      smoothStuff[0].push({x:0, y:0}, {x:0, y:100});
+      const scope = this;
+      //get chart information by querying db
+      db.collection('users').doc(uid).get().then(function(doc) {
+         let userData;
+         if (doc.exists) {
+           userData = doc.data();
+         }
+         else {
+           userData = {
+             emotions: [],
+             testResults: []
+           };
+         }
+         //console.log("user data: " + userData);
+
+         //update pie chart w/ total correct, incorrect
+         let totalCorrect = 0;
+         let totalIncorrect = 0;
+
+         for (const e in userData.emotions) {
+           totalCorrect += userData.emotions[e].correct;
+           totalIncorrect += userData.emotions[e].total - userData.emotions[e].correct;
+         }
+
+         pieStuff = [{
+             "name": "Correct",
+             "percent": totalCorrect
+           },
+            {
+             "name": "Incorrect",
+             "percent": totalIncorrect
+           }];
+
+          //get the quiz information to plot quizzes over time
+          let totalQuizCorrect = 0;
+          let totalQuizQuestions = 0;
+          let quizCounter = 0;
+
+          for (const e in userData.testResults) {
+            totalQuizCorrect = userData.testResults[e].questionsCorrect;
+            totalQuizQuestions = userData.testResults[e].questionsTotal;
+
+            let percentCorrect = totalQuizCorrect/totalQuizQuestions;
+
+            //ensure the graph is capped at 100
+            if (percentCorrect === 1) {
+               percentCorrect = .99;
+            }
+
+            const tempQuizObj = {
+              x: 0,
+              y: 0
+            };
+
+            tempQuizObj.x = quizCounter;
+            tempQuizObj.y = percentCorrect * 100;
+
+            smoothStuff[0].push(tempQuizObj);
+            quizCounter++;
+          }
+
+          scope.setStateAsync({smoothDataState: smoothStuff});
+          scope.setStateAsync({pieDataState: pieStuff});
+     });
+     await pieStuff;
+   }
+
+
   render() {
+     console.log("in render ");
+     const str1 = JSON.stringify(this.state.pieDataState, null, 4); // (Optional) beautiful indented output.
+     console.log(str1);
+
+     const str2 = JSON.stringify(this.state.smoothDataState, null, 4); // (Optional) beautiful indented output.
+     console.log(str2);
     // console.log("rendering UI");
     // console.log("gamesStatus: " + this.state.gamesStatus);
     // console.log("analyticsStatus: " + this.state.analyticsStatus);
@@ -382,7 +370,7 @@ class Dashboard extends React.Component {
             <View style={styles.chartStyles}>
                <Text style={styles.graphHeader}>Total Answers</Text>
 
-               <Pie data={pieData}
+               <Pie data={this.state.pieDataState}
 
                 options={pieOptions}
                 accessorKey="percent"
@@ -390,25 +378,17 @@ class Dashboard extends React.Component {
                 color="#2980B9"
                 pallete={
                   [
-                    { 'r': 25, 'g': 99, 'b': 201 },
-                    { 'r': 24, 'g': 175, 'b': 35 },
+                    { 'r': 100, 'g': 221, 'b': 23 },
+                    { 'r': 232, 'g': 58, 'b': 48 },
                   ]
                 }
-                r={50}
-                R={150}
-                legendPosition="topLeft"
-                label={{
-                  fontFamily: 'Arial',
-                  fontSize: 8,
-                  fontWeight: true,
-                  color: '#ECF0F1'
-                }}
+
                 />
             </View>
             <View style={styles.chartStyles}>
-               <Text style={styles.graphHeader}>Scores Over Time</Text>
+               <Text style={styles.graphHeader}>Percent Correct Over Time</Text>
 
-               <SmoothLine data={smoothData} options={smoothOptions} xKey="x" yKey="y"/>
+               <SmoothLine data={this.state.smoothDataState} options={smoothOptions} xKey="x" yKey="y"/>
                <Text style={styles.graphSubHeader}>Games Played</Text>
             </View>
          </View> : null
