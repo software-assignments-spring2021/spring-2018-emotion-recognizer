@@ -3,6 +3,8 @@
 # expo
 app/.expo/
 
+app/iosApps/pods/AffdexSDK-iOS/ios/Affdex.framework
+
 # dependencies
 app/node_modules
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="J7Q-bu-mhE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EuD-ki-OUn">
+            <objects>
+                <viewController storyboardIdentifier="Launch" id="J7Q-bu-mhE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sei-Qr-teW"/>
+                        <viewControllerLayoutGuide type="bottom" id="eO8-5S-dfa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hQQ-gX-tip">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emoji Game" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="zSk-d3-eqj">
+                                <rect key="frame" x="36" y="165" width="303" height="72"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="zSk-d3-eqj" secondAttribute="trailing" constant="20" id="KYq-2E-eO6"/>
+                            <constraint firstItem="zSk-d3-eqj" firstAttribute="centerY" secondItem="hQQ-gX-tip" secondAttribute="bottom" multiplier="0.3" constant="1" id="awE-5C-BbW"/>
+                            <constraint firstItem="zSk-d3-eqj" firstAttribute="leading" secondItem="hQQ-gX-tip" secondAttribute="leadingMargin" constant="20" id="uC9-7Y-w9g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view" destination="hQQ-gX-tip" id="5iK-rK-E4Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Foc-w0-yhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="191" y="70"/>
+        </scene>
+    </scenes>
+</document>
