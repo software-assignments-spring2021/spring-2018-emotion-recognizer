@@ -90,12 +90,12 @@ const RootStack = StackNavigator(
           headerLeft: null //this disables the back button to Login
         }),
     },
-    deepLinker1: {
+    /*deepLinker1: {
       screen: linkToAffdex,
       navigationOptions: ({ navigation }) => ({
           title: 'Make an expression!',
         }),
-    },
+    },*/
   },
   {
     //load up the Login component by default
