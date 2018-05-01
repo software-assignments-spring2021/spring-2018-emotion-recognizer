@@ -107,7 +107,7 @@ class Congratulations extends React.Component {
              color={global.mainBlue}
              onPress = {() => this.props.navigation.navigate('Dashboard', {navigation: this.props.navigation})}
            />
-           <Text style={styles.smallText}>
+           /*<Text style={styles.smallText}>
                ----- or ------
            </Text>
            <Button
@@ -125,7 +125,7 @@ class Congratulations extends React.Component {
                    imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
                  }
                ]})}
-           />
+           />*/
        </View>
 
       </View>
