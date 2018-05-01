@@ -15,7 +15,7 @@ import { Congratulations as CongratulationsScreen} from './Congratulations';
 import { Congratulations2 as Congratulations2Screen} from './Congratulations2';
 import { Dashboard as DashboardScreen } from './Dashboard';
 import { SmileGame as SmileGameScreen } from './SmileGame';
-import { deepLinker1 as linkToAffdex } from './deepLinker1'
+//import { deepLinker1 as linkToAffdex } from './deepLinker1';
 //import our global design settings
 import './global-design-constants.js';
 
