@@ -107,25 +107,6 @@ class Congratulations extends React.Component {
              color={global.mainBlue}
              onPress = {() => this.props.navigation.navigate('Dashboard', {navigation: this.props.navigation})}
            />
-           /*<Text style={styles.smallText}>
-               ----- or ------
-           </Text>
-           <Button
-               buttonStyle={styles.button}
-               title={"Take the quiz"}
-               fontFamily='open-sans-bold'
-               color={global.mainBlue}
-               onPress = {() => this.props.navigation.navigate('SmileGame', {navigation: this.props.navigation, testData: [
-                 {
-                   name: 'happy',
-                   imgs: [global.happy, global.happy2, global.happy3, global.happy4, global.happy5]
-                 },
-                 {
-                   name: 'sad',
-                   imgs: [global.sad, global.sad2, global.sad3, global.sad4, global.sad5]
-                 }
-               ]})}
-           />*/
        </View>
 
       </View>
